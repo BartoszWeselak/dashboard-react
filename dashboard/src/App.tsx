@@ -3,6 +3,10 @@ import logo from "./logo.svg";
 import "./App.css";
 import { Card, CardDescription, CardTitle } from "./components/Card";
 import { Modal } from "./components/Modal";
+import { Button } from "./components/Button";
+import { Input } from "./components/Input";
+import { Sidebar } from "./components/Sidebar";
+import { LoginModal } from "./components/LoginModal";
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -12,25 +16,52 @@ function App() {
 
   return (
     <div className="App">
-      <Card className="bg-blue-500 text-black">
-        <CardTitle>
-          <h1>test2</h1>
-        </CardTitle>
-        <CardDescription>
-          <p>test</p>
-        </CardDescription>
-      </Card>
-
-      <button
-        onClick={openModal}
-        className="px-4 py-2 bg-blue-500 text-white rounded"
-      >
-        Open Modal
-      </button>
-      <Modal isOpen={isModalOpen} onClose={closeModal}>
-        <h2 className="text-lg font-bold">test</h2>
-        <p>test</p>
-      </Modal>
+      <Sidebar>
+        <p>g</p>
+      </Sidebar>
+      <div className="flex flex-wrap justify-center gap-4">
+        <LoginModal />
+        <Card>
+          <CardTitle>
+            <p>test</p>
+          </CardTitle>
+          <CardDescription>
+            <p>test</p>
+          </CardDescription>
+        </Card>
+        <Card>
+          <CardTitle>
+            <p>test</p>
+          </CardTitle>
+          <CardDescription>
+            <p>test</p>
+          </CardDescription>
+        </Card>
+        <Card>
+          <CardTitle>
+            <p>test</p>
+          </CardTitle>
+          <CardDescription>
+            <p>test</p>
+          </CardDescription>
+        </Card>
+        <Card>
+          <CardTitle>
+            <p>test</p>
+          </CardTitle>
+          <CardDescription>
+            <p>test</p>
+          </CardDescription>
+        </Card>
+        <Card>
+          <CardTitle>
+            <p>test</p>
+          </CardTitle>
+          <CardDescription>
+            <p>test</p>
+          </CardDescription>
+        </Card>
+      </div>
     </div>
   );
 }
