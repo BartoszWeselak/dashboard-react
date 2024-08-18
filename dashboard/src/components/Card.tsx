@@ -3,21 +3,15 @@ import { twMerge } from "tailwind-merge";
 
 interface CardProps {
   children: React.ReactNode;
-  bgColor?: string;
-  textColor?: string;
+  className?: string;
 }
 
-export function Card({
-  children,
-  bgColor = "bg-red-800",
-  textColor = "text-white",
-}: CardProps) {
+export function Card({ children, className }: CardProps) {
   return (
     <div
       className={twMerge(
         "max-w-sm mx-auto border border-gray-200 rounded-lg shadow-md overflow-hidden",
-        bgColor,
-        textColor
+        className
       )}
     >
       {children}
