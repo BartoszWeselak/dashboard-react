@@ -4,12 +4,11 @@ import { Button } from "./Button";
 
 interface ModalProps {
   children: React.ReactNode;
-  className?: string;
   isOpen: boolean;
   onClose: () => void;
 }
 
-export function Modal({ children, className, isOpen, onClose }: ModalProps) {
+export function Modal({ children, isOpen, onClose }: ModalProps) {
   if (!isOpen) return null;
 
   return (

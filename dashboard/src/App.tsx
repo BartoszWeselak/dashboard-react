@@ -7,59 +7,50 @@ import { Button } from "./components/Button";
 import { Input } from "./components/Input";
 import { Sidebar } from "./components/Sidebar";
 import { LoginModal } from "./components/LoginModal";
+import { Navbar } from "./components/Navbar";
 
 function App() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
-
   return (
-    <div className="App">
+    <div className="flex flex-row">
       <Sidebar>
-        <p>g</p>
+        <p>sidebar</p>
       </Sidebar>
-      <div className="flex flex-wrap justify-center gap-4">
-        <LoginModal />
+      <div className="flex flex-wrap w-full ">
         <Card>
-          <CardTitle>
-            <p>test</p>
-          </CardTitle>
-          <CardDescription>
-            <p>test</p>
-          </CardDescription>
+          <CardTitle>test</CardTitle>
+          <CardDescription>test</CardDescription>
         </Card>
         <Card>
-          <CardTitle>
-            <p>test</p>
-          </CardTitle>
-          <CardDescription>
-            <p>test</p>
-          </CardDescription>
+          <CardTitle>test</CardTitle>
+          <CardDescription>test</CardDescription>
         </Card>
         <Card>
-          <CardTitle>
-            <p>test</p>
-          </CardTitle>
-          <CardDescription>
-            <p>test</p>
-          </CardDescription>
+          <CardTitle>test</CardTitle>
+          <CardDescription>test</CardDescription>
         </Card>
         <Card>
-          <CardTitle>
-            <p>test</p>
-          </CardTitle>
-          <CardDescription>
-            <p>test</p>
-          </CardDescription>
+          <CardTitle>test</CardTitle>
+          <CardDescription>test</CardDescription>
         </Card>
         <Card>
-          <CardTitle>
-            <p>test</p>
-          </CardTitle>
-          <CardDescription>
-            <p>test</p>
-          </CardDescription>
+          <CardTitle>test</CardTitle>
+          <CardDescription>test</CardDescription>
+        </Card>
+        <Card>
+          <CardTitle>test</CardTitle>
+          <CardDescription>test</CardDescription>
+        </Card>
+        <Card>
+          <CardTitle>test</CardTitle>
+          <CardDescription>test</CardDescription>
+        </Card>
+        <Card>
+          <CardTitle>test</CardTitle>
+          <CardDescription>test</CardDescription>
+        </Card>
+        <Card>
+          <CardTitle>test</CardTitle>
+          <CardDescription>test</CardDescription>
         </Card>
       </div>
     </div>
