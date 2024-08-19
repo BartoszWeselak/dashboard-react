@@ -20,9 +20,12 @@ export function Card({ children, className, ...props }: CardProps) {
   );
 }
 
-export function CardTitle({ children, ...props }: CardProps) {
+export function CardTitle({ children, className, ...props }: CardProps) {
   return (
-    <h1 className="text-xl font-semibold mb-2" {...props}>
+    <h1
+      className={twMerge("text-xl font-semibold mb-2 text-center", className)}
+      {...props}
+    >
       {children}
     </h1>
   );
@@ -31,7 +34,7 @@ export function CardTitle({ children, ...props }: CardProps) {
 export function CardDescription({ children, className, ...props }: CardProps) {
   return (
     <div className="p-12" {...props}>
-      <p className="text-gray-600">{children}</p>
+      <p className={twMerge("text-gray-600", className)}>{children}</p>
     </div>
   );
 }
