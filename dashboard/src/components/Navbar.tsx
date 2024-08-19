@@ -8,11 +8,15 @@ interface NavbarProps extends React.HTMLAttributes<HTMLDivElement> {
 
 export function Navbar({ className, children, ...props }: NavbarProps) {
   return (
-    <div
-      className={twMerge("flex flex-wrap justify-center gap-24", className)}
-      {...props}
-    >
-      {children}
-    </div>
+    <>
+      {" "}
+      <div
+        className={twMerge("flex flex-wrap justify-center gap-4", className)}
+        {...props}
+      >
+        {children}
+      </div>
+      <hr className="h-0 bg-gray-600" />
+    </>
   );
 }

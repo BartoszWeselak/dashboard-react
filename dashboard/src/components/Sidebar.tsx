@@ -24,7 +24,7 @@ export function Sidebar({
       <button
         onClick={toggleSidebar}
         className={twMerge(
-          "fixed top-4 z-50 p-2 bg-gray-800 text-white rounded transition-all duration-300 opacity-50",
+          "fixed top-4 z-50 p-2 bg-gray-800 text-white rounded transition-all duration-500 opacity-50",
           isOpen ? "left-52" : "left-4",
           classNameButton
         )}
@@ -34,7 +34,7 @@ export function Sidebar({
 
       <div
         className={twMerge(
-          "top-0 left-0 h-full bg-gray-600 transition-transform duration-300",
+          "top-0 left-0 h-full bg-gray-600 transition-transform duration-500",
           isOpen ? "translate-x-0 w-64" : "-translate-x-full w-0",
           className
         )}
@@ -50,7 +50,7 @@ export function SidebarHeader({ children, className, ...props }: SidebarProps) {
   return (
     <div
       className={twMerge(
-        "flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2",
+        "flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2 text-center",
         className
       )}
       {...props}

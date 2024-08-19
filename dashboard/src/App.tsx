@@ -16,43 +16,71 @@ function App() {
           <p>test</p>
         </SidebarHeader>
       </Sidebar>
-      <div className="flex flex-wrap w-full gap-4">
-        <Card className="bg-red-400">
-          <CardTitle>test</CardTitle>
-          <CardDescription>test</CardDescription>
-        </Card>
-        <Card className="bg-blue-400">
-          <CardTitle className="bg-yellow-400">test</CardTitle>
-          <CardDescription className="bg-red-400">test</CardDescription>
-        </Card>
-        <Card className="bg-green-400">
-          <CardTitle>test</CardTitle>
-          <CardDescription>test</CardDescription>
-        </Card>
-        <Card className="bg-yellow-400">
-          <CardTitle>test</CardTitle>
-          <CardDescription>test</CardDescription>
-        </Card>
-        <Card>
-          <CardTitle>test</CardTitle>
-          <CardDescription>test</CardDescription>
-        </Card>
-        <Card>
-          <CardTitle>test</CardTitle>
-          <CardDescription>test</CardDescription>
-        </Card>
-        <Card>
-          <CardTitle>test</CardTitle>
-          <CardDescription>test</CardDescription>
-        </Card>
-        <Card>
-          <CardTitle>test</CardTitle>
-          <CardDescription>test</CardDescription>
-        </Card>
-        <Card>
-          <CardTitle>test</CardTitle>
-          <CardDescription>test</CardDescription>
-        </Card>
+      <div>
+        <Navbar>
+          <Card className="bg-blue-400 h-24 w-24">
+            <CardTitle className="bg-yellow-400">test</CardTitle>
+            <CardDescription className="bg-red-400">test</CardDescription>
+          </Card>
+          <Card className="bg-blue-400 h-24 w-24">
+            <CardTitle className="bg-yellow-400">test</CardTitle>
+            <CardDescription className="bg-red-400">test</CardDescription>
+          </Card>
+          <Card className="bg-blue-400 h-24 w-24">
+            <CardTitle className="bg-yellow-400">test</CardTitle>
+            <CardDescription className="bg-red-400">test</CardDescription>
+          </Card>
+          <Card className="bg-blue-400 h-24 w-24">
+            <CardTitle className="bg-yellow-400">test</CardTitle>
+            <CardDescription className="bg-red-400">test</CardDescription>
+          </Card>
+          <Card className="bg-blue-400 h-24 w-24">
+            <CardTitle className="bg-yellow-400">test</CardTitle>
+            <CardDescription className="bg-red-400">test</CardDescription>
+          </Card>
+          <Card className="bg-blue-400 h-24 w-24">
+            <CardTitle className="bg-yellow-400">test</CardTitle>
+            <CardDescription className="bg-red-400">test</CardDescription>
+          </Card>
+        </Navbar>
+        <div className="flex flex-wrap w-full gap-4">
+          <Card className="bg-red-400">
+            <CardTitle>test</CardTitle>
+            <CardDescription>test</CardDescription>
+          </Card>
+          <Card className="bg-blue-400">
+            <CardTitle className="bg-yellow-400">test</CardTitle>
+            <CardDescription className="bg-red-400">test</CardDescription>
+          </Card>
+          <Card className="bg-green-400">
+            <CardTitle>test</CardTitle>
+            <CardDescription>test</CardDescription>
+          </Card>
+          <Card className="bg-yellow-400">
+            <CardTitle>test</CardTitle>
+            <CardDescription>test</CardDescription>
+          </Card>
+          <Card>
+            <CardTitle>test</CardTitle>
+            <CardDescription>test</CardDescription>
+          </Card>
+          <Card>
+            <CardTitle>test</CardTitle>
+            <CardDescription>test</CardDescription>
+          </Card>
+          <Card>
+            <CardTitle>test</CardTitle>
+            <CardDescription>test</CardDescription>
+          </Card>
+          <Card>
+            <CardTitle>test</CardTitle>
+            <CardDescription>test</CardDescription>
+          </Card>
+          <Card>
+            <CardTitle>test</CardTitle>
+            <CardDescription>test</CardDescription>
+          </Card>
+        </div>
       </div>
     </div>
   );
