@@ -12,7 +12,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       <input
         placeholder={placeHolder}
         ref={ref}
-        className={twMerge("bg-slate-500", className)}
+        className={twMerge("w-full bg-gray-200", className)}
         {...props}
       />
     );

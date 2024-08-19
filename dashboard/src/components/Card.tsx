@@ -10,7 +10,7 @@ export function Card({ children, className, ...props }: CardProps) {
   return (
     <div
       className={twMerge(
-        "max-w-sm mx-auto h-64 w-64 border border-gray-200 rounded-lg shadow-md overflow-hidden",
+        " mx-auto  h-64 w-64 border border-gray-200 rounded-lg shadow-md overflow-hidden content-center	hover:opacity-90",
         className
       )}
       {...props}
@@ -23,7 +23,7 @@ export function Card({ children, className, ...props }: CardProps) {
 export function CardTitle({ children, className, ...props }: CardProps) {
   return (
     <h1
-      className={twMerge("text-xl font-semibold mb-2 text-center", className)}
+      className={twMerge("text-xl font-semibold  text-center", className)}
       {...props}
     >
       {children}
@@ -33,8 +33,14 @@ export function CardTitle({ children, className, ...props }: CardProps) {
 
 export function CardDescription({ children, className, ...props }: CardProps) {
   return (
-    <div className="p-12" {...props}>
-      <p className={twMerge("text-gray-600", className)}>{children}</p>
+    <div
+      className={twMerge(
+        "text-gray-700 m-12 text-center content-center",
+        className
+      )}
+      {...props}
+    >
+      {children}
     </div>
   );
 }

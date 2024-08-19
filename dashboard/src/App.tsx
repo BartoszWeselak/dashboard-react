@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import { Card, CardDescription, CardTitle } from "./components/Card";
 import { Modal } from "./components/Modal";
@@ -7,12 +6,17 @@ import { Button } from "./components/Button";
 import { Input } from "./components/Input";
 import { Sidebar, SidebarHeader } from "./components/Sidebar";
 import { Navbar } from "./components/Navbar";
+import { Avatar } from "./components/Avatar";
+import { Logo } from "./components/Logo";
 
 function App() {
   return (
     <div className="flex flex-row">
       <Sidebar>
         <SidebarHeader>
+          <Logo src="https://picsum.photos/200" />
+          <p>test</p>
+          <Avatar src="https://picsum.photos/200" />
           <p>test</p>
         </SidebarHeader>
       </Sidebar>
@@ -49,8 +53,13 @@ function App() {
             <CardDescription>test</CardDescription>
           </Card>
           <Card className="bg-blue-400">
-            <CardTitle className="bg-yellow-400">test</CardTitle>
-            <CardDescription className="bg-red-400">test</CardDescription>
+            <CardTitle className="bg-yellow-400">tesfft</CardTitle>
+            <CardDescription className="bg-red-400">
+              <Input />
+              <Button className="bg-sky-400">
+                <p>test</p>
+              </Button>
+            </CardDescription>
           </Card>
           <Card className="bg-green-400">
             <CardTitle>test</CardTitle>

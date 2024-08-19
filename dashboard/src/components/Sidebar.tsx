@@ -48,13 +48,7 @@ export function Sidebar({
 
 export function SidebarHeader({ children, className, ...props }: SidebarProps) {
   return (
-    <div
-      className={twMerge(
-        "flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2 text-center",
-        className
-      )}
-      {...props}
-    >
+    <div className={twMerge("text-lg text-center", className)} {...props}>
       {children}
     </div>
   );
