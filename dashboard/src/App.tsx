@@ -6,7 +6,7 @@ import { Button } from "./components/Button";
 import { Input } from "./components/Input";
 import { Sidebar, SidebarHeader } from "./components/Sidebar";
 import { Navbar } from "./components/Navbar";
-import { Avatar } from "./components/Avatar";
+import { Avatar, AvatarBox } from "./components/Avatar";
 import { Logo } from "./components/Logo";
 
 function App() {
@@ -15,8 +15,10 @@ function App() {
       <Sidebar>
         <SidebarHeader>
           <Logo src="https://picsum.photos/200" />
-          <p>test</p>
-          <Avatar src="https://picsum.photos/200" />
+          <AvatarBox>
+            <Avatar src="https://picsum.photos/200" />
+            <p className="content-center">Your name here</p>
+          </AvatarBox>
           <p>test</p>
         </SidebarHeader>
       </Sidebar>
