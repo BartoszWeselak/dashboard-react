@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import { twMerge } from "tailwind-merge";
 import { Button } from "./Button";
 
-interface ModalProps {
+interface ModalProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
   isOpen: boolean;
   onClose: () => void;
 }
 
-export function Modal({ children, isOpen, onClose }: ModalProps) {
+export function Modal({ children, isOpen, onClose, ...props }: ModalProps) {
   if (!isOpen) return null;
 
   return (
@@ -18,7 +18,7 @@ export function Modal({ children, isOpen, onClose }: ModalProps) {
         isOpen ? "opacity-100" : "opacity-0"
       )}
     >
-      <div className="bg-white p-6 rounded-lg shadow-lg">
+      <div className="bg-white p-6 rounded-lg shadow-lg" {...props}>
         {children}
         <Button
           onClick={onClose}

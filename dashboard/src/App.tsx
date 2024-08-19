@@ -5,15 +5,16 @@ import { Card, CardDescription, CardTitle } from "./components/Card";
 import { Modal } from "./components/Modal";
 import { Button } from "./components/Button";
 import { Input } from "./components/Input";
-import { Sidebar } from "./components/Sidebar";
-import { LoginModal } from "./components/LoginModal";
+import { Sidebar, SidebarHeader } from "./components/Sidebar";
 import { Navbar } from "./components/Navbar";
 
 function App() {
   return (
     <div className="flex flex-row">
       <Sidebar>
-        <p>sidebar</p>
+        <SidebarHeader>
+          <p>test</p>
+        </SidebarHeader>
       </Sidebar>
       <div className="flex flex-wrap w-full ">
         <Card>

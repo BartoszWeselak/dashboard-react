@@ -1,15 +1,14 @@
-import React, { Children } from "react";
+import React from "react";
 import { twMerge } from "tailwind-merge";
 
-interface ButtonProps {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children?: React.ReactNode;
   className?: string;
-  onClick?: () => void;
 }
 
-export function Button({ className, onClick, children }: ButtonProps) {
+export function Button({ className, children, ...props }: ButtonProps) {
   return (
-    <button className={twMerge("", className)} onClick={onClick}>
+    <button className={twMerge("", className)} {...props}>
       {children}
     </button>
   );

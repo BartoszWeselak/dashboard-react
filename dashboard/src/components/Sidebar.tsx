@@ -1,11 +1,18 @@
-import React, { Children, useState } from "react";
+import React, { useState } from "react";
 import { twMerge } from "tailwind-merge";
 
-interface SidebarProps {
+interface SidebarProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
+  className?: string;
+  classNameButton?: string;
 }
 
-export function Sidebar({ children }: SidebarProps) {
+export function Sidebar({
+  children,
+  className,
+  classNameButton,
+  ...props
+}: SidebarProps) {
   const [isOpen, setIsOpen] = useState(true);
 
   const toggleSidebar = () => {
@@ -13,22 +20,42 @@ export function Sidebar({ children }: SidebarProps) {
   };
 
   return (
-    <div>
+    <div className="relative">
       <button
         onClick={toggleSidebar}
         className={twMerge(
-          isOpen
-            ? "fixed top-4 left-64 z-50 p-2 bg-gray-800 text-white rounded"
-            : "fixed top-4 left-4 z-50 p-2 bg-gray-800 text-white rounded"
+          "fixed top-4 z-50 p-2 bg-gray-800 text-white rounded transition-all duration-300 opacity-50",
+          isOpen ? "left-52" : "left-4",
+          classNameButton
         )}
       >
         {isOpen ? "<" : ">"}
       </button>
 
-      {isOpen ? bar() : null}
+      <div
+        className={twMerge(
+          "top-0 left-0 h-full bg-gray-600 transition-transform duration-300",
+          isOpen ? "translate-x-0 w-64" : "-translate-x-full w-0",
+          className
+        )}
+        {...props}
+      >
+        {isOpen && children}
+      </div>
     </div>
   );
 }
-function bar() {
-  return <div className="h-screen w-64 bg-gray-600">{}</div>;
+
+export function SidebarHeader({ children, className, ...props }: SidebarProps) {
+  return (
+    <div
+      className={twMerge(
+        "flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2",
+        className
+      )}
+      {...props}
+    >
+      {children}
+    </div>
+  );
 }
