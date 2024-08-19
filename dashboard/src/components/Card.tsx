@@ -20,13 +20,17 @@ export function Card({ children, className, ...props }: CardProps) {
   );
 }
 
-export function CardTitle({ children }: { children?: React.ReactNode }) {
-  return <h1 className="text-xl font-semibold mb-2">{children}</h1>;
+export function CardTitle({ children, ...props }: CardProps) {
+  return (
+    <h1 className="text-xl font-semibold mb-2" {...props}>
+      {children}
+    </h1>
+  );
 }
 
-export function CardDescription({ children }: { children?: React.ReactNode }) {
+export function CardDescription({ children, className, ...props }: CardProps) {
   return (
-    <div className="p-12">
+    <div className="p-12" {...props}>
       <p className="text-gray-600">{children}</p>
     </div>
   );

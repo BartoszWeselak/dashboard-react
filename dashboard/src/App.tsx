@@ -17,7 +17,7 @@ function App() {
         </SidebarHeader>
       </Sidebar>
       <div className="flex flex-wrap w-full ">
-        <Card>
+        <Card className="bg-red-400">
           <CardTitle>test</CardTitle>
           <CardDescription>test</CardDescription>
         </Card>
