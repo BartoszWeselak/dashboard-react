@@ -6,6 +6,13 @@ interface LogoProps extends React.HTMLAttributes<HTMLDivElement> {
   src?: string;
 }
 
-export function Logo({ className, src }: LogoProps) {
-  return <img src={src} alt="text" className="w-full h-24" />;
+export function Logo({ className, src, ...props }: LogoProps) {
+  return (
+    <img
+      src={src}
+      alt="text"
+      className={twMerge("w-full h-24 p-4", className)}
+      {...props}
+    />
+  );
 }

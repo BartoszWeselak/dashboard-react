@@ -11,12 +11,15 @@ export function Navbar({ className, children, ...props }: NavbarProps) {
     <>
       {" "}
       <div
-        className={twMerge("flex flex-wrap justify-center gap-4", className)}
+        className={twMerge(
+          "flex flex-wrap justify-center gap-4 m-8",
+          className
+        )}
         {...props}
       >
         {children}
       </div>
-      <hr className="h-0 bg-gray-600" />
+      <hr className="h-0 bg-gray-600 m-8" />
     </>
   );
 }
