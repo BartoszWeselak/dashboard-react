@@ -11,7 +11,7 @@ export function Logo({ className, src, ...props }: LogoProps) {
     <img
       src={src}
       alt="text"
-      className={twMerge("w-full h-24 p-4", className)}
+      className={twMerge("w-5/6 h-24 p-4", className)}
       {...props}
     />
   );

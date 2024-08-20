@@ -8,6 +8,8 @@ import { Sidebar, SidebarHeader } from "./components/Sidebar";
 import { Navbar } from "./components/Navbar";
 import { Avatar, AvatarBox } from "./components/Avatar";
 import { Logo } from "./components/Logo";
+import { Link } from "./components/Link";
+import { Dropdown, DropdownItem } from "./components/Dropdown";
 
 function App() {
   return (
@@ -15,11 +17,17 @@ function App() {
       <Sidebar>
         <SidebarHeader>
           <Logo src="https://picsum.photos/200" />
-          <AvatarBox>
-            <Avatar src="https://picsum.photos/200" />
-            <p className="content-center">Your name here</p>
-          </AvatarBox>
-          <p>test</p>
+          <Link src="https://picsum.photos/200">
+            <AvatarBox>
+              <Avatar src="https://picsum.photos/200" />
+              <p className="content-center">Your name here</p>
+            </AvatarBox>
+          </Link>
+
+          <Dropdown>
+            <DropdownItem src="https://picsum.photos/200">Menu 1</DropdownItem>
+            <DropdownItem src="https://picsum.photos/200">Menu 2</DropdownItem>
+          </Dropdown>
         </SidebarHeader>
       </Sidebar>
       <div>

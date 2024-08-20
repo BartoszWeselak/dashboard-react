@@ -10,7 +10,7 @@ export function Card({ children, className, ...props }: CardProps) {
   return (
     <div
       className={twMerge(
-        " mx-auto  h-64 w-64 border border-gray-200 rounded-lg shadow-md overflow-hidden content-center	hover:opacity-90",
+        " mx-auto  h-64 w-64  border border-gray-200 rounded-lg shadow-md overflow-hidden content-center	hover:opacity-90",
         className
       )}
       {...props}
@@ -35,7 +35,7 @@ export function CardDescription({ children, className, ...props }: CardProps) {
   return (
     <div
       className={twMerge(
-        "text-gray-700 m-12 text-center content-center",
+        "text-gray-700 m-12 text-center content-center ",
         className
       )}
       {...props}
