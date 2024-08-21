@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import { twMerge } from "tailwind-merge";
 import { Link } from "./Link";
 
@@ -8,31 +8,35 @@ interface DropdownProps extends React.HTMLAttributes<HTMLDivElement> {
   src?: string;
 }
 
-export function Dropdown({ children, className, ...props }: DropdownProps) {
-  return (
-    <div className={twMerge("", className)} {...props}>
-      <ul>{children}</ul>
-    </div>
-  );
-}
+export const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(
+  ({ children, className, ...props }, ref) => {
+    return (
+      <div ref={ref} className={twMerge("", className)} {...props}>
+        <ul>{children}</ul>
+      </div>
+    );
+  }
+);
 
-export function DropdownItem({
-  children,
-  className,
-  src,
-  ...props
-}: DropdownProps) {
-  return (
-    <div
-      className={twMerge(
-        "bg-gray-500 hover:opacity-80 m-2 rounded-xl",
-        className
-      )}
-      {...props}
-    >
-      <Link src={src}>
-        <li>{children}</li>
-      </Link>
-    </div>
-  );
-}
+Dropdown.displayName = "Dropdown";
+
+export const DropdownItem = forwardRef<HTMLDivElement, DropdownProps>(
+  ({ children, className, src, ...props }, ref) => {
+    return (
+      <div
+        ref={ref}
+        className={twMerge(
+          "bg-gray-500 hover:opacity-80 m-2 rounded-xl",
+          className
+        )}
+        {...props}
+      >
+        <Link src={src}>
+          <li>{children}</li>
+        </Link>
+      </div>
+    );
+  }
+);
+
+DropdownItem.displayName = "DropdownItem";

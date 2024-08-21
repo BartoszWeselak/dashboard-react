@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import { twMerge } from "tailwind-merge";
 
 interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
@@ -7,10 +7,14 @@ interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   src?: string;
 }
 
-export function Link({ children, className, src, ...props }: LinkProps) {
-  return (
-    <a href={src} className={twMerge("", className)} {...props}>
-      {children}
-    </a>
-  );
-}
+export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
+  ({ children, className, src, ...props }, ref) => {
+    return (
+      <a ref={ref} href={src} className={twMerge("", className)} {...props}>
+        {children}
+      </a>
+    );
+  }
+);
+
+Link.displayName = "Link";

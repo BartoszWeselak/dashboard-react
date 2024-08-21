@@ -1,18 +1,23 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import { twMerge } from "tailwind-merge";
 
-interface LogoProps extends React.HTMLAttributes<HTMLDivElement> {
+interface LogoProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   className?: string;
   src?: string;
 }
 
-export function Logo({ className, src, ...props }: LogoProps) {
-  return (
-    <img
-      src={src}
-      alt="text"
-      className={twMerge("w-5/6 h-24 p-4", className)}
-      {...props}
-    />
-  );
-}
+export const Logo = forwardRef<HTMLImageElement, LogoProps>(
+  ({ className, src, ...props }, ref) => {
+    return (
+      <img
+        ref={ref}
+        src={src}
+        alt="logo"
+        className={twMerge("w-5/6 h-24 p-4", className)}
+        {...props}
+      />
+    );
+  }
+);
+
+Logo.displayName = "Logo";
