@@ -12,7 +12,7 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(
       <div
         ref={ref}
         className={twMerge(
-          "mx-auto h-64 w-64 border border-gray-200 rounded-lg shadow-md overflow-hidden content-center hover:opacity-90",
+          "mx-auto h-64 w-64 border border-gray-200 rounded-lg shadow-lg shadow-lg ring-2 ring-black/5 overflow-hidden content-center hover:opacity-90",
           className
         )}
         {...props}
@@ -28,13 +28,13 @@ Card.displayName = "Card";
 export const CardTitle = forwardRef<HTMLHeadingElement, CardProps>(
   ({ children, className, ...props }, ref) => {
     return (
-      <h1
+      <div
         ref={ref}
         className={twMerge("text-xl font-semibold text-center", className)}
         {...props}
       >
         {children}
-      </h1>
+      </div>
     );
   }
 );

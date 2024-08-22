@@ -9,14 +9,16 @@ import { Avatar, AvatarBox } from "./components/Avatar";
 import { Logo } from "./components/Logo";
 import { Link } from "./components/Link";
 import { Dropdown, DropdownItem } from "./components/Dropdown";
-import { Modal } from "./components/Modal";
+import { Table, TableRow, TableCell } from "./components/Table";
+import ModalContainer from "./components/Modal";
+import {
+  Alert,
+  AlertContainer,
+  AlertDescription,
+  AlertTitle,
+} from "./components/Alert";
 
 function App() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const openModal = () => setIsModalOpen(true);
-
-  const closeModal = () => setIsModalOpen(false);
   return (
     <div className="flex flex-row">
       <Sidebar>
@@ -43,19 +45,14 @@ function App() {
         <p>test</p>
 
         <Divider />
-
-        <Modal isOpen={isModalOpen} onClose={closeModal}>
-          <p>modal</p>
-          <p>test</p>
-          <p>test</p>
-          <p>test</p>
-          <p>test</p>
-          <p>test</p>
-        </Modal>
+        <AlertContainer>
+          <AlertTitle>test</AlertTitle>
+          <AlertDescription>test</AlertDescription>
+        </AlertContainer>
         <p>test</p>
         <Divider />
         <div className="flex flex-wrap w-full gap-4 p-24">
-          <Card className="bg-red-400">
+          <Card className="bg-red-400 shadow-lg ring-1 ring-black/10">
             <CardTitle>test</CardTitle>
             <CardDescription>test</CardDescription>
           </Card>
@@ -70,18 +67,32 @@ function App() {
           </Card>
           <Card className="bg-green-400">
             <CardTitle>test</CardTitle>
-            <CardDescription>
-              <Button
-                onClick={openModal}
-                className="px-4 py-2  bg-blue-500 text-white rounded"
-              >
-                test
-              </Button>
-            </CardDescription>
+            <CardDescription>tesr</CardDescription>
           </Card>
           <Card className="bg-yellow-400">
             <CardTitle>test</CardTitle>
-            <CardDescription>test</CardDescription>
+            <CardDescription>
+              <Table>
+                <TableRow>
+                  <TableCell>test</TableCell>
+                  <TableCell>test</TableCell>
+                  <TableCell>test</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>test</TableCell>
+                  <TableCell>test</TableCell>
+                  <TableCell>test</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>test</TableCell>
+
+                  <TableCell>test</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>test</TableCell>
+                </TableRow>
+              </Table>
+            </CardDescription>
           </Card>
           <Card>
             <CardTitle>test</CardTitle>
@@ -97,11 +108,26 @@ function App() {
           </Card>
           <Card>
             <CardTitle>test</CardTitle>
-            <CardDescription>test</CardDescription>
+            <CardDescription>
+              {" "}
+              <ModalContainer text="test2">test2 </ModalContainer>
+            </CardDescription>
           </Card>
           <Card>
             <CardTitle>test</CardTitle>
-            <CardDescription>test</CardDescription>
+            <CardDescription>
+              <ModalContainer
+                text="test"
+                triggerButton={
+                  <Button className="custom-button-styles">
+                    Custom Open Modal
+                  </Button>
+                }
+              >
+                <p>test</p>
+                <Divider />
+              </ModalContainer>
+            </CardDescription>
           </Card>
         </div>
         <Divider />

@@ -19,7 +19,11 @@ interface TableCellProps extends React.HTMLAttributes<HTMLTableCellElement> {
 export const Table = forwardRef<HTMLTableElement, TableProps>(
   ({ children, className, ...props }, ref) => {
     return (
-      <table ref={ref} className={twMerge("", className)} {...props}>
+      <table
+        ref={ref}
+        className={twMerge("text-center w-full h-full ", className)}
+        {...props}
+      >
         {children}
       </table>
     );
@@ -43,7 +47,11 @@ TableRow.displayName = "TableRow";
 export const TableCell = forwardRef<HTMLTableCellElement, TableCellProps>(
   ({ children, className, ...props }, ref) => {
     return (
-      <td ref={ref} className={twMerge("", className)} {...props}>
+      <td
+        ref={ref}
+        className={twMerge("bg-slate-300 border-2 border-cyan-900", className)}
+        {...props}
+      >
         {children}
       </td>
     );
