@@ -45,10 +45,7 @@ function App() {
         <p>test</p>
 
         <Divider />
-        <AlertContainer>
-          <AlertTitle>test</AlertTitle>
-          <AlertDescription>test</AlertDescription>
-        </AlertContainer>
+
         <p>test</p>
         <Divider />
         <div className="flex flex-wrap w-full gap-4 p-24">
@@ -67,7 +64,19 @@ function App() {
           </Card>
           <Card className="bg-green-400">
             <CardTitle>test</CardTitle>
-            <CardDescription>tesr</CardDescription>
+            <CardDescription>
+              <AlertContainer
+                trigger={
+                  <Button className="custom-button-styles">Alert</Button>
+                }
+              >
+                <AlertTitle>test</AlertTitle>
+                <AlertDescription>test</AlertDescription>
+                <AlertDescription>test</AlertDescription>
+
+                <AlertDescription>test</AlertDescription>
+              </AlertContainer>
+            </CardDescription>
           </Card>
           <Card className="bg-yellow-400">
             <CardTitle>test</CardTitle>
