@@ -101,26 +101,26 @@ function Dashboard() {
               </Table>
             </CardDescription>
           </Card>
-          <Card>
+          <Card className="bg-purple-400">
             <CardTitle>card title 5</CardTitle>
             <CardDescription>test</CardDescription>
           </Card>
-          <Card>
+          <Card className="bg-yellow-400">
             <CardTitle>card title 6</CardTitle>
             <CardDescription>test</CardDescription>
           </Card>
-          <Card>
+          <Card className="bg-green-400">
             <CardTitle>card title 7</CardTitle>
             <CardDescription>test</CardDescription>
           </Card>
-          <Card>
+          <Card className="bg-blue-400">
             <CardTitle>card title 8</CardTitle>
             <CardDescription>
               {" "}
               <ModalContainer text="test2">test2 </ModalContainer>
             </CardDescription>
           </Card>
-          <Card>
+          <Card className="bg-red-400">
             <CardTitle>card title 9</CardTitle>
             <CardDescription>
               <ModalContainer

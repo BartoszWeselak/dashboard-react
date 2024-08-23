@@ -34,7 +34,7 @@ export function Sidebar({
 
       <div
         className={twMerge(
-          " top-0 left-0 h-full bg-gray-600 transition-transform duration-500",
+          "sticky top-0 left-0 h-full bg-gray-600 transition-transform duration-500",
           isOpen ? "translate-x-0 w-64" : "-translate-x-full w-0",
           className
         )}
