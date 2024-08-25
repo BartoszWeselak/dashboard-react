@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "./App.css";
-import Dashboard from "./layout/dashboard";
+import { Dashboard } from "./layout/dashboard";
 
 function App() {
-  return <Dashboard></Dashboard>;
+  return <Dashboard />;
 }
 
 export default App;

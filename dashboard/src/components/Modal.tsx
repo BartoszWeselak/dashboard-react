@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { twMerge } from "tailwind-merge";
 import { Button } from "./Button";
+import { useDisclosure } from "../hooks/use-disclosure";
 
 interface ModalProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode;
@@ -46,28 +47,25 @@ function ModalContainer({
   triggerButton,
   ...props
 }: ModalContainerProps) {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
+  const { close, open, isOpen, toggle } = useDisclosure();
 
   return (
     <div>
       {triggerButton ? (
         React.cloneElement(triggerButton as React.ReactElement<any>, {
-          onClick: openModal,
+          onClick: open,
         })
       ) : (
         <Button
-          onClick={openModal}
+          onClick={open}
           className={twMerge("px-4 py-2 bg-blue-500 text-white rounded")}
         >
           {text}
         </Button>
       )}
       <Modal
-        isOpen={isModalOpen}
-        onClose={closeModal}
+        isOpen={isOpen}
+        onClose={close}
         className={twMerge("bg-white p-6 rounded-lg  w-1/2 m-8", className)}
         {...props}
       >

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { twMerge } from "tailwind-merge";
+import { useDisclosure } from "../hooks/use-disclosure";
 
 interface SidebarProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
@@ -13,16 +14,12 @@ export function Sidebar({
   classNameButton,
   ...props
 }: SidebarProps) {
-  const [isOpen, setIsOpen] = useState(true);
-
-  const toggleSidebar = () => {
-    setIsOpen(!isOpen);
-  };
+  const { close, open, isOpen, toggle } = useDisclosure();
 
   return (
     <div className="relative">
       <button
-        onClick={toggleSidebar}
+        onClick={toggle}
         className={twMerge(
           "fixed top-4 z-50 p-2 bg-gray-800 text-white rounded transition-all duration-500 opacity-50",
           isOpen ? "left-52" : "left-4",

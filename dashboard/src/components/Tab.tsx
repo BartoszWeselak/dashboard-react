@@ -5,14 +5,20 @@ import { Button } from "./Button";
 interface TabsProps extends React.HTMLAttributes<HTMLDivElement> {
   children: ReactElement<TabProps>[];
   className?: string;
+  defaultActiveTab: number;
 }
 
-export function Tabs({ children, className, ...props }: TabsProps) {
-  const [activeTab, setActiveTab] = useState<number>(0);
+export function Tabs({
+  children,
+  className,
+  defaultActiveTab,
+  ...props
+}: TabsProps) {
+  const [activeTab, setActiveTab] = useState<number>(defaultActiveTab);
 
   return (
     <div>
-      <div className="flex flex-row text-center">
+      <div className="flex">
         {children.map((tab, index) => (
           <Button
             key={index}
@@ -37,5 +43,9 @@ interface TabProps {
 }
 
 export function Tab({ children, className, ...props }: TabProps) {
-  return <div>{children}</div>;
+  return (
+    <div className={twMerge("", className)} {...props}>
+      {children}
+    </div>
+  );
 }
