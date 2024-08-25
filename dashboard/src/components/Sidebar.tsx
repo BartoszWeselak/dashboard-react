@@ -14,7 +14,7 @@ export function Sidebar({
   classNameButton,
   ...props
 }: SidebarProps) {
-  const { close, open, isOpen, toggle } = useDisclosure();
+  const { close, open, isOpen, toggle } = useDisclosure(true);
 
   return (
     <div className="relative">
@@ -31,7 +31,15 @@ export function Sidebar({
 
       <div
         className={twMerge(
-          "sticky top-0 left-0 h-full bg-gray-600 transition-transform duration-500",
+          "top-0 left-0 h-screen transition-transform duration-500 ",
+          isOpen ? "translate-x-0 w-64" : "-translate-x-full w-0",
+          className
+        )}
+        {...props}
+      ></div>
+      <div
+        className={twMerge(
+          "fixed top-0 left-0 h-screen bg-gray-600 transition-transform duration-500 ",
           isOpen ? "translate-x-0 w-64" : "-translate-x-full w-0",
           className
         )}

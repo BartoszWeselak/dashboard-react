@@ -38,12 +38,7 @@ export const Dashboard = () => {
       </Sidebar>
       <div>
         <Divider />
-        <AlertContainer>
-          <AlertTitle>test</AlertTitle>
-          <AlertDescription>test</AlertDescription>
-        </AlertContainer>
         <Tabs defaultActiveTab={1}>
-          <Divider />
           <Tab label="tab1">
             <Divider />
             <Content />
