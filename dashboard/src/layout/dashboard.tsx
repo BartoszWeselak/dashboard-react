@@ -7,6 +7,11 @@ import { Dropdown, DropdownItem } from "../components/Dropdown";
 import { Divider } from "../components/Divider";
 import { Tabs, Tab } from "../components/Tab";
 import { Content } from "./content";
+import {
+  AlertContainer,
+  AlertDescription,
+  AlertTitle,
+} from "../components/Alert";
 
 export const Dashboard = () => {
   return (
@@ -33,7 +38,10 @@ export const Dashboard = () => {
       </Sidebar>
       <div>
         <Divider />
-
+        <AlertContainer>
+          <AlertTitle>test</AlertTitle>
+          <AlertDescription>test</AlertDescription>
+        </AlertContainer>
         <Tabs defaultActiveTab={1}>
           <Divider />
           <Tab label="tab1">

@@ -15,10 +15,10 @@ function Modal({ children, isOpen, onClose, ...props }: ModalProps) {
   return (
     <div
       className={twMerge(
-        "fixed inset-0 flex  justify-center bg-black bg-opacity-30 z-50"
+        "fixed inset-0 flex justify-center bg-black bg-opacity-30 z-50"
       )}
     >
-      <div className="bg-white p-6 rounded-lg  w-1/2 m-8" {...props}>
+      <div className="bg-white p-6 rounded-lg w-1/2 m-8" {...props}>
         <div className="text-right">
           <Button
             onClick={onClose}

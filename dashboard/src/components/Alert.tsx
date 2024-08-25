@@ -1,6 +1,7 @@
 import React, { forwardRef, useState } from "react";
 import { twMerge } from "tailwind-merge";
 import { Button } from "./Button";
+import { useDisclosure } from "../hooks/use-disclosure";
 
 interface AlertProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode;
@@ -73,27 +74,25 @@ export function AlertContainer({
   text,
   ...props
 }: AlertContainerProps) {
-  const [isAlertOpen, setIsAlertOpen] = useState(true);
+  const { close, open, isOpen, toggle } = useDisclosure();
 
-  const openAlert = () => setIsAlertOpen(true);
-  const closeAlert = () => setIsAlertOpen(false);
   return (
     <div>
       {trigger ? (
         React.cloneElement(trigger as React.ReactElement<any>, {
-          onClick: openAlert,
+          onClick: open,
         })
       ) : (
         <Button
-          onClick={openAlert}
+          onClick={open}
           className={twMerge("px-4 py-2 bg-blue-500 text-white rounded")}
         >
           {text}
         </Button>
       )}
       <Alert
-        isOpen={isAlertOpen}
-        onClose={closeAlert}
+        isOpen={isOpen}
+        onClose={close}
         className={twMerge("", className)}
         {...props}
       >
