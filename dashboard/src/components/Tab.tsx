@@ -21,6 +21,8 @@ export function Tabs({
       <div className="flex">
         {children.map((tab, index) => (
           <Button
+            variant={"tab"}
+            size={"xlarge"}
             key={index}
             className={index === activeTab ? "active" : ""}
             onClick={() => setActiveTab(index)}
