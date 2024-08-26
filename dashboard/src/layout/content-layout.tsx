@@ -2,8 +2,9 @@ import React from "react";
 import { Card, CardDescription, CardTitle } from "../components/Card";
 import ModalContainer from "../components/Modal";
 import { Button } from "../components/Button";
+import { MockChart } from "../components/Chart";
 
-export const Content = () => {
+export const ContentLayout = () => {
   return (
     <div className="flex flex-wrap w-full gap-4 p-24">
       <Card className="bg-red-400 shadow-lg ring-1 ring-black/10">
@@ -60,6 +61,7 @@ export const Content = () => {
         <CardTitle>card title 12</CardTitle>
         <CardDescription>test</CardDescription>
       </Card>
+      <MockChart></MockChart>
     </div>
   );
 };

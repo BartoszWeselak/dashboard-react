@@ -29,5 +29,9 @@ export function MockChart({ children, className }: ChartProps) {
     ],
   };
 
-  return <Bar data={data} />;
+  return (
+    <div>
+      <Bar data={data} />
+    </div>
+  );
 }

@@ -6,14 +6,16 @@ import { Link } from "../components/Link";
 import { Dropdown, DropdownItem } from "../components/Dropdown";
 import { Divider } from "../components/Divider";
 import { Tabs, Tab } from "../components/Tab";
-import { Content } from "./content";
 import {
   AlertContainer,
   AlertDescription,
   AlertTitle,
 } from "../components/Alert";
+import { ContentLayout } from "./content-layout";
+import { AuthLayout } from "./auth-layout";
+import ModalContainer from "../components/Modal";
 
-export const Dashboard = () => {
+export const DashboardLayout = () => {
   return (
     <div className="flex flex-row">
       <Sidebar>
@@ -36,24 +38,27 @@ export const Dashboard = () => {
           </Dropdown>
         </SidebarHeader>
       </Sidebar>
+      <ModalContainer>
+        <AuthLayout />
+      </ModalContainer>
       <div>
         <Divider />
         <Tabs defaultActiveTab={1}>
           <Tab label="tab1">
             <Divider />
-            <Content />
+            <ContentLayout />
           </Tab>
           <Tab label="tab2">
             <Divider />
-            <Content />
+            <ContentLayout />
           </Tab>
           <Tab label="tab3">
             <Divider />
-            <Content />
+            <ContentLayout />
           </Tab>
           <Tab label="tab4">
             <Divider />
-            <Content />
+            <ContentLayout />
           </Tab>
         </Tabs>
         <Divider />
