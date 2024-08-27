@@ -21,7 +21,7 @@ export function Sidebar({
       <button
         onClick={toggle}
         className={twMerge(
-          "fixed top-4 z-50 p-2 bg-gray-800 text-white rounded transition-all duration-500 opacity-50",
+          "fixed top-4 z-50 p-2 bg-gray-600 text-white rounded transition-all duration-500 opacity-50",
           isOpen ? "left-52" : "left-4",
           classNameButton
         )}
@@ -39,7 +39,7 @@ export function Sidebar({
       ></div>
       <div
         className={twMerge(
-          "fixed top-0 left-0 h-screen bg-gray-600 transition-transform duration-500 ",
+          "fixed top-0 left-0 h-screen bg-gray-100 transition-transform duration-500 ",
           isOpen ? "translate-x-0 w-64" : "-translate-x-full w-0",
           className
         )}

@@ -13,7 +13,6 @@ import {
 } from "../components/Alert";
 import { ContentLayout } from "./content-layout";
 import { AuthLayout } from "./auth-layout";
-import ModalContainer from "../components/Modal";
 
 export const DashboardLayout = () => {
   return (
@@ -38,9 +37,7 @@ export const DashboardLayout = () => {
           </Dropdown>
         </SidebarHeader>
       </Sidebar>
-      <ModalContainer>
-        <AuthLayout />
-      </ModalContainer>
+
       <div>
         <Divider />
         <Tabs defaultActiveTab={1}>

@@ -2,7 +2,7 @@ import { cva, VariantProps } from "class-variance-authority";
 import React, { forwardRef } from "react";
 import { twMerge } from "tailwind-merge";
 
-const buttonVariants = cva("w-full hover:opacity-80", {
+export const buttonVariants = cva("w-full hover:opacity-80", {
   variants: {
     variant: {
       primary: "bg-blue-500 text-white",
@@ -30,7 +30,7 @@ interface ButtonProps
   className?: string;
 }
 
-const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, children, variant, size, ...props }, ref) => {
     return (
       <button
@@ -45,5 +45,3 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 );
 
 Button.displayName = "Button";
-
-export { Button, buttonVariants };

@@ -3,11 +3,13 @@ import { Card, CardDescription, CardTitle } from "../components/Card";
 import ModalContainer from "../components/Modal";
 import { Button } from "../components/Button";
 import { MockChart } from "../components/Chart";
+import { Table, TableCell, TableRow } from "../components/Table";
+import { AuthLayout } from "./auth-layout";
 
 export const ContentLayout = () => {
   return (
     <div className="flex flex-wrap w-full gap-4 p-24">
-      <Card className="bg-red-400 shadow-lg ring-1 ring-black/10">
+      <Card>
         <CardTitle>card title 1</CardTitle>
         <CardDescription>
           <ModalContainer
@@ -17,51 +19,65 @@ export const ContentLayout = () => {
           </ModalContainer>
         </CardDescription>
       </Card>
-      <Card className="bg-blue-400">
+      <Card>
         <CardTitle>card title 2</CardTitle>
-        <CardDescription className="bg-red-400">test</CardDescription>
+        <CardDescription>test</CardDescription>
       </Card>
-      <Card className="bg-green-400">
+      <Card>
         <CardTitle>card title 3</CardTitle>
         <CardDescription>test</CardDescription>
       </Card>
-      <Card className="bg-yellow-400">
+      <Card>
         <CardTitle>card title 4</CardTitle>
         <CardDescription>test</CardDescription>
       </Card>
-      <Card className="bg-purple-400">
+      <Card>
         <CardTitle>card title 5</CardTitle>
         <CardDescription>test</CardDescription>
       </Card>
-      <Card className="bg-yellow-400">
+      <Card>
         <CardTitle>card title 6</CardTitle>
         <CardDescription>test</CardDescription>
       </Card>
-      <Card className="bg-green-400">
+      <Card>
         <CardTitle>card title 7</CardTitle>
         <CardDescription>test</CardDescription>
       </Card>
-      <Card className="bg-blue-400">
+      <Card>
         <CardTitle>card title 8</CardTitle>
-        <CardDescription>test</CardDescription>
+        <CardDescription>
+          {" "}
+          <ModalContainer>
+            <AuthLayout />
+          </ModalContainer>
+        </CardDescription>
       </Card>
-      <Card className="bg-red-400">
+      <Card>
         <CardTitle>card title 9</CardTitle>
         <CardDescription>test</CardDescription>
       </Card>
-      <Card className="bg-red-400">
+      <Card>
         <CardTitle>card title 10</CardTitle>
         <CardDescription>test</CardDescription>
       </Card>
-      <Card className="bg-red-400">
+      <Card>
         <CardTitle>card title 11</CardTitle>
-        <CardDescription>test</CardDescription>
+        <CardDescription>
+          <Table>
+            <TableRow>
+              <TableCell>test</TableCell>
+              <TableCell>test</TableCell>
+              <TableCell>test</TableCell>
+            </TableRow>
+          </Table>
+        </CardDescription>
       </Card>
-      <Card className="bg-red-400">
+      <Card>
         <CardTitle>card title 12</CardTitle>
-        <CardDescription>test</CardDescription>
+        <CardDescription>
+          <Button variant={"danger"}>test</Button>
+        </CardDescription>
       </Card>
-      <MockChart></MockChart>
     </div>
   );
 };
