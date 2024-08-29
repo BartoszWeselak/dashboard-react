@@ -1,5 +1,10 @@
 import React, { useState } from "react";
-import { Sidebar, SidebarHeader } from "../components/Sidebar";
+import {
+  Sidebar,
+  SidebarFooter,
+  SidebarHeader,
+  SidebarMain,
+} from "../components/Sidebar";
 import { Logo } from "../components/Logo";
 import { Avatar, AvatarBox } from "../components/Avatar";
 import { Link } from "../components/Link";
@@ -16,13 +21,14 @@ export const DashboardLayout = () => {
       <Sidebar>
         <SidebarHeader>
           <Logo src="https://picsum.photos/200" />
+        </SidebarHeader>
+        <SidebarMain>
           <Link src="https://picsum.photos/200">
             <AvatarBox>
               <Avatar src="https://picsum.photos/200" />
               <p className="content-center">Your name here</p>
             </AvatarBox>
           </Link>
-
           <Dropdown>
             <DropdownItem src="https://picsum.photos/200">Menu 1</DropdownItem>
             <DropdownItem src="https://picsum.photos/200">Menu 2</DropdownItem>
@@ -31,7 +37,10 @@ export const DashboardLayout = () => {
             <DropdownItem src="https://picsum.photos/200">Menu 5</DropdownItem>
             <DropdownItem src="https://picsum.photos/200">Menu 6</DropdownItem>
           </Dropdown>
-        </SidebarHeader>
+        </SidebarMain>
+        <SidebarFooter>
+          <p>tsss</p>
+        </SidebarFooter>
       </Sidebar>
 
       <div className="w-full">

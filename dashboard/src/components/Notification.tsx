@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import { twMerge } from "tailwind-merge";
 
 interface NotificationProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -6,10 +6,14 @@ interface NotificationProps extends React.HTMLAttributes<HTMLDivElement> {
   className?: string;
 }
 
-export function Notification({
-  children,
-  className,
-  ...props
-}: NotificationProps) {
-  return <div className={twMerge("fixed    z-50")}></div>;
-}
+const Notification = forwardRef<HTMLDivElement, NotificationProps>(
+  ({ children, className, ...props }) => {
+    return (
+      <div className={twMerge("fixed z-50", className)} {...props}>
+        {children}
+      </div>
+    );
+  }
+);
+
+export default Notification;

@@ -1,10 +1,10 @@
 import React from "react";
 import { Card, CardDescription, CardTitle } from "../components/Card";
-import ModalContainer from "../components/Modal";
 import { Button } from "../components/Button";
 import { Table, TableCell, TableRow } from "../components/Table";
 import { AuthLayout } from "./auth-layout";
 import { Alert, AlertDescription, AlertTitle } from "../components/Alert";
+import { Modal } from "../components/Modal";
 
 export const ContentLayout = () => {
   return (
@@ -12,11 +12,9 @@ export const ContentLayout = () => {
       <Card>
         <CardTitle>card title 1</CardTitle>
         <CardDescription>
-          <ModalContainer
-            triggerButton={<Button className="bg-red-600">test</Button>}
-          >
+          <Modal triggerButton={<Button className="bg-red-600">test</Button>}>
             test
-          </ModalContainer>
+          </Modal>
         </CardDescription>
       </Card>
       <Card>
@@ -47,9 +45,9 @@ export const ContentLayout = () => {
         <CardTitle>card title 8</CardTitle>
         <CardDescription>
           {" "}
-          <ModalContainer>
+          <Modal>
             <AuthLayout />
-          </ModalContainer>
+          </Modal>
         </CardDescription>
       </Card>
       <Card>
