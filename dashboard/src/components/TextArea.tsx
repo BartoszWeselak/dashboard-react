@@ -15,10 +15,13 @@ const textAreaVariants = cva("text-black", {
       center: "text-center",
     },
     colors: {
-      none: "bg-inherit",
       white: "bg-white",
       gray: "bg-gray-400 text-white",
     },
+  },
+  defaultVariants: {
+    align: "center",
+    colors: "white",
   },
 });
 
@@ -28,10 +31,6 @@ interface TextAreaProps
   children: React.ReactNode;
   className?: string;
 }
-
-let test = () => {
-  return <p className="w-1/6"></p>;
-};
 
 export const TextArea = forwardRef<HTMLDivElement, TextAreaProps>(
   ({ children, className, size, colors, ...props }, ref) => {

@@ -1,4 +1,4 @@
-import React, { useState, ReactElement } from "react";
+import React, { useState, ReactElement, forwardRef } from "react";
 import { twMerge } from "tailwind-merge";
 import { Button } from "./Button";
 
@@ -8,46 +8,44 @@ interface TabsProps extends React.HTMLAttributes<HTMLDivElement> {
   defaultActiveTab: number;
 }
 
-export function Tabs({
-  children,
-  className,
-  defaultActiveTab,
-  ...props
-}: TabsProps) {
-  const [activeTab, setActiveTab] = useState<number>(defaultActiveTab);
+export const Tabs = forwardRef<HTMLDivElement, TabsProps>(
+  ({ children, className, defaultActiveTab, ...props }, ref) => {
+    const [activeTab, setActiveTab] = useState<number>(defaultActiveTab);
 
-  return (
-    <div>
-      <div className="flex">
-        {children.map((tab, index) => (
-          <Button
-            variant={"tab"}
-            size={"xlarge"}
-            key={index}
-            className={index === activeTab ? "active" : ""}
-            onClick={() => setActiveTab(index)}
-          >
-            {tab.props.label}
-          </Button>
-        ))}
+    return (
+      <div>
+        <div className="flex">
+          {children.map((tab, index) => (
+            <Button
+              variant={"tab"}
+              size={"xlarge"}
+              key={index}
+              className={index === activeTab ? "active" : ""}
+              onClick={() => setActiveTab(index)}
+            >
+              {tab.props.label}
+            </Button>
+          ))}
+        </div>
+        <div ref={ref} className={twMerge("", className)} {...props}>
+          {children[activeTab]}
+        </div>
       </div>
-      <div className={twMerge("", className)} {...props}>
-        {children[activeTab]}
-      </div>
-    </div>
-  );
-}
-
+    );
+  }
+);
 interface TabProps {
   label: string;
   children: React.ReactNode;
   className?: string;
 }
 
-export function Tab({ children, className, ...props }: TabProps) {
-  return (
-    <div className={twMerge("", className)} {...props}>
-      {children}
-    </div>
-  );
-}
+export const Tab = forwardRef<HTMLDivElement, TabProps>(
+  ({ children, className, ...props }) => {
+    return (
+      <div className={twMerge("", className)} {...props}>
+        {children}
+      </div>
+    );
+  }
+);

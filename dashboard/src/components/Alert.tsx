@@ -10,7 +10,7 @@ interface AlertProps extends React.HTMLAttributes<HTMLDivElement> {
   onClose?: () => void;
 }
 
-export function Alert({
+function AlertTrigger({
   children,
   isOpen,
   className,
@@ -30,7 +30,9 @@ export function Alert({
       <div className="text-right">
         <Button
           onClick={onClose}
-          className=" w-6  bg-red-500 text-white rounded"
+          variant={"danger"}
+          size={"small"}
+          className="w-8"
         >
           X
         </Button>
@@ -43,7 +45,7 @@ export function Alert({
 export const AlertTitle = forwardRef<HTMLButtonElement, AlertProps>(
   ({ className, children, ...props }, ref) => {
     return (
-      <div className={twMerge("font-semibold", className)} {...props}>
+      <div className={twMerge("font-semibold text-left", className)} {...props}>
         {children}
       </div>
     );
@@ -53,7 +55,7 @@ export const AlertTitle = forwardRef<HTMLButtonElement, AlertProps>(
 export const AlertDescription = forwardRef<HTMLButtonElement, AlertProps>(
   ({ className, children, ...props }, ref) => {
     return (
-      <div className={twMerge("text-gray-700", className)} {...props}>
+      <div className={twMerge("text-gray-700 text-left", className)} {...props}>
         {children}
       </div>
     );
@@ -67,7 +69,7 @@ interface AlertContainerProps extends React.HTMLAttributes<HTMLDivElement> {
   text?: string;
 }
 
-export function AlertContainer({
+export function Alert({
   className,
   children,
   trigger,
@@ -90,14 +92,14 @@ export function AlertContainer({
           {text}
         </Button>
       )}
-      <Alert
+      <AlertTrigger
         isOpen={isOpen}
         onClose={close}
         className={twMerge("", className)}
         {...props}
       >
         {children}
-      </Alert>
+      </AlertTrigger>
     </div>
   );
 }

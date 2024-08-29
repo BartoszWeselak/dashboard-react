@@ -6,11 +6,7 @@ import { Link } from "../components/Link";
 import { Dropdown, DropdownItem } from "../components/Dropdown";
 import { Divider } from "../components/Divider";
 import { Tabs, Tab } from "../components/Tab";
-import {
-  AlertContainer,
-  AlertDescription,
-  AlertTitle,
-} from "../components/Alert";
+import { AlertDescription, AlertTitle } from "../components/Alert";
 import { ContentLayout } from "./content-layout";
 import { AuthLayout } from "./auth-layout";
 
@@ -38,7 +34,7 @@ export const DashboardLayout = () => {
         </SidebarHeader>
       </Sidebar>
 
-      <div>
+      <div className="w-full">
         <Divider />
         <Tabs defaultActiveTab={1}>
           <Tab label="tab1">
@@ -55,7 +51,6 @@ export const DashboardLayout = () => {
           </Tab>
           <Tab label="tab4">
             <Divider />
-            <ContentLayout />
           </Tab>
         </Tabs>
         <Divider />

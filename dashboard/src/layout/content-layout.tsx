@@ -2,13 +2,13 @@ import React from "react";
 import { Card, CardDescription, CardTitle } from "../components/Card";
 import ModalContainer from "../components/Modal";
 import { Button } from "../components/Button";
-import { MockChart } from "../components/Chart";
 import { Table, TableCell, TableRow } from "../components/Table";
 import { AuthLayout } from "./auth-layout";
+import { Alert, AlertDescription, AlertTitle } from "../components/Alert";
 
 export const ContentLayout = () => {
   return (
-    <div className="flex flex-wrap w-full gap-4 p-24">
+    <div className="flex  flex-wrap w-full gap-4 p-24">
       <Card>
         <CardTitle>card title 1</CardTitle>
         <CardDescription>
@@ -54,7 +54,12 @@ export const ContentLayout = () => {
       </Card>
       <Card>
         <CardTitle>card title 9</CardTitle>
-        <CardDescription>test</CardDescription>
+        <CardDescription>
+          <Alert>
+            <AlertTitle>test</AlertTitle>
+            <AlertDescription>test</AlertDescription>
+          </Alert>
+        </CardDescription>
       </Card>
       <Card>
         <CardTitle>card title 10</CardTitle>
