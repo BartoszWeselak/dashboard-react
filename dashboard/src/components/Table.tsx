@@ -55,7 +55,7 @@ const tableCellVariants = cva("bg-slate-300 border-2 border-cyan-900", {
 });
 
 interface TableProps
-  extends React.HTMLAttributes<HTMLTableElement>,
+  extends React.HTMLAttributes<HTMLElement>,
     VariantProps<typeof tableVariants> {
   children?: React.ReactNode;
   className?: string;
@@ -90,6 +90,63 @@ export const Table = forwardRef<HTMLTableElement, TableProps>(
 );
 
 Table.displayName = "Table";
+
+export const TableBody = ({
+  children,
+  className,
+  size,
+  border,
+  ...props
+}: TableProps) => {
+  return (
+    <tbody
+      className={twMerge(tableVariants({ size, border }), className)}
+      {...props}
+    >
+      {children}
+    </tbody>
+  );
+};
+
+TableBody.displayName = "TableBody";
+
+export const TableHead = ({
+  children,
+  className,
+  size,
+  border,
+  ...props
+}: TableProps) => {
+  return (
+    <thead
+      className={twMerge(tableVariants({ size, border }), className)}
+      {...props}
+    >
+      {children}
+    </thead>
+  );
+};
+
+TableHead.displayName = "TableHead";
+
+export const TableFoot = ({
+  children,
+  className,
+  size,
+  border,
+  ...props
+}: TableProps) => {
+  return (
+    <tfoot
+      className={twMerge(tableVariants({ size, border }), className)}
+      {...props}
+    >
+      {children}
+    </tfoot>
+  );
+};
+
+TableFoot.displayName = "TableFoot";
 
 export const TableRow = forwardRef<HTMLTableRowElement, TableRowProps>(
   ({ children, className, highlight, ...props }, ref) => {
