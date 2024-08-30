@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, HTMLAttributes } from "react";
 import { twMerge } from "tailwind-merge";
 import { Button } from "./Button";
 import { useDisclosure } from "../hooks/use-disclosure";
@@ -10,12 +10,13 @@ interface AlertContainerProps extends React.HTMLAttributes<HTMLDivElement> {
   onClose?: () => void;
 }
 
-const AlertContainer = forwardRef<HTMLButtonElement, AlertContainerProps>(
-  ({ children, isOpen, className, onClose, ...props }) => {
+const AlertContainer = forwardRef<HTMLDivElement, AlertContainerProps>(
+  ({ children, isOpen, className, onClose, ...props }, ref) => {
     if (!isOpen) return null;
 
     return (
       <div
+        ref={ref}
         className={twMerge(
           "fixed top-0 right-0 m-4 w-1/6 p-2 bg-white rounded-md shadow-lg ring-1 ring-black/10 z-50",
           className
@@ -66,12 +67,12 @@ interface AlertProps extends React.HTMLAttributes<HTMLDivElement> {
   text?: string;
 }
 
-export const Alert = forwardRef<HTMLButtonElement, AlertProps>(
+export const Alert = forwardRef<HTMLDivElement, AlertProps>(
   ({ className, children, trigger, text, ...props }, ref) => {
     const { close, open, isOpen } = useDisclosure();
 
     return (
-      <div>
+      <div ref={ref}>
         {trigger ? (
           React.cloneElement(trigger as React.ReactElement<any>, {
             onClick: open,

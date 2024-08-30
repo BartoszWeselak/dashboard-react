@@ -41,9 +41,9 @@ interface TabProps {
 }
 
 export const Tab = forwardRef<HTMLDivElement, TabProps>(
-  ({ children, className, ...props }) => {
+  ({ children, className, ...props }, ref) => {
     return (
-      <div className={twMerge("", className)} {...props}>
+      <div ref={ref} className={twMerge("", className)} {...props}>
         {children}
       </div>
     );

@@ -9,11 +9,11 @@ interface SidebarProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const Sidebar = forwardRef<HTMLDivElement, SidebarProps>(
-  ({ children, className, classNameButton, ...props }) => {
+  ({ children, className, classNameButton, ...props }, ref) => {
     const { close, open, isOpen, toggle } = useDisclosure(true);
 
     return (
-      <div className="relative">
+      <div ref={ref} className="relative">
         <button
           onClick={toggle}
           className={twMerge(
@@ -48,9 +48,10 @@ const Sidebar = forwardRef<HTMLDivElement, SidebarProps>(
   }
 );
 const SidebarHeader = forwardRef<HTMLDivElement, SidebarProps>(
-  ({ children, className, ...props }) => {
+  ({ children, className, ...props }, ref) => {
     return (
       <div
+        ref={ref}
         className={twMerge(" text-lg text-center h-1/5", className)}
         {...props}
       >
@@ -61,9 +62,13 @@ const SidebarHeader = forwardRef<HTMLDivElement, SidebarProps>(
 );
 
 const SidebarMain = forwardRef<HTMLDivElement, SidebarProps>(
-  ({ children, className, ...props }) => {
+  ({ children, className, ...props }, ref) => {
     return (
-      <div className={twMerge(" text-center h-3/5", className)} {...props}>
+      <div
+        ref={ref}
+        className={twMerge(" text-center h-3/5", className)}
+        {...props}
+      >
         {children}
       </div>
     );
@@ -71,9 +76,13 @@ const SidebarMain = forwardRef<HTMLDivElement, SidebarProps>(
 );
 
 const SidebarFooter = forwardRef<HTMLDivElement, SidebarProps>(
-  ({ children, className, ...props }) => {
+  ({ children, className, ...props }, ref) => {
     return (
-      <div className={twMerge(" text-center h-1/5", className)} {...props}>
+      <div
+        ref={ref}
+        className={twMerge(" text-center h-1/5", className)}
+        {...props}
+      >
         {children}
       </div>
     );

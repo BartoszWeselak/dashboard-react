@@ -5,6 +5,7 @@ import { Table, TableCell, TableRow } from "../components/Table";
 import { AuthLayout } from "./auth-layout";
 import { Alert, AlertDescription, AlertTitle } from "../components/Alert";
 import { Modal } from "../components/Modal";
+import { Chart } from "../components/Chart";
 
 export const ContentLayout = () => {
   return (

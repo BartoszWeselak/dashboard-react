@@ -39,7 +39,7 @@ export const DashboardLayout = () => {
           </Dropdown>
         </SidebarMain>
         <SidebarFooter>
-          <p>tsss</p>
+          <p>footer</p>
         </SidebarFooter>
       </Sidebar>
 

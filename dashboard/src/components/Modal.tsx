@@ -10,11 +10,12 @@ interface ModalContainerProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const ModalContainer = forwardRef<HTMLDivElement, ModalContainerProps>(
-  ({ children, isOpen, onClose, ...props }) => {
+  ({ children, isOpen, onClose, ...props }, ref) => {
     if (!isOpen) return null;
 
     return (
       <div
+        ref={ref}
         className={twMerge(
           "fixed inset-0 flex justify-center bg-black bg-opacity-30 z-50"
         )}
@@ -42,11 +43,11 @@ interface ModalProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 export const Modal = forwardRef<HTMLDivElement, ModalProps>(
-  ({ text, children, className, triggerButton, ...props }) => {
+  ({ text, children, className, triggerButton, ...props }, ref) => {
     const { close, open, isOpen } = useDisclosure();
 
     return (
-      <div>
+      <div ref={ref}>
         {triggerButton ? (
           React.cloneElement(triggerButton as React.ReactElement<any>, {
             onClick: open,
