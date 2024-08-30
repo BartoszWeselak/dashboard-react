@@ -8,13 +8,13 @@ export const buttonVariants = cva("w-full hover:opacity-80", {
       primary: "bg-blue-500 text-white",
       secondary: "bg-gray-500 text-white",
       danger: "bg-red-500 text-white",
-      tab: "bg-white text-black border-2 border-gray-200 rounded-full m-6",
+      tab: "bg-white text-black",
     },
     size: {
       small: "px-2 py-1 text-sm",
       medium: "px-4 py-2 text-base",
       large: "px-6 py-3 text-lg",
-      xlarge: " py-4 text-base",
+      xlarge: " py-4 text-lg",
     },
   },
   defaultVariants: {

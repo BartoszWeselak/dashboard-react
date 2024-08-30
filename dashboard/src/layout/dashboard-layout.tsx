@@ -14,6 +14,14 @@ import { Tabs, Tab } from "../components/Tab";
 import { AlertDescription, AlertTitle } from "../components/Alert";
 import { ContentLayout } from "./content-layout";
 import { AuthLayout } from "./auth-layout";
+import {
+  faBitcoinSign,
+  faDollar,
+  faDroplet,
+  faHome,
+  faOilCan,
+} from "@fortawesome/free-solid-svg-icons";
+import Notification from "../components/Notification";
 
 export const DashboardLayout = () => {
   return (
@@ -44,22 +52,26 @@ export const DashboardLayout = () => {
       </Sidebar>
 
       <div className="w-full">
+        <Notification />
+
         <Divider />
         <Tabs defaultActiveTab={1}>
-          <Tab label="tab1">
+          <Tab label="Crypto" icon={faBitcoinSign}>
             <Divider />
             <ContentLayout />
           </Tab>
-          <Tab label="tab2">
+          <Tab
+            label="Currency"
+            textclass="text-blue-500"
+            iconcolor="red"
+            icon={faDollar}
+          >
             <Divider />
             <ContentLayout />
           </Tab>
-          <Tab label="tab3">
+          <Tab label="Materials" icon={faDroplet}>
             <Divider />
             <ContentLayout />
-          </Tab>
-          <Tab label="tab4">
-            <Divider />
           </Tab>
         </Tabs>
         <Divider />

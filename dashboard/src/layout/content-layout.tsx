@@ -1,7 +1,14 @@
 import React from "react";
 import { Card, CardDescription, CardTitle } from "../components/Card";
 import { Button } from "../components/Button";
-import { Table, TableCell, TableRow } from "../components/Table";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableFoot,
+  TableHead,
+  TableRow,
+} from "../components/Table";
 import { AuthLayout } from "./auth-layout";
 import { Alert, AlertDescription, AlertTitle } from "../components/Alert";
 import { Modal } from "../components/Modal";
@@ -14,7 +21,7 @@ export const ContentLayout = () => {
         <CardTitle>card title 1</CardTitle>
         <CardDescription>
           <Modal triggerButton={<Button className="bg-red-600">test</Button>}>
-            test
+            <Chart />
           </Modal>
         </CardDescription>
       </Card>
@@ -40,7 +47,7 @@ export const ContentLayout = () => {
       </Card>
       <Card>
         <CardTitle>card title 7</CardTitle>
-        <CardDescription>test</CardDescription>
+        <CardDescription>test </CardDescription>
       </Card>
       <Card>
         <CardTitle>card title 8</CardTitle>
@@ -68,11 +75,27 @@ export const ContentLayout = () => {
         <CardTitle>card title 11</CardTitle>
         <CardDescription>
           <Table>
-            <TableRow>
-              <TableCell>test</TableCell>
-              <TableCell>test</TableCell>
-              <TableCell>test</TableCell>
-            </TableRow>
+            <TableHead>
+              <TableRow>
+                <TableCell>test</TableCell>
+                <TableCell>test</TableCell>
+                <TableCell>test</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              <TableRow>
+                <TableCell>test</TableCell>
+                <TableCell>test</TableCell>
+                <TableCell>test</TableCell>
+              </TableRow>
+            </TableBody>
+            <TableFoot>
+              <TableRow>
+                <TableCell>test</TableCell>
+                <TableCell>test</TableCell>
+                <TableCell>test</TableCell>
+              </TableRow>
+            </TableFoot>
           </Table>
         </CardDescription>
       </Card>
