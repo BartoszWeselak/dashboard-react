@@ -18,8 +18,6 @@ import {
   faBitcoinSign,
   faDollar,
   faDroplet,
-  faHome,
-  faOilCan,
 } from "@fortawesome/free-solid-svg-icons";
 import Notification from "../components/Notification";
 
@@ -38,12 +36,12 @@ export const DashboardLayout = () => {
             </AvatarBox>
           </Link>
           <Dropdown>
-            <DropdownItem src="https://picsum.photos/200">Menu 1</DropdownItem>
-            <DropdownItem src="https://picsum.photos/200">Menu 2</DropdownItem>
-            <DropdownItem src="https://picsum.photos/200">Menu 3</DropdownItem>
-            <DropdownItem src="https://picsum.photos/200">Menu 4</DropdownItem>
-            <DropdownItem src="https://picsum.photos/200">Menu 5</DropdownItem>
-            <DropdownItem src="https://picsum.photos/200">Menu 6</DropdownItem>
+            <DropdownItem src="https://picsum.photos/200">News</DropdownItem>
+            <DropdownItem src="https://picsum.photos/200">Wallet</DropdownItem>
+            <DropdownItem src="https://picsum.photos/200">
+              Catalague
+            </DropdownItem>
+            <DropdownItem src="https://picsum.photos/200">Admin</DropdownItem>
           </Dropdown>
         </SidebarMain>
         <SidebarFooter>
@@ -60,12 +58,7 @@ export const DashboardLayout = () => {
             <Divider />
             <ContentLayout />
           </Tab>
-          <Tab
-            label="Currency"
-            textclass="text-blue-500"
-            iconcolor="red"
-            icon={faDollar}
-          >
+          <Tab label="Currency" icon={faDollar}>
             <Divider />
             <ContentLayout />
           </Tab>

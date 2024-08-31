@@ -3,7 +3,7 @@ import { twMerge } from "tailwind-merge";
 import { cva, VariantProps } from "class-variance-authority";
 
 const cardVariants = cva(
-  "mx-auto h-64 w-64 border border-gray-200 rounded-lg shadow-lg ring-2 ring-black/5 overflow-hidden content-center hover:opacity-90",
+  "mx-auto border content-center border-gray-200 rounded-lg shadow-lg ring-2 ring-black/5 ",
   {
     variants: {
       shadow: {
@@ -18,10 +18,20 @@ const cardVariants = cva(
         medium: "rounded-md",
         large: "rounded-lg",
       },
+      size: {
+        small: "h-64 w-64",
+        medium: "h-128 w-128",
+        full: "h-full w-full",
+      },
+      display: {
+        col: "flex flex-row",
+        row: "flex flex-col",
+      },
     },
     defaultVariants: {
       shadow: "large",
       borderRadius: "large",
+      size: "small",
     },
   }
 );
@@ -63,6 +73,10 @@ const cardDescriptionVariants = cva(
         yellow: "text-yellow-500",
         red: "text-red-500",
       },
+      display: {
+        col: "flex flex-row",
+        row: "flex flex-col",
+      },
     },
     defaultVariants: {
       size: "medium",
@@ -93,11 +107,17 @@ interface CardDescriptionProps
 }
 
 export const Card = forwardRef<HTMLDivElement, CardProps>(
-  ({ children, className, shadow, borderRadius, ...props }, ref) => {
+  (
+    { children, className, shadow, size, display, borderRadius, ...props },
+    ref
+  ) => {
     return (
       <div
         ref={ref}
-        className={twMerge(cardVariants({ shadow, borderRadius }), className)}
+        className={twMerge(
+          cardVariants({ shadow, borderRadius, display, size }),
+          className
+        )}
         {...props}
       >
         {children}
@@ -125,12 +145,12 @@ export const CardTitle = forwardRef<HTMLHeadingElement, CardTitleProps>(
 CardTitle.displayName = "CardTitle";
 
 export const CardDescription = forwardRef<HTMLDivElement, CardDescriptionProps>(
-  ({ children, className, size, colors, ...props }, ref) => {
+  ({ children, className, size, colors, display, ...props }, ref) => {
     return (
       <div
         ref={ref}
         className={twMerge(
-          cardDescriptionVariants({ size, colors }),
+          cardDescriptionVariants({ size, colors, display }),
           className
         )}
         {...props}
