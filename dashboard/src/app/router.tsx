@@ -8,23 +8,22 @@ import {
   createBrowserRouter,
 } from "react-router-dom";
 
-const Home = () => <h1>Home Page</h1>;
-const About = () => <h1>About Page</h1>;
-const NotFound = () => <h1>404 - Not Found</h1>;
+import { AppRoot } from "./routes/app/root";
 
 export const createAppRouter = (queryClient: QueryClient) => {
   const routes: RouteObject[] = [
     {
       path: "/",
-      element: <Home />,
+      lazy: async () => {
+        const { LandingRoute } = await import("./routes/landing");
+        return { Component: LandingRoute };
+      },
     },
     {
       path: "/about",
-      element: <About />,
     },
     {
       path: "*",
-      element: <NotFound />,
     },
   ];
   const router = createBrowserRouter(routes);
