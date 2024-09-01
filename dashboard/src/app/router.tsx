@@ -20,7 +20,18 @@ export const createAppRouter = (queryClient: QueryClient) => {
       },
     },
     {
-      path: "/about",
+      path: "/info/:id",
+      lazy: async () => {
+        const { InfoRoute } = await import("./routes/app/info");
+        return { Component: InfoRoute };
+      },
+    },
+    {
+      path: "/dashboard",
+      lazy: async () => {
+        const { DashboardRoute } = await import("./routes/app/dashboard");
+        return { Component: DashboardRoute };
+      },
     },
     {
       path: "*",
@@ -30,7 +41,7 @@ export const createAppRouter = (queryClient: QueryClient) => {
 
   return router;
 };
-const AppRouter = () => {
+export const AppRouter = () => {
   const queryClient = useMemo(() => new QueryClient(), []);
   const router = createAppRouter(queryClient);
 

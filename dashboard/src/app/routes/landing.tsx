@@ -1,3 +1,5 @@
+import { DashboardLayout } from "../../layout/dashboard-layout";
+
 export const LandingRoute = () => {
-  return <p>test</p>;
+  return <DashboardLayout />;
 };
