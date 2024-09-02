@@ -45,7 +45,9 @@ export const DashboardLayout = ({ children }: DashboardLayoutProps) => {
       </Sidebar>
 
       <div className="w-full ">
-        <Notification />
+        <Notification>
+          <p>test</p>
+        </Notification>
         {children}
       </div>
     </div>
