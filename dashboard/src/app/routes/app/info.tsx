@@ -47,32 +47,31 @@ export const InfoRoute = () => {
   return (
     <DashboardLayout>
       <ContentLayout>
-        <Card size={"full"}>
+        <Card size={"eighty"}>
           <CardDescription display={"col"}>
-            <Card>
-              <CardTitle>Stats</CardTitle>
-              <CardDescription>
-                <Table>
-                  <TableBody>
-                    <TableRow>
-                      <TableCell>Value</TableCell>
-                      <TableCell>500</TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell>Volume</TableCell>
-                      <TableCell>500</TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell>Market Cap</TableCell>
-                      <TableCell>500</TableCell>
-                    </TableRow>
-                  </TableBody>
-                </Table>
-              </CardDescription>
-            </Card>
-            <Card size={"half"}>
-              <Chart options={data} />
-            </Card>
+            <CardTitle>Stats</CardTitle>
+
+            <Table>
+              <TableBody>
+                <TableRow>
+                  <TableCell>Value</TableCell>
+                  <TableCell>500</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>Volume</TableCell>
+                  <TableCell>500</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>Market Cap</TableCell>
+                  <TableCell>500</TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
+          </CardDescription>
+        </Card>
+        <Card size={"eighty"}>
+          <CardDescription>
+            <Chart options={data} />
           </CardDescription>
         </Card>
       </ContentLayout>

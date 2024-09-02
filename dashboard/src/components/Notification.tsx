@@ -56,7 +56,7 @@ const NotificationContainer = forwardRef<
   return (
     <div
       ref={ref}
-      className="fixed bg-white h-5/6 mt-[3%] h-[96%] w-1/6 text-center p-4"
+      className="fixed bg-white h-5/6 mt-[3%] h-[96%] shadow-lg w-1/6 text-center p-4"
       {...props}
     >
       <h1 className="font-extrabold text-xl">Notification</h1>

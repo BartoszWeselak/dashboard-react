@@ -23,6 +23,8 @@ const cardVariants = cva(
         medium: "h-128 w-128",
         half: "w-1/2",
         full: "w-full",
+        tquater: "w-3/4",
+        eighty: "w-4/5",
       },
       display: {
         col: "flex flex-row",

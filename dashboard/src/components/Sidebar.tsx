@@ -35,7 +35,7 @@ const Sidebar = forwardRef<HTMLDivElement, SidebarProps>(
         ></div>
         <div
           className={twMerge(
-            "fixed top-0 left-0 h-screen bg-gray-300 transition-transform duration-500 ",
+            "fixed top-0 left-0 h-screen bg-gray-300 transition-transform duration-500 shadow-xl",
             isOpen ? "translate-x-0 w-64" : "-translate-x-full w-0",
             className
           )}
