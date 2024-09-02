@@ -10,6 +10,7 @@ export const buttonVariants = cva("w-full hover:opacity-80", {
       danger: "bg-red-500 text-white",
       tab: "bg-white text-black",
       buy: "bg-green-500 text-white rounded-lg",
+      none: "",
     },
     size: {
       small: "px-2 py-1 text-sm",
@@ -18,6 +19,7 @@ export const buttonVariants = cva("w-full hover:opacity-80", {
       xlarge: " py-4 text-lg",
     },
     widths: {
+      xsmall: " w-[4%]",
       small: "w-1/6",
       medium: "w-1/4",
     },

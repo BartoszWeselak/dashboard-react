@@ -15,6 +15,35 @@ import { useParams } from "react-router-dom";
 export const InfoRoute = () => {
   const { id } = useParams<{ id: string }>();
 
+  const data: Highcharts.Options = {
+    title: {
+      text: "tests",
+    },
+    xAxis: {
+      type: "datetime",
+      labels: {
+        format: "{value:%Y-%m-%d}",
+      },
+    },
+    series: [
+      {
+        type: "line",
+
+        data: [
+          [Date.UTC(2024, 7, 23), 2.8],
+          [Date.UTC(2024, 7, 24), 3.7],
+          [Date.UTC(2024, 7, 25), 6.1],
+          [Date.UTC(2024, 7, 26), 1.6],
+          [Date.UTC(2024, 7, 27), 4.2],
+          [Date.UTC(2024, 7, 28), 5],
+          [Date.UTC(2024, 7, 29), 2.2],
+          [Date.UTC(2024, 7, 30), 3.4],
+        ],
+        name: "Value",
+      },
+    ],
+  };
+
   return (
     <DashboardLayout>
       <ContentLayout>
@@ -42,7 +71,7 @@ export const InfoRoute = () => {
               </CardDescription>
             </Card>
             <Card size={"half"}>
-              <Chart />
+              <Chart options={data} />
             </Card>
           </CardDescription>
         </Card>
