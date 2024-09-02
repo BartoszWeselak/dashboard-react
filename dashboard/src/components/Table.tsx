@@ -17,7 +17,7 @@ const tableVariants = cva("text-center w-full h-full", {
   },
   defaultVariants: {
     size: "large",
-    border: "thick",
+    border: "none",
   },
 });
 
@@ -34,7 +34,7 @@ const tableRowVariants = cva("", {
   },
 });
 
-const tableCellVariants = cva("bg-slate-300 border-2 border-cyan-900", {
+const tableCellVariants = cva("text-sm", {
   variants: {
     alignment: {
       left: "text-left",
@@ -46,6 +46,9 @@ const tableCellVariants = cva("bg-slate-300 border-2 border-cyan-900", {
       small: "p-2",
       medium: "p-4",
       large: "p-6",
+    },
+    border: {
+      small: " border-1 border-black",
     },
   },
   defaultVariants: {
@@ -165,12 +168,12 @@ export const TableRow = forwardRef<HTMLTableRowElement, TableRowProps>(
 TableRow.displayName = "TableRow";
 
 export const TableCell = forwardRef<HTMLTableCellElement, TableCellProps>(
-  ({ children, className, alignment, padding, ...props }, ref) => {
+  ({ children, className, alignment, border, padding, ...props }, ref) => {
     return (
       <td
         ref={ref}
         className={twMerge(
-          tableCellVariants({ alignment, padding }),
+          tableCellVariants({ alignment, padding, border }),
           className
         )}
         {...props}

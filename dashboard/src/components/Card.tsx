@@ -3,7 +3,7 @@ import { twMerge } from "tailwind-merge";
 import { cva, VariantProps } from "class-variance-authority";
 
 const cardVariants = cva(
-  "mx-auto border content-center border-gray-200 rounded-lg shadow-lg ring-2 ring-black/5 ",
+  "mx-auto border content-center rounded-lg shadow-lg ring-2 ring-black/5 ",
   {
     variants: {
       shadow: {
@@ -21,7 +21,8 @@ const cardVariants = cva(
       size: {
         small: "h-64 w-64",
         medium: "h-128 w-128",
-        full: "h-full w-full",
+        half: "w-1/2",
+        full: "w-full",
       },
       display: {
         col: "flex flex-row",

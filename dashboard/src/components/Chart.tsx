@@ -10,7 +10,7 @@ interface ChartProps extends React.HTMLAttributes<HTMLDivElement> {
 
 const defaultChartOptions: Highcharts.Options = {
   title: {
-    text: "Bitcoin",
+    text: "This is mock chart",
   },
   xAxis: {
     type: "datetime",
@@ -32,7 +32,7 @@ const defaultChartOptions: Highcharts.Options = {
         [Date.UTC(2024, 7, 29), 2.2],
         [Date.UTC(2024, 7, 30), 3.4],
       ],
-      name: "Bitcoin Value",
+      name: "Value",
     },
   ],
 };
