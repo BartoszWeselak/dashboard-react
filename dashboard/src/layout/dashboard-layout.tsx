@@ -9,8 +9,7 @@ import { Logo } from "../components/Logo";
 import { Avatar, AvatarBox } from "../components/Avatar";
 import { Link } from "../components/Link";
 import { Dropdown, DropdownItem } from "../components/Dropdown";
-
-import Notification from "../components/Notification";
+import { NotificationBar, Notification } from "../components/Notification";
 
 interface DashboardLayoutProps {
   children?: React.ReactNode;
@@ -45,9 +44,10 @@ export const DashboardLayout = ({ children }: DashboardLayoutProps) => {
       </Sidebar>
 
       <div className="w-full ">
-        <Notification>
-          <p>test</p>
-        </Notification>
+        <NotificationBar>
+          <Notification>test</Notification>
+          <Notification>test</Notification>
+        </NotificationBar>
         {children}
       </div>
     </div>

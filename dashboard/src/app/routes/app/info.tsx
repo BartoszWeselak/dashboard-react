@@ -55,15 +55,15 @@ export const InfoRoute = () => {
               <TableBody>
                 <TableRow>
                   <TableCell>Value</TableCell>
-                  <TableCell>500</TableCell>
+                  <TableCell>{500 * Number(id)}</TableCell>
                 </TableRow>
                 <TableRow>
                   <TableCell>Volume</TableCell>
-                  <TableCell>500</TableCell>
+                  <TableCell>{500 * Number(id)}</TableCell>
                 </TableRow>
                 <TableRow>
                   <TableCell>Market Cap</TableCell>
-                  <TableCell>500</TableCell>
+                  <TableCell>{500 * Number(id)}</TableCell>
                 </TableRow>
               </TableBody>
             </Table>

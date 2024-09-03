@@ -6,12 +6,12 @@ import { Button } from "./Button";
 import { useDisclosure } from "../hooks/use-disclosure";
 import { Divider } from "./Divider";
 
-interface NotificationProps extends React.HTMLAttributes<HTMLDivElement> {
+interface NotificationBarProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode;
   className?: string;
 }
 
-const Notification = forwardRef<HTMLDivElement, NotificationProps>(
+export const NotificationBar = forwardRef<HTMLDivElement, NotificationBarProps>(
   ({ children, className, ...props }, ref) => {
     const { close, open, isOpen } = useDisclosure();
 
@@ -66,4 +66,17 @@ const NotificationContainer = forwardRef<
   );
 });
 
-export default Notification;
+interface NotificationProps extends React.HTMLAttributes<HTMLDivElement> {
+  children?: React.ReactNode;
+  className?: string;
+}
+
+export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
+  ({ children }, ref) => {
+    return (
+      <div ref={ref} className="w-full">
+        {children}
+      </div>
+    );
+  }
+);
