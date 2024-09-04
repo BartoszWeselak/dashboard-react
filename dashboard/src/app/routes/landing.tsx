@@ -1,5 +1,3 @@
-import Login from "../../features/auth/Login";
-import SessionComponent from "../../features/auth/Session";
 import { Card, CardDescription } from "../../components/Card";
 import { useAuth } from "../../hooks/auth-context";
 import { ContentLayout } from "../../layout/content-layout";

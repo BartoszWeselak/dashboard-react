@@ -13,7 +13,6 @@ import { NotificationBar, Notification } from "../components/Notification";
 import { useAuth } from "../hooks/auth-context";
 import { Modal } from "../components/Modal";
 import { Button } from "../components/Button";
-import SessionComponent from "../features/auth/Session";
 
 interface DashboardLayoutProps {
   children?: React.ReactNode;
@@ -37,7 +36,7 @@ export const DashboardLayout = ({ children }: DashboardLayoutProps) => {
               </AvatarBox>
             </Link>
           ) : (
-            <Link src="">
+            <Link src="/auth/login">
               <AvatarBox>
                 <Avatar src="https://picsum.photos/200" />
                 <p className="content-center">Please log in</p>
@@ -52,8 +51,14 @@ export const DashboardLayout = ({ children }: DashboardLayoutProps) => {
             </DropdownItem>
             <DropdownItem src="https://picsum.photos/200">Admin</DropdownItem>
             {user ? (
-              <DropdownItem src="https://picsum.photos/200">
-                <Button onClick={logout}>Logout</Button>
+              <DropdownItem>
+                <Button
+                  variant={"danger"}
+                  className="rounded-xl"
+                  onClick={logout}
+                >
+                  Logout
+                </Button>
               </DropdownItem>
             ) : (
               <></>

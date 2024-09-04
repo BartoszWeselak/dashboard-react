@@ -8,11 +8,13 @@ import React, {
 
 interface User {
   username: string;
+  email: string;
+  password: string;
 }
 
 interface AuthContextType {
   user: User | null;
-  login: (username: string) => void;
+  login: (username: string, email: string, password: string) => void;
   logout: () => void;
 }
 
@@ -32,8 +34,8 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     }
   }, []);
 
-  const login = (username: string) => {
-    const user = { username };
+  const login = (username: string, email: string, password: string) => {
+    const user = { username, email, password };
     setUser(user);
     localStorage.setItem("user", JSON.stringify(user));
   };
