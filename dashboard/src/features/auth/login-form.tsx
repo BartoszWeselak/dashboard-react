@@ -10,34 +10,25 @@ interface LoginFormProps {
 }
 
 export const LoginForm = ({ onSucces }: LoginFormProps) => {
-  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const { login } = useAuth();
 
   const handleLogin = () => {
-    login(username, email, password);
+    login(email, password);
   };
 
   return (
     <>
-      <Form>
+      <Form className="flex flex-col gap-4">
         <h1>Login</h1>
-        <Input
-          type="text"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          placeHolder="Enter username"
-        />
-
         <Input
           type="text"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeHolder="Enter email"
         />
-
         <Input
           type="text"
           value={password}
@@ -45,33 +36,6 @@ export const LoginForm = ({ onSucces }: LoginFormProps) => {
           placeHolder="Enter password"
         />
         <Button onClick={handleLogin}>Login</Button>
-      </Form>
-      <br />
-      <p>or</p>
-      <Divider />
-      <Form>
-        <h1>Register</h1>
-        <Input
-          type="text"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          placeHolder="Enter username"
-        />
-
-        <Input
-          type="text"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeHolder="Enter email"
-        />
-
-        <Input
-          type="text"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeHolder="Enter password"
-        />
-        <Button onClick={handleLogin}>Register</Button>
       </Form>
     </>
   );

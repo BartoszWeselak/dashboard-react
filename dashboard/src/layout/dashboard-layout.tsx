@@ -45,11 +45,8 @@ export const DashboardLayout = ({ children }: DashboardLayoutProps) => {
           )}
           <Dropdown>
             <DropdownItem src="https://picsum.photos/200">News</DropdownItem>
-            <DropdownItem src="https://picsum.photos/200">Wallet</DropdownItem>
-            <DropdownItem src="https://picsum.photos/200">
-              Catalague
-            </DropdownItem>
-            <DropdownItem src="https://picsum.photos/200">Admin</DropdownItem>
+            <DropdownItem src="/dashboard">Catalague</DropdownItem>
+
             {user ? (
               <DropdownItem>
                 <Button
