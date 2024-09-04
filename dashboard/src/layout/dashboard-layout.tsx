@@ -10,12 +10,18 @@ import { Avatar, AvatarBox } from "../components/Avatar";
 import { Link } from "../components/Link";
 import { Dropdown, DropdownItem } from "../components/Dropdown";
 import { NotificationBar, Notification } from "../components/Notification";
+import { useAuth } from "../hooks/auth-context";
+import { Modal } from "../components/Modal";
+import { Button } from "../components/Button";
+import SessionComponent from "../features/auth/Session";
 
 interface DashboardLayoutProps {
   children?: React.ReactNode;
 }
 
 export const DashboardLayout = ({ children }: DashboardLayoutProps) => {
+  const { user, logout } = useAuth();
+
   return (
     <div className="flex flex-row bg-gray-100">
       <Sidebar>
@@ -23,12 +29,21 @@ export const DashboardLayout = ({ children }: DashboardLayoutProps) => {
           <Logo src="https://picsum.photos/200" />
         </SidebarHeader>
         <SidebarMain>
-          <Link src="https://picsum.photos/200">
-            <AvatarBox>
-              <Avatar src="https://picsum.photos/200" />
-              <p className="content-center">Your name here</p>
-            </AvatarBox>
-          </Link>
+          {user ? (
+            <Link src="https://picsum.photos/200">
+              <AvatarBox>
+                <Avatar src="https://picsum.photos/200" />
+                <p className="content-center">{user.username}</p>
+              </AvatarBox>
+            </Link>
+          ) : (
+            <Link src="">
+              <AvatarBox>
+                <Avatar src="https://picsum.photos/200" />
+                <p className="content-center">Please log in</p>
+              </AvatarBox>
+            </Link>
+          )}
           <Dropdown>
             <DropdownItem src="https://picsum.photos/200">News</DropdownItem>
             <DropdownItem src="https://picsum.photos/200">Wallet</DropdownItem>
@@ -36,6 +51,13 @@ export const DashboardLayout = ({ children }: DashboardLayoutProps) => {
               Catalague
             </DropdownItem>
             <DropdownItem src="https://picsum.photos/200">Admin</DropdownItem>
+            {user ? (
+              <DropdownItem src="https://picsum.photos/200">
+                <Button onClick={logout}>Logout</Button>
+              </DropdownItem>
+            ) : (
+              <></>
+            )}
           </Dropdown>
         </SidebarMain>
         <SidebarFooter>

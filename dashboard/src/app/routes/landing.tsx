@@ -1,18 +1,23 @@
+import Login from "../../features/auth/Login";
+import SessionComponent from "../../features/auth/Session";
 import { Card, CardDescription } from "../../components/Card";
+import { useAuth } from "../../hooks/auth-context";
 import { ContentLayout } from "../../layout/content-layout";
 import { DashboardLayout } from "../../layout/dashboard-layout";
 
 export const LandingRoute = () => {
+  const { user, logout } = useAuth();
+
   return (
     <DashboardLayout>
       {" "}
       <ContentLayout>
         {" "}
         <Card size={"full"}>
-          <CardDescription>landing page</CardDescription>
+          <CardDescription>test</CardDescription>
         </Card>
         <Card size={"full"}>
-          <CardDescription>landing page</CardDescription>
+          <CardDescription>test</CardDescription>
         </Card>
       </ContentLayout>
     </DashboardLayout>
