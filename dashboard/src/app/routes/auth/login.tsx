@@ -11,7 +11,7 @@ export const LoginRoute = () => {
   const navigate = useNavigate();
 
   const handleSuccess = () => {
-    navigate("/dashboard");
+    navigate("/");
   };
 
   return (

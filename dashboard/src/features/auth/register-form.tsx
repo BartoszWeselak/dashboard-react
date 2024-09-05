@@ -16,7 +16,11 @@ export const RegisterForm = ({ onSucces }: RegisterFormProps) => {
   const { register } = useAuth();
 
   const handleRegister = () => {
-    register(username, email, password);
+    const isRegisterSuccessful = register(username, email, password);
+
+    if (isRegisterSuccessful) {
+      onSucces();
+    }
   };
 
   return (

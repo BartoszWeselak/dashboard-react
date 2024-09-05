@@ -44,7 +44,7 @@ export const DashboardLayout = ({ children }: DashboardLayoutProps) => {
             </Link>
           )}
           <Dropdown>
-            <DropdownItem src="https://picsum.photos/200">News</DropdownItem>
+            <DropdownItem src="/wallet">Wallet</DropdownItem>
             <DropdownItem src="/dashboard">Catalague</DropdownItem>
 
             {user ? (
@@ -63,7 +63,7 @@ export const DashboardLayout = ({ children }: DashboardLayoutProps) => {
           </Dropdown>
         </SidebarMain>
         <SidebarFooter>
-          <p>footer</p>
+          <p></p>
         </SidebarFooter>
       </Sidebar>
 

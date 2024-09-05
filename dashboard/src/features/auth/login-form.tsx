@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { useAuth } from "../../hooks/auth-context";
 import { Form } from "../../components/Form";
 import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
 import { Divider } from "../../components/Divider";
+import { useAuth } from "../../hooks/auth-context";
 
 interface LoginFormProps {
   onSucces: () => void;
@@ -16,7 +16,11 @@ export const LoginForm = ({ onSucces }: LoginFormProps) => {
   const { login } = useAuth();
 
   const handleLogin = () => {
-    login(email, password);
+    const isLoginSuccessful = login(email, password);
+
+    if (isLoginSuccessful) {
+      onSucces();
+    }
   };
 
   return (
