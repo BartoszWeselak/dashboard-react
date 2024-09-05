@@ -5,6 +5,7 @@ import React, {
   ReactNode,
   useEffect,
 } from "react";
+import { useNavigate } from "react-router-dom";
 
 interface User {
   username: string;
@@ -14,7 +15,7 @@ interface User {
 
 interface AuthContextType {
   user: User | null;
-  login: (email: string, password: string) => void;
+  login: (email: string, password: string) => boolean;
   register: (username: string, email: string, password: string) => boolean;
   logout: () => void;
 }
@@ -35,7 +36,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     }
   }, []);
 
-  const login = (email: string, password: string) => {
+  const login = (email: string, password: string): boolean => {
     const storedUsers = JSON.parse(localStorage.getItem("users") || "[]");
     const existingUser = storedUsers.find(
       (user: User) => user.email === email && user.password === password
@@ -43,8 +44,10 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     if (existingUser) {
       setUser(existingUser);
       localStorage.setItem("currentUser", JSON.stringify(existingUser));
+      return true;
     } else {
       alert("Invalid email or password");
+      return false;
     }
   };
 
@@ -59,14 +62,14 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     if (existingUser) {
       alert("User with this email already exists");
       return false;
+    } else {
+      const newUser: User = { username, email, password };
+      storedUsers.push(newUser);
+      localStorage.setItem("users", JSON.stringify(storedUsers));
+      setUser(newUser);
+      localStorage.setItem("currentUser", JSON.stringify(newUser));
+      return true;
     }
-
-    const newUser: User = { username, email, password };
-    storedUsers.push(newUser);
-    localStorage.setItem("users", JSON.stringify(storedUsers));
-    setUser(newUser);
-    localStorage.setItem("currentUser", JSON.stringify(newUser));
-    return true;
   };
 
   const logout = () => {
@@ -84,4 +87,13 @@ export const useAuth = (): AuthContextType => {
     throw new Error("useAuth must be used within an AuthProvider");
   }
   return context;
+};
+
+export const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
+  const { user } = useAuth();
+  const navigate = useNavigate();
+
+  if (!user) {
+    navigate("/");
+  }
 };
