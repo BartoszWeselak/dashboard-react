@@ -1,3 +1,4 @@
+import FetchData from "../../../api/api";
 import { Button } from "../../../components/Button";
 import { Card, CardDescription, CardTitle } from "../../../components/Card";
 import { Chart } from "../../../components/Chart";

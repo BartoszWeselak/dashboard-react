@@ -1,3 +1,4 @@
+import React from "react";
 import {
   faBitcoinSign,
   faDollar,
@@ -7,7 +8,6 @@ import { Divider } from "../../../components/Divider";
 import { Tab, Tabs } from "../../../components/Tab";
 import { ContentLayout } from "../../../layout/content-layout";
 import { DashboardLayout } from "../../../layout/dashboard-layout";
-
 import { Card, CardTitle, CardDescription } from "../../../components/Card";
 import {
   Table,
@@ -17,21 +17,12 @@ import {
   TableBody,
 } from "../../../components/Table";
 import { Chart } from "../../../components/Chart";
+import useFetchData from "../../../api/api";
 
-export const DashboardRoute = () => {
-  const popData = [
-    { Name: "Bitcoin", Value: 133.4, color: "bg-yellow-300" },
-    { Name: "ETH", Value: 132.32, color: "bg-blue-300" },
-    { Name: "Doge", Value: 1.3, color: "bg-yellow-200" },
-  ];
+export const DashboardRoute: React.FC = () => {
+  const { cryptocurrencies } = useFetchData();
+  const topThreeCryptocurrencies = cryptocurrencies.slice(0, 3);
 
-  const tableData = [
-    { Name: "B", Value: 100, Volume: 200, Cap: 300 },
-    { Name: "B", Value: 100, Volume: 200, Cap: 300 },
-    { Name: "B", Value: 100, Volume: 200, Cap: 300 },
-    { Name: "B", Value: 100, Volume: 200, Cap: 300 },
-    { Name: "B", Value: 100, Volume: 200, Cap: 300 },
-  ];
   return (
     <DashboardLayout>
       <Tabs defaultActiveTab={0}>
@@ -42,13 +33,14 @@ export const DashboardRoute = () => {
               <Chart />
             </Card>
             <Card size={"full"}>
-              <CardTitle>test</CardTitle>
-
+              <CardTitle>Crypto Data</CardTitle>
               <CardDescription display={"col"}>
-                {popData.map((item, index) => (
-                  <Card key={index} className={item.color}>
-                    <CardTitle>{item.Name}</CardTitle>
-                    <CardDescription>{item.Value} USD</CardDescription>
+                {topThreeCryptocurrencies.map((item) => (
+                  <Card key={item.id} className="bg-yellow-300">
+                    <CardTitle>{item.name}</CardTitle>
+                    <CardDescription>
+                      {item.symbol} - ${item.snapshots[0]?.price} USD
+                    </CardDescription>
                   </Card>
                 ))}
               </CardDescription>
@@ -59,18 +51,15 @@ export const DashboardRoute = () => {
                   <TableRow>
                     <TableCell>Name</TableCell>
                     <TableCell>Value</TableCell>
-                    <TableCell>MarketCap</TableCell>
-                    <TableCell>Wolumen</TableCell>
+
                     <TableCell>Buy</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {tableData.map((item, index) => (
-                    <TableRow key={index}>
-                      <TableCell>{item.Name}</TableCell>
-                      <TableCell>{item.Value}</TableCell>
-                      <TableCell>{item.Volume}</TableCell>
-                      <TableCell>{item.Cap}</TableCell>
+                  {cryptocurrencies.map((item) => (
+                    <TableRow key={item.id}>
+                      <TableCell>{item.name}</TableCell>
+                      <TableCell>{item.snapshots[0].price}</TableCell>
                       <TableCell>x</TableCell>
                     </TableRow>
                   ))}

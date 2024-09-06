@@ -1,5 +1,6 @@
 [
     {
+        "id":1,
         "name": "Bitcoin",
         "symbol": "BIT",
         "snapshots": [
@@ -126,6 +127,7 @@
         ]
     },
     {
+        "id":2,
         "name": "Ethereum",
         "symbol": "ETH",
         "snapshots": [
@@ -251,7 +253,7 @@
             }
         ]
     },
-    {
+    {   "id":3,
         "name": "Ripple",
         "symbol": "RIP",
         "snapshots": [
@@ -377,7 +379,7 @@
             }
         ]
     },
-    {
+    {   "id":4,
         "name": "Litecoin",
         "symbol": "LIT",
         "snapshots": [
@@ -503,7 +505,7 @@
             }
         ]
     },
-    {
+    {   "id":5,
         "name": "Cardano",
         "symbol": "CAR",
         "snapshots": [
@@ -629,7 +631,7 @@
             }
         ]
     },
-    {
+    {   "id":6,
         "name": "Polkadot",
         "symbol": "POL",
         "snapshots": [
@@ -756,6 +758,7 @@
         ]
     },
     {
+        "id":7,
         "name": "Chainlink",
         "symbol": "CHA",
         "snapshots": [
@@ -881,7 +884,7 @@
             }
         ]
     },
-    {
+    {   "id":8,
         "name": "Stellar",
         "symbol": "STE",
         "snapshots": [
@@ -1007,7 +1010,7 @@
             }
         ]
     },
-    {
+    {   "id":9,
         "name": "Dogecoin",
         "symbol": "DOG",
         "snapshots": [
