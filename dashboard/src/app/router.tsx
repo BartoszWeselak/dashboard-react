@@ -43,6 +43,13 @@ export const createAppRouter = (queryClient: QueryClient) => {
     {
       path: "*",
     },
+    {
+      path: "/profile",
+      lazy: async () => {
+        const { ProfileRoute } = await import("./routes/app/profile");
+        return { Component: ProfileRoute };
+      },
+    },
   ];
   const router = createBrowserRouter(routes);
 

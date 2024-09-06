@@ -96,4 +96,5 @@ export const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   if (!user) {
     navigate("/");
   }
+  return children;
 };

@@ -11,8 +11,8 @@ import { Link } from "../components/Link";
 import { Dropdown, DropdownItem } from "../components/Dropdown";
 import { NotificationBar, Notification } from "../components/Notification";
 import { useAuth } from "../hooks/auth-context";
-import { Modal } from "../components/Modal";
 import { Button } from "../components/Button";
+import { useNavigate } from "react-router-dom";
 
 interface DashboardLayoutProps {
   children?: React.ReactNode;
@@ -20,6 +20,12 @@ interface DashboardLayoutProps {
 
 export const DashboardLayout = ({ children }: DashboardLayoutProps) => {
   const { user, logout } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate("/");
+  };
 
   return (
     <div className="flex flex-row bg-gray-100">
@@ -46,13 +52,12 @@ export const DashboardLayout = ({ children }: DashboardLayoutProps) => {
           <Dropdown>
             <DropdownItem src="/wallet">Wallet</DropdownItem>
             <DropdownItem src="/dashboard">Catalague</DropdownItem>
-
             {user ? (
               <DropdownItem>
                 <Button
                   variant={"danger"}
                   className="rounded-xl"
-                  onClick={logout}
+                  onClick={handleLogout}
                 >
                   Logout
                 </Button>
