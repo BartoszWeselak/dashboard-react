@@ -18,6 +18,7 @@ import {
 } from "../../../components/Table";
 import { Chart } from "../../../components/Chart";
 import useFetchData from "../../../api/api";
+import { Link } from "../../../components/Link";
 
 export const DashboardRoute: React.FC = () => {
   const { cryptocurrencies } = useFetchData();
@@ -37,10 +38,12 @@ export const DashboardRoute: React.FC = () => {
               <CardDescription display={"col"}>
                 {topThreeCryptocurrencies.map((item) => (
                   <Card key={item.id} className="bg-yellow-300">
-                    <CardTitle>{item.name}</CardTitle>
-                    <CardDescription>
-                      {item.symbol} - ${item.snapshots[0]?.price} USD
-                    </CardDescription>
+                    <Link src={"/info/" + item.id}>
+                      <CardTitle>{item.name}</CardTitle>
+                      <CardDescription>
+                        {item.symbol} - ${item.snapshots[0]?.price} USD
+                      </CardDescription>
+                    </Link>
                   </Card>
                 ))}
               </CardDescription>
@@ -57,10 +60,12 @@ export const DashboardRoute: React.FC = () => {
                 </TableHead>
                 <TableBody>
                   {cryptocurrencies.map((item) => (
-                    <TableRow key={item.id}>
+                    <TableRow>
                       <TableCell>{item.name}</TableCell>
                       <TableCell>{item.snapshots[0].price}</TableCell>
-                      <TableCell>x</TableCell>
+                      <Link src={"/info/" + item.id}>
+                        <TableCell>x</TableCell>
+                      </Link>
                     </TableRow>
                   ))}
                 </TableBody>

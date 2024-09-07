@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 
 import { AppRoot } from "./routes/app/root";
+import { ProtectedRoute } from "../hooks/auth-context";
 
 export const createAppRouter = (queryClient: QueryClient) => {
   const routes: RouteObject[] = [
@@ -47,7 +48,26 @@ export const createAppRouter = (queryClient: QueryClient) => {
       path: "/profile",
       lazy: async () => {
         const { ProfileRoute } = await import("./routes/app/profile");
-        return { Component: ProfileRoute };
+        return {
+          Component: () => (
+            <ProtectedRoute>
+              <ProfileRoute />
+            </ProtectedRoute>
+          ),
+        };
+      },
+    },
+    {
+      path: "/wallet",
+      lazy: async () => {
+        const { WalletRoute } = await import("./routes/app/wallet");
+        return {
+          Component: () => (
+            <ProtectedRoute>
+              <WalletRoute />
+            </ProtectedRoute>
+          ),
+        };
       },
     },
   ];

@@ -5,7 +5,7 @@ import React, {
   ReactNode,
   useEffect,
 } from "react";
-import { useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 interface User {
   username: string;
@@ -91,10 +91,10 @@ export const useAuth = (): AuthContextType => {
 
 export const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   const { user } = useAuth();
-  const navigate = useNavigate();
 
   if (!user) {
-    navigate("/");
+    return <Navigate to="/" replace />;
   }
-  return children;
+
+  return <>{children}</>;
 };
