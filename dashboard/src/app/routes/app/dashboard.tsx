@@ -21,8 +21,8 @@ import useFetchData from "../../../api/api";
 import { Link } from "../../../components/Link";
 
 export const DashboardRoute: React.FC = () => {
-  const { cryptocurrencies } = useFetchData();
-  const topThreeCryptocurrencies = cryptocurrencies.slice(0, 3);
+  const { assets } = useFetchData("cryptocurrencies");
+  const topThreeCryptocurrencies = assets.slice(0, 3);
 
   return (
     <DashboardLayout>
@@ -59,7 +59,7 @@ export const DashboardRoute: React.FC = () => {
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {cryptocurrencies.map((item) => (
+                  {assets.map((item) => (
                     <TableRow>
                       <TableCell>{item.name}</TableCell>
                       <TableCell>{item.snapshots[0].price}</TableCell>

@@ -1,28 +1,35 @@
 import { useEffect, useState } from "react";
-import cryptocurrenciesData from "../data/cryptocurrencies.json";
-
 interface Snapshot {
   date: string;
   price: number;
 }
 
-interface Cryptocurrency {
+interface Asset {
   id: number;
   name: string;
   symbol: string;
   snapshots: Snapshot[];
 }
 
-const useFetchData = () => {
-  const [cryptocurrencies, setCryptocurrencies] = useState<Cryptocurrency[]>(
-    []
-  );
+const useFetchData = (
+  dataType: "cryptocurrencies" | "stocks" | "commodities"
+) => {
+  const [assets, setAssets] = useState<Asset[]>([]);
 
   useEffect(() => {
-    setCryptocurrencies(cryptocurrenciesData);
-  }, []);
+    let data;
+    if (dataType === "cryptocurrencies") {
+      data = require("../data/cryptocurrencies.json");
+    } else if (dataType === "stocks") {
+      data = require("../data/stock.json");
+    } else if (dataType === "commodities") {
+      data = require("../data/commodities.json");
+    }
 
-  return { cryptocurrencies };
+    setAssets(data);
+  }, [dataType]);
+
+  return { assets };
 };
 
 export default useFetchData;

@@ -9,8 +9,13 @@ export const ProfileRoute = () => {
   const { user } = useAuth();
   return (
     <DashboardLayout>
-      <Card>
-        <CardDescription>{user?.username}</CardDescription>
+      <Card size={"full"}>
+        <CardDescription display={"row"}>
+          <h1>Name:</h1>
+          {user?.username}
+          <h1>Email:</h1>
+          {user?.email}
+        </CardDescription>
       </Card>
     </DashboardLayout>
   );

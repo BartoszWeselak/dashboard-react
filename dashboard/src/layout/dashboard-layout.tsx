@@ -35,7 +35,7 @@ export const DashboardLayout = ({ children }: DashboardLayoutProps) => {
         </SidebarHeader>
         <SidebarMain>
           {user ? (
-            <Link src="https://picsum.photos/200">
+            <Link src="/profile">
               <AvatarBox>
                 <Avatar src="https://picsum.photos/200" />
                 <p className="content-center">{user.username}</p>

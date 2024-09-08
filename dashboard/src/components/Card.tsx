@@ -19,10 +19,10 @@ const cardVariants = cva(
         large: "rounded-lg",
       },
       size: {
-        small: "h-64 w-64",
-        medium: "h-128 w-128",
+        small: "h-48 w-48",
+        medium: "h-96 w-96",
         half: "w-1/2",
-        full: "w-full",
+        full: "w-5/6",
         tquater: "w-3/4",
         eighty: "w-4/5",
       },
