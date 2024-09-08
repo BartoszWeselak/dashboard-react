@@ -17,7 +17,7 @@ import {
   TableBody,
 } from "../../../components/Table";
 import { Chart } from "../../../components/Chart";
-import useFetchData from "../../../api/api";
+import { useFetchData } from "../../../api/api";
 import { Link } from "../../../components/Link";
 
 const data: Highcharts.Options = {

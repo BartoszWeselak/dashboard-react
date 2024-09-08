@@ -13,6 +13,7 @@ import { NotificationBar, Notification } from "../components/Notification";
 import { useAuth } from "../hooks/auth-context";
 import { Button } from "../components/Button";
 import { useNavigate } from "react-router-dom";
+import { Card, CardDescription, CardTitle } from "../components/Card";
 
 interface DashboardLayoutProps {
   children?: React.ReactNode;
@@ -74,8 +75,14 @@ export const DashboardLayout = ({ children }: DashboardLayoutProps) => {
 
       <div className="w-full ">
         <NotificationBar>
-          <Notification>test</Notification>
-          <Notification>test</Notification>
+          <Notification>
+            <Card size={"wide"}>
+              <CardTitle>
+                {" "}
+                <Link src="/info/5">New Offer</Link>
+              </CardTitle>
+            </Card>
+          </Notification>
         </NotificationBar>
         {children}
       </div>

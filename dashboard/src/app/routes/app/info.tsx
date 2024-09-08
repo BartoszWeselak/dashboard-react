@@ -1,4 +1,4 @@
-import FetchData from "../../../api/api";
+import { useFetchDataSingle } from "../../../api/api";
 import { Button } from "../../../components/Button";
 import { Card, CardDescription, CardTitle } from "../../../components/Card";
 import { Chart } from "../../../components/Chart";
@@ -15,6 +15,7 @@ import { useParams } from "react-router-dom";
 
 export const InfoRoute = () => {
   const { id } = useParams<{ id: string }>();
+  const { asset } = useFetchDataSingle("cryptocurrencies", Number(id));
 
   const data: Highcharts.Options = {
     title: {
@@ -56,7 +57,7 @@ export const InfoRoute = () => {
               <TableBody>
                 <TableRow>
                   <TableCell>Value</TableCell>
-                  <TableCell>{500 * Number(id)}</TableCell>
+                  <TableCell>{asset?.snapshots[0].price} USD</TableCell>
                 </TableRow>
                 <TableRow>
                   <TableCell>Volume</TableCell>

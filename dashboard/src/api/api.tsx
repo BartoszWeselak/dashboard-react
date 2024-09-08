@@ -11,7 +11,7 @@ interface Asset {
   snapshots: Snapshot[];
 }
 
-const useFetchData = (
+export const useFetchData = (
   dataType: "cryptocurrencies" | "stocks" | "commodities"
 ) => {
   const [assets, setAssets] = useState<Asset[]>([]);
@@ -32,11 +32,11 @@ const useFetchData = (
   return { assets };
 };
 
-const useFetchDataSingle = (
+export const useFetchDataSingle = (
   dataType: "cryptocurrencies" | "stocks" | "commodities",
   id: number
 ) => {
-  const [assets, setAssets] = useState<Asset[]>([]);
+  const [asset, setAsset] = useState<Asset | null>(null);
 
   useEffect(() => {
     let data;
@@ -48,10 +48,10 @@ const useFetchDataSingle = (
       data = require("../data/commodities.json");
     }
 
-    setAssets(data);
-  }, [dataType]);
+    const foundAsset = data.find((item: Asset) => item.id === id);
 
-  return { assets };
+    setAsset(foundAsset);
+  }, [dataType, id]);
+
+  return { asset };
 };
-
-export default useFetchData;
