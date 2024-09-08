@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   faBitcoinSign,
   faDollar,
@@ -20,9 +20,77 @@ import { Chart } from "../../../components/Chart";
 import useFetchData from "../../../api/api";
 import { Link } from "../../../components/Link";
 
+const data: Highcharts.Options = {
+  title: {
+    text: "tests",
+  },
+  xAxis: {
+    type: "datetime",
+    labels: {
+      format: "{value:%Y-%m-%d}",
+    },
+  },
+  series: [
+    {
+      type: "line",
+
+      data: [
+        [Date.UTC(2024, 7, 23), 2.8],
+        [Date.UTC(2024, 7, 24), 3.7],
+        [Date.UTC(2024, 7, 25), 6.1],
+        [Date.UTC(2024, 7, 26), 1.6],
+        [Date.UTC(2024, 7, 27), 4.2],
+        [Date.UTC(2024, 7, 28), 5],
+        [Date.UTC(2024, 7, 29), 2.2],
+        [Date.UTC(2024, 7, 30), 3.4],
+      ],
+      name: "Value",
+    },
+  ],
+};
+
 export const DashboardRoute: React.FC = () => {
   const { assets } = useFetchData("cryptocurrencies");
   const topThreeCryptocurrencies = assets.slice(0, 3);
+  const [chartData, setChartData] = useState<Highcharts.SeriesOptionsType[]>(
+    []
+  );
+
+  useEffect(() => {
+    if (assets.length > 0) {
+      const newChartData: Highcharts.SeriesBarOptions = {
+        type: "bar",
+        name: "Cryptocurrency Prices",
+        data: assets.map((item) => ({
+          name: item.name,
+          y: item.snapshots[0].price,
+        })),
+      };
+
+      setChartData([newChartData]);
+    }
+  }, [assets]);
+
+  const chartOptions: Highcharts.Options = {
+    chart: {
+      type: "bar",
+    },
+    title: {
+      text: "Cryptocurrency Prices",
+    },
+    xAxis: {
+      categories: assets.map((item) => item.name),
+      title: {
+        text: "Cryptocurrencies",
+      },
+    },
+    yAxis: {
+      title: {
+        text: "Price (USD)",
+      },
+    },
+    series: chartData,
+  };
 
   return (
     <DashboardLayout>
@@ -31,10 +99,10 @@ export const DashboardRoute: React.FC = () => {
           <Divider />
           <ContentLayout>
             <Card size={"full"}>
-              <Chart />
+              <Chart options={chartOptions} />
             </Card>
             <Card size={"full"}>
-              <CardTitle>Crypto Data</CardTitle>
+              <CardTitle>Popular</CardTitle>
               <CardDescription display={"col"}>
                 {topThreeCryptocurrencies.map((item) => (
                   <Card key={item.id} className="bg-yellow-300">

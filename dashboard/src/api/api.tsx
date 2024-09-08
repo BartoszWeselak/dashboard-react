@@ -32,4 +32,26 @@ const useFetchData = (
   return { assets };
 };
 
+const useFetchDataSingle = (
+  dataType: "cryptocurrencies" | "stocks" | "commodities",
+  id: number
+) => {
+  const [assets, setAssets] = useState<Asset[]>([]);
+
+  useEffect(() => {
+    let data;
+    if (dataType === "cryptocurrencies") {
+      data = require("../data/cryptocurrencies.json");
+    } else if (dataType === "stocks") {
+      data = require("../data/stock.json");
+    } else if (dataType === "commodities") {
+      data = require("../data/commodities.json");
+    }
+
+    setAssets(data);
+  }, [dataType]);
+
+  return { assets };
+};
+
 export default useFetchData;
