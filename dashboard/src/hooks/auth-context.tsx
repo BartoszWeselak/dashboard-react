@@ -18,6 +18,11 @@ interface AuthContextType {
   login: (email: string, password: string) => boolean;
   register: (username: string, email: string, password: string) => boolean;
   logout: () => void;
+  change: (
+    newUsername: string,
+    newEmail: string,
+    newPassword: string
+  ) => boolean;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -77,7 +82,51 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     localStorage.removeItem("currentUser");
   };
 
-  const value = { user, login, register, logout };
+  const change = (
+    newUsername?: string,
+    newEmail?: string,
+    newPassword?: string
+  ): boolean => {
+    const storedUsers = JSON.parse(localStorage.getItem("users") || "[]");
+    const currentUser = JSON.parse(
+      localStorage.getItem("currentUser") || "null"
+    );
+
+    if (!currentUser) {
+      alert("No user is currently logged in.");
+      return false;
+    }
+
+    if (newEmail && newEmail !== currentUser.email) {
+      const emailTaken = storedUsers.some(
+        (user: User) => user.email === newEmail
+      );
+
+      if (emailTaken) {
+        alert("Email is already taken by another user.");
+        return false;
+      }
+    }
+
+    const updatedUser: User = {
+      username: newUsername || currentUser.username,
+      email: newEmail || currentUser.email,
+      password: newPassword || currentUser.password,
+    };
+
+    const updatedUsers = storedUsers.map((user: User) =>
+      user.email === currentUser.email ? updatedUser : user
+    );
+
+    localStorage.setItem("users", JSON.stringify(updatedUsers));
+    localStorage.setItem("currentUser", JSON.stringify(updatedUser));
+
+    setUser(updatedUser);
+
+    return true;
+  };
+
+  const value = { user, login, register, logout, change };
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
 
