@@ -32,7 +32,7 @@ export const DashboardLayout = ({ children }: DashboardLayoutProps) => {
     <div className="flex flex-row bg-gray-100">
       <Sidebar>
         <SidebarHeader>
-          <Logo src="https://picsum.photos/200" />
+          <Logo src="/logo.png" />
         </SidebarHeader>
         <SidebarMain>
           {user ? (

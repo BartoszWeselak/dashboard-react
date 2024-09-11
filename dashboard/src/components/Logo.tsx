@@ -15,7 +15,7 @@ export const Logo = forwardRef<HTMLImageElement, LogoProps>(
           ref={ref}
           src={src}
           alt="logo"
-          className={twMerge("w-5/6 h-24 p-4", className)}
+          className={twMerge("w-4/6 h-32 p-4", className)}
           {...props}
         />
       </Link>
