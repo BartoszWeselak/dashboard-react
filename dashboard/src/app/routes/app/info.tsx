@@ -2,7 +2,7 @@ import { useFetchDataSingle } from "../../../api/api";
 import { Button } from "../../../components/Button";
 import { Card, CardDescription, CardTitle } from "../../../components/Card";
 import { Chart } from "../../../components/Chart";
-import { Divider } from "../../../components/Divider";
+import { Modal } from "../../../components/Modal";
 import {
   Table,
   TableBody,
@@ -69,6 +69,9 @@ export const InfoRoute = () => {
                 </TableRow>
               </TableBody>
             </Table>
+            <Modal
+              triggerButton={<Button variant={"buy"}>Trade</Button>}
+            ></Modal>
           </CardDescription>
         </Card>
         <Card size={"eighty"}>

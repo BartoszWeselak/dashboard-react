@@ -19,6 +19,7 @@ const cardVariants = cva(
         large: "rounded-lg",
       },
       size: {
+        flex: "",
         wide: "h-16 w-5/6",
         small: "h-48 w-48",
         medium: "h-96 w-96",
@@ -35,7 +36,7 @@ const cardVariants = cva(
     defaultVariants: {
       shadow: "large",
       borderRadius: "large",
-      size: "small",
+      size: "flex",
     },
   }
 );

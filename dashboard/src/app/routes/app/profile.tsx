@@ -12,7 +12,7 @@ export const ProfileRoute = () => {
 
   const { user } = useAuth();
   const handleSuccess = () => {
-    navigate("/");
+    console.log("succes");
   };
 
   return (

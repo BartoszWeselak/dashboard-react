@@ -4,13 +4,14 @@ import { Button } from "./Button";
 import { useDisclosure } from "../hooks/use-disclosure";
 
 interface ModalContainerProps extends React.HTMLAttributes<HTMLDivElement> {
+  className?: string;
   children?: React.ReactNode;
   isOpen: boolean;
   onClose: () => void;
 }
 
 const ModalContainer = forwardRef<HTMLDivElement, ModalContainerProps>(
-  ({ children, isOpen, onClose, ...props }, ref) => {
+  ({ className, children, isOpen, onClose, ...props }, ref) => {
     if (!isOpen) return null;
 
     return (
@@ -29,7 +30,7 @@ const ModalContainer = forwardRef<HTMLDivElement, ModalContainerProps>(
               X
             </Button>
           </div>
-          <div className="text-center ">{children}</div>
+          <div className={twMerge("text-center", className)}>{children}</div>
         </div>
       </div>
     );

@@ -11,6 +11,7 @@ interface User {
   username: string;
   email: string;
   password: string;
+  avatar?: string;
 }
 
 interface AuthContextType {
@@ -63,8 +64,21 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   ): boolean => {
     const storedUsers = JSON.parse(localStorage.getItem("users") || "[]");
     const existingUser = storedUsers.find((user: User) => user.email === email);
-
-    if (existingUser) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const passwordRegex =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    if (username.length < 1 || email.length < 1 || password.length < 1) {
+      alert("Fill all fields");
+      return false;
+    } else if (!emailRegex.test(email)) {
+      alert("Invalid email");
+      return false;
+    } else if (!passwordRegex.test(password)) {
+      alert(
+        "Password must be 8 characters long and contain a least one: lowercase letter, uppercase letter, number, special character(@$%)"
+      );
+      return false;
+    } else if (existingUser) {
       alert("User with this email already exists");
       return false;
     } else {
