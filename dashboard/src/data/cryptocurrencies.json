@@ -3,6 +3,8 @@
         "id":1,
         "name": "Bitcoin",
         "symbol": "BIT",
+        "volume":902578,
+        "marketCap":1181758,
         "snapshots": [
             {
                 "date": "2024-09-06",
@@ -130,6 +132,8 @@
         "id":2,
         "name": "Ethereum",
         "symbol": "ETH",
+        "volume":304378,
+        "marketCap":8162999,
         "snapshots": [
             {
                 "date": "2024-09-06",
@@ -255,7 +259,8 @@
     },
     {   "id":3,
         "name": "Ripple",
-        "symbol": "RIP",
+        "symbol": "RIP","volume":78049,
+        "marketCap":237576,
         "snapshots": [
             {
                 "date": "2024-09-06",
@@ -382,6 +387,8 @@
     {   "id":4,
         "name": "Litecoin",
         "symbol": "LIT",
+        "volume":547754,
+        "marketCap":1351413,
         "snapshots": [
             {
                 "date": "2024-09-06",
@@ -508,6 +515,8 @@
     {   "id":5,
         "name": "Cardano",
         "symbol": "CAR",
+        "volume":633441,
+        "marketCap":542542788,
         "snapshots": [
             {
                 "date": "2024-09-06",
@@ -634,6 +643,8 @@
     {   "id":6,
         "name": "Polkadot",
         "symbol": "POL",
+        "volume":655532,
+        "marketCap":3558883,
         "snapshots": [
             {
                 "date": "2024-09-06",
@@ -761,6 +772,8 @@
         "id":7,
         "name": "Chainlink",
         "symbol": "CHA",
+        "volume":237776,
+        "marketCap":4421122,
         "snapshots": [
             {
                 "date": "2024-09-06",
@@ -887,6 +900,8 @@
     {   "id":8,
         "name": "Stellar",
         "symbol": "STE",
+        "volume":823333,
+        "marketCap":7743452,
         "snapshots": [
             {
                 "date": "2024-09-06",
@@ -1013,6 +1028,8 @@
     {   "id":9,
         "name": "Dogecoin",
         "symbol": "DOG",
+        "volume":80095,
+        "marketCap":23664347,
         "snapshots": [
             {
                 "date": "2024-09-06",

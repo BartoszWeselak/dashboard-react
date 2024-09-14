@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { useFetchDataSingle } from "../../../api/api";
 import { Button } from "../../../components/Button";
 import { Card, CardDescription, CardTitle } from "../../../components/Card";
@@ -15,37 +16,52 @@ import { useParams } from "react-router-dom";
 
 export const InfoRoute = () => {
   const { id } = useParams<{ id: string }>();
-  const { asset } = useFetchDataSingle("cryptocurrencies", Number(id));
+  const { assets } = useFetchDataSingle("cryptocurrencies", Number(id));
+  const [chartData, setChartData] = useState<Highcharts.SeriesOptionsType[]>(
+    []
+  );
 
-  const data: Highcharts.Options = {
+  useEffect(() => {
+    if (assets?.snapshots) {
+      const formattedData = assets.snapshots.map(
+        (snapshot: { date: string; price: number }) => {
+          return [snapshot.date, snapshot.price];
+        }
+      );
+
+      setChartData([
+        {
+          name: "Price of " + assets.name,
+          data: formattedData,
+          type: "line",
+        },
+      ]);
+    }
+  }, [assets?.snapshots]);
+
+  const chartOptions: Highcharts.Options = {
+    chart: {
+      type: "line",
+    },
     title: {
-      text: "tests",
+      text: "Cryptocurrency Prices",
     },
     xAxis: {
+      title: {
+        text: "Date",
+      },
       type: "datetime",
       labels: {
         format: "{value:%Y-%m-%d}",
       },
     },
-    series: [
-      {
-        type: "line",
-
-        data: [
-          [Date.UTC(2024, 7, 23), 2.8],
-          [Date.UTC(2024, 7, 24), 3.7],
-          [Date.UTC(2024, 7, 25), 6.1],
-          [Date.UTC(2024, 7, 26), 1.6],
-          [Date.UTC(2024, 7, 27), 4.2],
-          [Date.UTC(2024, 7, 28), 5],
-          [Date.UTC(2024, 7, 29), 2.2],
-          [Date.UTC(2024, 7, 30), 3.4],
-        ],
-        name: "Value",
+    yAxis: {
+      title: {
+        text: "Price (USD)",
       },
-    ],
+    },
+    series: chartData,
   };
-
   return (
     <DashboardLayout>
       <ContentLayout>
@@ -57,15 +73,15 @@ export const InfoRoute = () => {
               <TableBody>
                 <TableRow>
                   <TableCell>Value</TableCell>
-                  <TableCell>{asset?.snapshots[0].price} USD</TableCell>
+                  <TableCell>{assets?.snapshots[0].price} USD</TableCell>
                 </TableRow>
                 <TableRow>
                   <TableCell>Volume</TableCell>
-                  <TableCell>{500 * Number(id)}</TableCell>
+                  <TableCell>{assets?.volume} USD</TableCell>
                 </TableRow>
                 <TableRow>
                   <TableCell>Market Cap</TableCell>
-                  <TableCell>{500 * Number(id)}</TableCell>
+                  <TableCell>{assets?.marketCap} USD</TableCell>
                 </TableRow>
               </TableBody>
             </Table>
@@ -76,7 +92,7 @@ export const InfoRoute = () => {
         </Card>
         <Card size={"eighty"}>
           <CardDescription>
-            <Chart options={data} />
+            <Chart options={chartOptions} />
           </CardDescription>
         </Card>
       </ContentLayout>

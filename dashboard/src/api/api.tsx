@@ -8,6 +8,8 @@ interface Asset {
   id: number;
   name: string;
   symbol: string;
+  volume: string;
+  marketCap: string;
   snapshots: Snapshot[];
 }
 
@@ -36,7 +38,7 @@ export const useFetchDataSingle = (
   dataType: "cryptocurrencies" | "stocks" | "commodities",
   id: number
 ) => {
-  const [asset, setAsset] = useState<Asset | null>(null);
+  const [assets, setAsset] = useState<Asset | null>(null);
 
   useEffect(() => {
     let data;
@@ -53,5 +55,5 @@ export const useFetchDataSingle = (
     setAsset(foundAsset);
   }, [dataType, id]);
 
-  return { asset };
+  return { assets };
 };
