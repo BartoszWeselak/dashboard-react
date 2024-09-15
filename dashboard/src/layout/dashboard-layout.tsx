@@ -38,14 +38,14 @@ export const DashboardLayout = ({ children }: DashboardLayoutProps) => {
           {user ? (
             <Link src="/profile">
               <AvatarBox>
-                <Avatar src="https://picsum.photos/200" />
+                <Avatar src="/avatar.png" />
                 <p className="content-center">{user.username}</p>
               </AvatarBox>
             </Link>
           ) : (
             <Link src="/auth/login">
               <AvatarBox>
-                <Avatar src="https://picsum.photos/200" />
+                <Avatar src="/avatar.png" />
                 <p className="content-center">Please log in</p>
               </AvatarBox>
             </Link>

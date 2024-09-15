@@ -23,11 +23,11 @@ export const InfoRoute = () => {
 
   useEffect(() => {
     if (assets?.snapshots) {
-      const formattedData = assets.snapshots.map(
-        (snapshot: { date: string; price: number }) => {
-          return [snapshot.date, snapshot.price];
-        }
-      );
+      const formattedData = assets.snapshots
+        .map((snapshot: { date: string; price: number }) => {
+          return [Date.parse(snapshot.date), snapshot.price];
+        })
+        .reverse();
 
       setChartData([
         {
