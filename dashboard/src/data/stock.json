@@ -1,7 +1,7 @@
 [
     {
         "id":1,
-        "name": "Bitcoin",
+        "name": "test",
         "symbol": "BIT",
         "snapshots": [
             {

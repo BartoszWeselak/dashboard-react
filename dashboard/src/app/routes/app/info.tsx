@@ -15,8 +15,13 @@ import { DashboardLayout } from "../../../layout/dashboard-layout";
 import { useParams } from "react-router-dom";
 
 export const InfoRoute = () => {
-  const { id } = useParams<{ id: string }>();
-  const { assets } = useFetchDataSingle("cryptocurrencies", Number(id));
+  const { id, type } = useParams<{
+    id: string;
+    type?: "cryptocurrencies" | "commodities" | "stocks";
+  }>();
+  const assetType = type || "cryptocurrencies";
+
+  const { assets } = useFetchDataSingle(assetType, Number(id));
   const [chartData, setChartData] = useState<Highcharts.SeriesOptionsType[]>(
     []
   );
@@ -71,6 +76,10 @@ export const InfoRoute = () => {
 
             <Table>
               <TableBody>
+                <TableRow>
+                  <TableCell>Type</TableCell>
+                  <TableCell>{assets?.type} </TableCell>
+                </TableRow>
                 <TableRow>
                   <TableCell>Value</TableCell>
                   <TableCell>{assets?.snapshots[0].price} USD</TableCell>

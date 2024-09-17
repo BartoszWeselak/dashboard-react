@@ -19,6 +19,7 @@ import {
 import { Chart } from "../../../components/Chart";
 import { useFetchData } from "../../../api/api";
 import { Link } from "../../../components/Link";
+import { DashboardTab } from "../../../features/app/dashboard-tab";
 
 const data: Highcharts.Options = {
   title: {
@@ -97,55 +98,14 @@ export const DashboardRoute: React.FC = () => {
       <Tabs defaultActiveTab={0}>
         <Tab label="Crypto" icon={faBitcoinSign}>
           <Divider />
-          <ContentLayout>
-            <Card size={"full"}>
-              <Chart options={chartOptions} />
-            </Card>
-            <Card size={"full"}>
-              <CardTitle>Popular</CardTitle>
-              <CardDescription display={"col"}>
-                {topThreeCryptocurrencies.map((item) => (
-                  <Card key={item.id} className="bg-yellow-300">
-                    <Link src={"/info/" + item.id}>
-                      <CardTitle>{item.name}</CardTitle>
-                      <CardDescription>
-                        {item.symbol} - ${item.snapshots[0]?.price} USD
-                      </CardDescription>
-                    </Link>
-                  </Card>
-                ))}
-              </CardDescription>
-            </Card>
-            <Card size={"full"} className="p-8">
-              <Table>
-                <TableHead>
-                  <TableRow>
-                    <TableCell>Name</TableCell>
-                    <TableCell>Value</TableCell>
-
-                    <TableCell>Buy</TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  {assets.map((item) => (
-                    <TableRow>
-                      <TableCell>{item.name}</TableCell>
-                      <TableCell>{item.snapshots[0].price}</TableCell>
-                      <Link src={"/info/" + item.id}>
-                        <TableCell>x</TableCell>
-                      </Link>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </Card>
-          </ContentLayout>
+          <DashboardTab name="Crypto" dataset="cryptocurrencies" />
         </Tab>
         <Tab label="Currency" icon={faDollar}>
           <Divider />
         </Tab>
         <Tab label="Materials" icon={faDroplet}>
           <Divider />
+          <DashboardTab name="Mats" dataset="commodities" />
         </Tab>
       </Tabs>
     </DashboardLayout>

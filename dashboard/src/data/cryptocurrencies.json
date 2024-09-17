@@ -1,6 +1,7 @@
 [
     {
         "id":1,
+        "type":"cryptocurrencies",
         "name": "Bitcoin",
         "symbol": "BIT",
         "volume":902578,
@@ -130,6 +131,7 @@
     },
     {
         "id":2,
+        "type":"cryptocurrencies",
         "name": "Ethereum",
         "symbol": "ETH",
         "volume":304378,
@@ -258,6 +260,7 @@
         ]
     },
     {   "id":3,
+        "type":"cryptocurrencies",
         "name": "Ripple",
         "symbol": "RIP","volume":78049,
         "marketCap":237576,
@@ -385,6 +388,7 @@
         ]
     },
     {   "id":4,
+        "type":"cryptocurrencies",
         "name": "Litecoin",
         "symbol": "LIT",
         "volume":547754,
@@ -513,6 +517,7 @@
         ]
     },
     {   "id":5,
+        "type":"cryptocurrencies",
         "name": "Cardano",
         "symbol": "CAR",
         "volume":633441,
@@ -641,6 +646,7 @@
         ]
     },
     {   "id":6,
+        "type":"cryptocurrencies",
         "name": "Polkadot",
         "symbol": "POL",
         "volume":655532,
@@ -770,6 +776,7 @@
     },
     {
         "id":7,
+        "type":"cryptocurrencies",
         "name": "Chainlink",
         "symbol": "CHA",
         "volume":237776,
@@ -898,6 +905,7 @@
         ]
     },
     {   "id":8,
+        "type":"cryptocurrencies",
         "name": "Stellar",
         "symbol": "STE",
         "volume":823333,
@@ -1026,6 +1034,7 @@
         ]
     },
     {   "id":9,
+        "type":"cryptocurrencies",
         "name": "Dogecoin",
         "symbol": "DOG",
         "volume":80095,

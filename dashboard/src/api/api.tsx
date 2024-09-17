@@ -6,6 +6,7 @@ interface Snapshot {
 
 interface Asset {
   id: number;
+  type: string;
   name: string;
   symbol: string;
   volume: string;

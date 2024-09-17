@@ -21,7 +21,7 @@ export const createAppRouter = (queryClient: QueryClient) => {
       },
     },
     {
-      path: "/info/:id",
+      path: "/:type/info/:id",
       lazy: async () => {
         const { InfoRoute } = await import("./routes/app/info");
         return { Component: InfoRoute };
