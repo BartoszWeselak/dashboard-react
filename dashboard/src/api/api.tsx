@@ -9,8 +9,9 @@ interface Asset {
   type: string;
   name: string;
   symbol: string;
-  volume: string;
-  marketCap: string;
+  volume?: string;
+  marketCap?: string;
+  unit?: string;
   snapshots: Snapshot[];
 }
 

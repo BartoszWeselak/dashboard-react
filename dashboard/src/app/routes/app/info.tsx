@@ -77,6 +77,10 @@ export const InfoRoute = () => {
             <Table>
               <TableBody>
                 <TableRow>
+                  <TableCell>Name</TableCell>
+                  <TableCell>{assets?.name} </TableCell>
+                </TableRow>
+                <TableRow>
                   <TableCell>Type</TableCell>
                   <TableCell>{assets?.type} </TableCell>
                 </TableRow>
@@ -84,14 +88,24 @@ export const InfoRoute = () => {
                   <TableCell>Value</TableCell>
                   <TableCell>{assets?.snapshots[0].price} USD</TableCell>
                 </TableRow>
-                <TableRow>
-                  <TableCell>Volume</TableCell>
-                  <TableCell>{assets?.volume} USD</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>Market Cap</TableCell>
-                  <TableCell>{assets?.marketCap} USD</TableCell>
-                </TableRow>
+                {assets?.volume && (
+                  <TableRow>
+                    <TableCell>Volume</TableCell>
+                    <TableCell>{assets?.volume} USD</TableCell>
+                  </TableRow>
+                )}
+                {assets?.marketCap && (
+                  <TableRow>
+                    <TableCell>Market Cap</TableCell>
+                    <TableCell>{assets?.marketCap} USD</TableCell>
+                  </TableRow>
+                )}
+                {assets?.unit && (
+                  <TableRow>
+                    <TableCell>Unit</TableCell>
+                    <TableCell>{assets?.unit} </TableCell>
+                  </TableRow>
+                )}
               </TableBody>
             </Table>
             <Modal
