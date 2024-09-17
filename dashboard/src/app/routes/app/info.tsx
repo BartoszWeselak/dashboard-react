@@ -49,7 +49,7 @@ export const InfoRoute = () => {
       type: "line",
     },
     title: {
-      text: "Cryptocurrency Prices",
+      text: assets?.type + " Prices",
     },
     xAxis: {
       title: {
