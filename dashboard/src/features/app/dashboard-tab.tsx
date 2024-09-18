@@ -28,7 +28,7 @@ export const DashboardTab = ({ name, dataset }: DashboardTabProps) => {
     if (assets.length > 0) {
       const newChartData: Highcharts.SeriesBarOptions = {
         type: "bar",
-        name: "price",
+        name: "Price",
         data: assets.map((item) => ({
           name: item.name,
           y: item.snapshots[0].price,
@@ -49,7 +49,7 @@ export const DashboardTab = ({ name, dataset }: DashboardTabProps) => {
     xAxis: {
       categories: assets.map((item) => item.name),
       title: {
-        text: "Cryptocurrencies",
+        text: name,
       },
     },
     yAxis: {

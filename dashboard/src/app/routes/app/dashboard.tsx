@@ -19,11 +19,11 @@ export const DashboardRoute: React.FC = () => {
         </Tab>
         <Tab label="Stocks" icon={faDollar}>
           <Divider />
-          <DashboardTab name="Mats" dataset="stocks" />
+          <DashboardTab name="Stocks" dataset="stocks" />
         </Tab>
         <Tab label="Commodities" icon={faDroplet}>
           <Divider />
-          <DashboardTab name="Mats" dataset="commodities" />
+          <DashboardTab name="Commodities" dataset="commodities" />
         </Tab>
       </Tabs>
     </DashboardLayout>
