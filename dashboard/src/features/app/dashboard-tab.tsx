@@ -17,6 +17,12 @@ interface DashboardTabProps {
   dataset: "stocks" | "cryptocurrencies" | "commodities";
 }
 
+const colorMap: { [key: string]: string } = {
+  yellow: "bg-gradient-to-r from-yellow-400 to-yellow-600",
+  blue: "bg-gradient-to-r from-blue-400 to-blue-600",
+  lightblue: "bg-gradient-to-r from-blue-300 to-blue-500",
+};
+
 export const DashboardTab = ({ name, dataset }: DashboardTabProps) => {
   const { assets } = useFetchData(dataset);
   const topThreeCryptocurrencies = assets.slice(0, 3);
@@ -69,7 +75,14 @@ export const DashboardTab = ({ name, dataset }: DashboardTabProps) => {
         <CardTitle>Popular</CardTitle>
         <CardDescription display={"col"}>
           {topThreeCryptocurrencies.map((item) => (
-            <Card key={item.id} className="bg-yellow-300">
+            <Card
+              key={item.id}
+              className={
+                item.color && colorMap[item.color]
+                  ? colorMap[item.color]
+                  : "bg-red-500"
+              }
+            >
               <Link src={item.type + "/info/" + item.id}>
                 <CardTitle>{item.name}</CardTitle>
                 <CardDescription>
@@ -86,7 +99,6 @@ export const DashboardTab = ({ name, dataset }: DashboardTabProps) => {
             <TableRow>
               <TableCell>Name</TableCell>
               <TableCell>Value</TableCell>
-
               <TableCell>Buy</TableCell>
             </TableRow>
           </TableHead>

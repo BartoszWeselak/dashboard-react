@@ -3,6 +3,7 @@
         "id":1,
         "type":"cryptocurrencies",
         "name": "Bitcoin",
+        "color":"yellow",
         "symbol": "BIT",
         "volume":902578,
         "marketCap":1181758,
@@ -133,6 +134,7 @@
         "id":2,
         "type":"cryptocurrencies",
         "name": "Ethereum",
+        "color":"blue",
         "symbol": "ETH",
         "volume":304378,
         "marketCap":8162999,
@@ -262,6 +264,7 @@
     {   "id":3,
         "type":"cryptocurrencies",
         "name": "Ripple",
+        "color":"lightblue",
         "symbol": "RIP","volume":78049,
         "marketCap":237576,
         "snapshots": [

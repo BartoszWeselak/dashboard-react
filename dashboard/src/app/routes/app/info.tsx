@@ -43,7 +43,6 @@ export const InfoRoute = () => {
       ]);
     }
   }, [assets?.snapshots]);
-
   const chartOptions: Highcharts.Options = {
     chart: {
       type: "line",
