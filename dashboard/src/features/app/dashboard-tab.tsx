@@ -95,7 +95,7 @@ export const DashboardTab = ({ name, dataset }: DashboardTabProps) => {
               <TableRow>
                 <TableCell>{item.name}</TableCell>
                 <TableCell>{item.snapshots[0].price}</TableCell>
-                <Link src={"/info/" + item.id}>
+                <Link src={item.type + "/info/" + item.id}>
                   <TableCell>x</TableCell>
                 </Link>
               </TableRow>

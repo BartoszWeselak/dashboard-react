@@ -25,7 +25,7 @@ export const useFetchData = (
     if (dataType === "cryptocurrencies") {
       data = require("../data/cryptocurrencies.json");
     } else if (dataType === "stocks") {
-      data = require("../data/stock.json");
+      data = require("../data/stocks.json");
     } else if (dataType === "commodities") {
       data = require("../data/commodities.json");
     }
@@ -47,7 +47,7 @@ export const useFetchDataSingle = (
     if (dataType === "cryptocurrencies") {
       data = require("../data/cryptocurrencies.json");
     } else if (dataType === "stocks") {
-      data = require("../data/stock.json");
+      data = require("../data/stocks.json");
     } else if (dataType === "commodities") {
       data = require("../data/commodities.json");
     }

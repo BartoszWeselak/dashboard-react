@@ -1,0 +1,183 @@
+[
+    {
+      "id": 1,
+      "type": "stocks",
+      "name": "Apple Inc.",
+      "symbol": "AAPL",
+      "pricePerShare": 185.43,
+      "marketCap": 2900000,
+      "snapshots": [
+        {
+          "date": "2024-09-06",
+          "price": 185.43
+        },
+        {
+          "date": "2024-09-05",
+          "price": 183.55
+        },
+        {
+          "date": "2024-09-04",
+          "price": 182.34
+        },
+        {
+          "date": "2024-09-03",
+          "price": 181.90
+        },
+        {
+          "date": "2024-09-02",
+          "price": 180.75
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "type": "stocks",
+      "name": "Microsoft Corp.",
+      "symbol": "MSFT",
+      "pricePerShare": 330.12,
+      "marketCap": 2500000,
+      "snapshots": [
+        {
+          "date": "2024-09-06",
+          "price": 330.12
+        },
+        {
+          "date": "2024-09-05",
+          "price": 327.95
+        },
+        {
+          "date": "2024-09-04",
+          "price": 325.80
+        },
+        {
+          "date": "2024-09-03",
+          "price": 324.50
+        },
+        {
+          "date": "2024-09-02",
+          "price": 323.20
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "type": "stocks",
+      "name": "Tesla Inc.",
+      "symbol": "TSLA",
+      "pricePerShare": 255.30,
+      "marketCap": 800000,
+      "snapshots": [
+        {
+          "date": "2024-09-06",
+          "price": 255.30
+        },
+        {
+          "date": "2024-09-05",
+          "price": 252.10
+        },
+        {
+          "date": "2024-09-04",
+          "price": 250.05
+        },
+        {
+          "date": "2024-09-03",
+          "price": 248.75
+        },
+        {
+          "date": "2024-09-02",
+          "price": 246.50
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "type": "stocks",
+      "name": "Amazon.com Inc.",
+      "symbol": "AMZN",
+      "pricePerShare": 135.65,
+      "marketCap": 1400000,
+      "snapshots": [
+        {
+          "date": "2024-09-06",
+          "price": 135.65
+        },
+        {
+          "date": "2024-09-05",
+          "price": 134.10
+        },
+        {
+          "date": "2024-09-04",
+          "price": 132.75
+        },
+        {
+          "date": "2024-09-03",
+          "price": 131.50
+        },
+        {
+          "date": "2024-09-02",
+          "price": 130.25
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "type": "stocks",
+      "name": "Alphabet Inc.",
+      "symbol": "GOOGL",
+      "pricePerShare": 142.80,
+      "marketCap": 1700000,
+      "snapshots": [
+        {
+          "date": "2024-09-06",
+          "price": 142.80
+        },
+        {
+          "date": "2024-09-05",
+          "price": 140.50
+        },
+        {
+          "date": "2024-09-04",
+          "price": 139.75
+        },
+        {
+          "date": "2024-09-03",
+          "price": 138.60
+        },
+        {
+          "date": "2024-09-02",
+          "price": 137.45
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "type": "stocks",
+      "name": "NVIDIA Corp.",
+      "symbol": "NVDA",
+      "pricePerShare": 450.25,
+      "marketCap": 1200000,
+      "snapshots": [
+        {
+          "date": "2024-09-06",
+          "price": 450.25
+        },
+        {
+          "date": "2024-09-05",
+          "price": 445.60
+        },
+        {
+          "date": "2024-09-04",
+          "price": 440.75
+        },
+        {
+          "date": "2024-09-03",
+          "price": 435.90
+        },
+        {
+          "date": "2024-09-02",
+          "price": 432.10
+        }
+      ]
+    }
+  ]
+  
