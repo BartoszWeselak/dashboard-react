@@ -11,7 +11,7 @@ interface User {
   username: string;
   email: string;
   password: string;
-  avatar?: string;
+  avatar?: string | null;
 }
 
 interface AuthContextType {
@@ -24,6 +24,8 @@ interface AuthContextType {
     newEmail: string,
     newPassword: string
   ) => boolean;
+  setAvatar: (newAvatar: string | null) => boolean;
+  clearAvatar: () => boolean;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -41,12 +43,12 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       setUser(JSON.parse(storedUser));
     }
   }, []);
-
   const login = (email: string, password: string): boolean => {
     const storedUsers = JSON.parse(localStorage.getItem("users") || "[]");
     const existingUser = storedUsers.find(
       (user: User) => user.email === email && user.password === password
     );
+
     if (existingUser) {
       setUser(existingUser);
       localStorage.setItem("currentUser", JSON.stringify(existingUser));
@@ -67,6 +69,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const passwordRegex =
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
     if (username.length < 1 || email.length < 1 || password.length < 1) {
       alert("Fill all fields");
       return false;
@@ -82,7 +85,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       alert("User with this email already exists");
       return false;
     } else {
-      const newUser: User = { username, email, password };
+      const newUser: User = { username, email, password, avatar: null };
       storedUsers.push(newUser);
       localStorage.setItem("users", JSON.stringify(storedUsers));
       setUser(newUser);
@@ -140,7 +143,43 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     return true;
   };
 
-  const value = { user, login, register, logout, change };
+  const setAvatar = (newAvatar: string | null): boolean => {
+    const storedUsers = JSON.parse(localStorage.getItem("users") || "[]");
+    const currentUser = JSON.parse(
+      localStorage.getItem("currentUser") || "null"
+    );
+
+    if (!currentUser) {
+      alert("No user is currently logged in.");
+      return false;
+    }
+
+    const updatedUser: User = {
+      ...currentUser,
+      avatar: newAvatar, // Zmieniamy tylko avatar
+    };
+
+    const updatedUsers = storedUsers.map((user: User) =>
+      user.email === currentUser.email ? updatedUser : user
+    );
+
+    localStorage.setItem("users", JSON.stringify(updatedUsers));
+    localStorage.setItem("currentUser", JSON.stringify(updatedUser));
+    setUser(updatedUser);
+
+    return true;
+  };
+  const clearAvatar = () => setAvatar(null);
+
+  const value = {
+    user,
+    login,
+    register,
+    logout,
+    change,
+    setAvatar,
+    clearAvatar,
+  };
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
 
