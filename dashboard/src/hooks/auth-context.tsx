@@ -6,6 +6,7 @@ import React, {
   useEffect,
 } from "react";
 import { Navigate } from "react-router-dom";
+import { base64ToPng } from "../misc/converter";
 
 interface User {
   username: string;
@@ -25,6 +26,7 @@ interface AuthContextType {
     newPassword: string
   ) => boolean;
   setAvatar: (newAvatar: string | null) => boolean;
+  avatarUrl: string | undefined;
   clearAvatar: () => boolean;
 }
 
@@ -143,6 +145,21 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     return true;
   };
 
+  const useAvatar = (avatarBase64: string | undefined) => {
+    const [avatarUrl, setAvatarUrl] = useState<string | undefined>(undefined);
+
+    useEffect(() => {
+      if (avatarBase64) {
+        const { url } = base64ToPng(avatarBase64);
+        setAvatarUrl(url);
+      } else {
+        setAvatarUrl(undefined);
+      }
+    }, [avatarBase64]);
+
+    return avatarUrl;
+  };
+
   const setAvatar = (newAvatar: string | null): boolean => {
     const storedUsers = JSON.parse(localStorage.getItem("users") || "[]");
     const currentUser = JSON.parse(
@@ -156,7 +173,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
     const updatedUser: User = {
       ...currentUser,
-      avatar: newAvatar, // Zmieniamy tylko avatar
+      avatar: newAvatar,
     };
 
     const updatedUsers = storedUsers.map((user: User) =>
@@ -170,6 +187,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     return true;
   };
   const clearAvatar = () => setAvatar(null);
+  const avatarUrl = useAvatar(user?.avatar || undefined);
 
   const value = {
     user,
@@ -179,6 +197,8 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     change,
     setAvatar,
     clearAvatar,
+    useAvatar,
+    avatarUrl,
   };
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };

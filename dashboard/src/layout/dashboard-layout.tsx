@@ -20,7 +20,7 @@ interface DashboardLayoutProps {
 }
 
 export const DashboardLayout = ({ children }: DashboardLayoutProps) => {
-  const { user, logout } = useAuth();
+  const { user, avatarUrl, logout } = useAuth();
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -38,7 +38,7 @@ export const DashboardLayout = ({ children }: DashboardLayoutProps) => {
           {user ? (
             <Link src="/profile">
               <AvatarBox>
-                <Avatar src="/avatar.png" />
+                <Avatar src={avatarUrl} />
                 <p className="content-center">{user.username}</p>
               </AvatarBox>
             </Link>

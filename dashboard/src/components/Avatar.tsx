@@ -24,7 +24,7 @@ export const Avatar = forwardRef<HTMLImageElement, AvatarProps>(
 Avatar.displayName = "Avatar";
 
 export const AvatarBox = forwardRef<HTMLDivElement, AvatarProps>(
-  ({ className, src, children, ...props }, ref) => {
+  ({ className, children, ...props }, ref) => {
     return (
       <div
         ref={ref}
