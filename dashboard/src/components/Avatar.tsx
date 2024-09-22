@@ -14,7 +14,7 @@ export const Avatar = forwardRef<HTMLImageElement, AvatarProps>(
         ref={ref}
         src={src}
         alt="text"
-        className={twMerge("rounded-full w-20 ", className)}
+        className={twMerge("rounded-full w-24 ", className)}
         {...props}
       />
     );

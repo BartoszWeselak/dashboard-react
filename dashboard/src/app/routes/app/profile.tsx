@@ -9,6 +9,7 @@ import { ChangeForm } from "../../../features/auth/change-form";
 import { Image } from "../../../components/Image";
 import { Button } from "../../../components/Button";
 import { Input } from "../../../components/Input";
+import FileUpload from "../../../components/Fileupload";
 export const ProfileRoute = () => {
   const navigate = useNavigate();
 
@@ -41,7 +42,7 @@ export const ProfileRoute = () => {
       </Card>
       <Card size={"full"}>
         <CardDescription display={"row"}>
-          <Input type="file" accept="image/png" onChange={handleAvatarChange} />
+          <FileUpload handleAvatarChange={handleAvatarChange} />
           {user?.avatar && (
             <>
               <Image src={user.avatar} size={"small"} />
