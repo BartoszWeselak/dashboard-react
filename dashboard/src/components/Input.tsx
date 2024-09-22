@@ -5,17 +5,22 @@ interface InputProps extends React.HTMLAttributes<HTMLDivElement> {
   className?: string;
   placeHolder?: string;
   type?: string;
+  accept?: string;
   value?: any;
   onChange?: (e: any) => void;
 }
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ className, placeHolder, type, value, onChange, ...props }, ref) => {
+  (
+    { className, placeHolder, type, accept, value, onChange, ...props },
+    ref
+  ) => {
     return (
       <input
         placeholder={placeHolder}
         ref={ref}
         type={type}
+        accept={accept}
         value={value}
         onChange={onChange}
         className={twMerge("w-full bg-gray-200", className)}

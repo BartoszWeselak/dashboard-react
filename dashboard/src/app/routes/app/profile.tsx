@@ -6,7 +6,9 @@ import { useNavigate } from "react-router-dom";
 import { DashboardLayout } from "../../../layout/dashboard-layout";
 import { useAuth } from "../../../hooks/auth-context";
 import { ChangeForm } from "../../../features/auth/change-form";
-
+import { Image } from "../../../components/Image";
+import { Button } from "../../../components/Button";
+import { Input } from "../../../components/Input";
 export const ProfileRoute = () => {
   const navigate = useNavigate();
 
@@ -37,15 +39,17 @@ export const ProfileRoute = () => {
           <ChangeForm onSucces={handleSuccess} />
         </CardDescription>
       </Card>
-      <div>
-        <input type="file" accept="image/png" onChange={handleAvatarChange} />
-        {user?.avatar && (
-          <div>
-            <img src={user.avatar} alt="User Avatar" />
-            <button onClick={clearAvatar}>Remove Avatar</button>
-          </div>
-        )}
-      </div>
+      <Card size={"full"}>
+        <CardDescription display={"row"}>
+          <Input type="file" accept="image/png" onChange={handleAvatarChange} />
+          {user?.avatar && (
+            <>
+              <Image src={user.avatar} size={"small"} />
+              <Button onClick={clearAvatar}>Remove Avatar</Button>
+            </>
+          )}
+        </CardDescription>
+      </Card>
     </DashboardLayout>
   );
 };

@@ -7,6 +7,7 @@ const imageVariants = cva(
   {
     variants: {
       size: {
+        small: "w-1/4",
         medium: "w-1/2",
         large: "w-full",
       },
