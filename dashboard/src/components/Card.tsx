@@ -82,10 +82,16 @@ const cardDescriptionVariants = cva(
         col: "flex flex-row",
         row: "flex flex-col",
       },
+      margins: {
+        small: "m-2",
+        medium: "m-4",
+        large: "m-6",
+      },
     },
     defaultVariants: {
       size: "medium",
       colors: "gray",
+      margins: "small",
     },
   }
 );

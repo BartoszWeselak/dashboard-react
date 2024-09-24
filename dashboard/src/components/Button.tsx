@@ -22,6 +22,7 @@ export const buttonVariants = cva("w-full hover:opacity-80", {
       xsmall: " w-[4%]",
       small: "w-1/6",
       medium: "w-1/4",
+      large: "w-1/2",
     },
   },
   defaultVariants: {

@@ -64,7 +64,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(
         <ModalContainer
           isOpen={isOpen}
           onClose={close}
-          className={twMerge("bg-white p-6 rounded-lg w-1/2 m-8", className)}
+          className={twMerge("bg-white rounded-lg", className)}
           {...props}
         >
           {children}

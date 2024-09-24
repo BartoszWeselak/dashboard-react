@@ -26,7 +26,7 @@ export const ChangeForm = ({ onSucces }: ChangeFormProps) => {
   return (
     <>
       <Form className="flex flex-col gap-4">
-        <h1>register</h1>
+        <h1>Change credentials: </h1>
         <Input
           type="text"
           value={username}
@@ -47,7 +47,9 @@ export const ChangeForm = ({ onSucces }: ChangeFormProps) => {
           onChange={(e) => setPassword(e.target.value)}
           placeHolder="Enter new password:"
         />
-        <Button onClick={handleRegister}>Update credentials</Button>
+        <Button onClick={handleRegister} variant={"danger"}>
+          Update credentials
+        </Button>
       </Form>
     </>
   );

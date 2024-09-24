@@ -10,6 +10,8 @@ import { Image } from "../../../components/Image";
 import { Button } from "../../../components/Button";
 import { Input } from "../../../components/Input";
 import FileUpload from "../../../components/Fileupload";
+import { Modal } from "../../../components/Modal";
+import { Divider } from "../../../components/Divider";
 export const ProfileRoute = () => {
   const navigate = useNavigate();
 
@@ -32,23 +34,39 @@ export const ProfileRoute = () => {
   return (
     <DashboardLayout>
       <Card size={"full"}>
-        <CardDescription display={"row"}>
-          <h1>Name:</h1>
-          {user?.username}
-          <h1>Email:</h1>
-          {user?.email}
-          <ChangeForm onSucces={handleSuccess} />
-        </CardDescription>
-      </Card>
-      <Card size={"full"}>
-        <CardDescription display={"row"}>
-          <FileUpload handleAvatarChange={handleAvatarChange} />
-          {user?.avatar && (
-            <>
-              <Image src={user.avatar} size={"small"} />
-              <Button onClick={clearAvatar}>Remove Avatar</Button>
-            </>
-          )}
+        <CardDescription display={"col"} margins={"small"}>
+          <CardDescription margins={"small"}>
+            {user?.avatar && (
+              <>
+                <Image src={user.avatar} size={"medium"} />
+              </>
+            )}
+            <Modal
+              triggerButton={
+                <Button variant={"buy"} widths={"large"}>
+                  Edit Avatar
+                </Button>
+              }
+            >
+              {user?.avatar && (
+                <>
+                  <Image src={user.avatar} size={"medium"} />
+                  <Button onClick={clearAvatar} widths={"large"}>
+                    Remove Avatar
+                  </Button>
+                </>
+              )}
+              <FileUpload handleAvatarChange={handleAvatarChange} />
+            </Modal>
+          </CardDescription>
+          <CardDescription margins={"small"} display={"row"}>
+            <h1>Username:</h1>
+            {user?.username}
+            <h1>Email:</h1>
+            {user?.email}
+            <Divider />
+            <ChangeForm onSucces={handleSuccess} />
+          </CardDescription>
         </CardDescription>
       </Card>
     </DashboardLayout>
