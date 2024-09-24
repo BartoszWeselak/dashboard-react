@@ -69,7 +69,7 @@ export const InfoRoute = () => {
   return (
     <DashboardLayout>
       <ContentLayout>
-        <Card size={"eighty"}>
+        <Card size={"full"}>
           <CardDescription display={"col"}>
             <CardTitle>Stats</CardTitle>
 
@@ -112,7 +112,7 @@ export const InfoRoute = () => {
             ></Modal>
           </CardDescription>
         </Card>
-        <Card size={"eighty"}>
+        <Card size={"full"}>
           <CardDescription>
             <Chart options={chartOptions} />
           </CardDescription>

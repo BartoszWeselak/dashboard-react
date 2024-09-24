@@ -12,6 +12,7 @@ import { Input } from "../../../components/Input";
 import FileUpload from "../../../components/Fileupload";
 import { Modal } from "../../../components/Modal";
 import { Divider } from "../../../components/Divider";
+import { ContentLayout } from "../../../layout/content-layout";
 export const ProfileRoute = () => {
   const navigate = useNavigate();
 
@@ -33,42 +34,49 @@ export const ProfileRoute = () => {
 
   return (
     <DashboardLayout>
-      <Card size={"full"}>
-        <CardDescription display={"col"} margins={"small"}>
-          <CardDescription margins={"small"}>
-            {user?.avatar && (
-              <>
-                <Image src={user.avatar} size={"medium"} />
-              </>
-            )}
-            <Modal
-              triggerButton={
-                <Button variant={"buy"} widths={"large"}>
-                  Edit Avatar
-                </Button>
-              }
-            >
+      <ContentLayout>
+        <Card size={"full"} className="content-center">
+          <CardDescription display={"col"} margins={"small"}>
+            <CardDescription margins={"small"} className="w-1/4">
+              {" "}
               {user?.avatar && (
                 <>
-                  <Image src={user.avatar} size={"medium"} />
-                  <Button onClick={clearAvatar} widths={"large"}>
-                    Remove Avatar
-                  </Button>
+                  <Image src={user.avatar} size={"large"} />
                 </>
               )}
-              <FileUpload handleAvatarChange={handleAvatarChange} />
-            </Modal>
+              <Modal
+                triggerButton={
+                  <Button variant={"buy"} widths={"large"}>
+                    Edit Avatar
+                  </Button>
+                }
+              >
+                {user?.avatar && (
+                  <>
+                    <Image src={user.avatar} size={"medium"} />
+                    <Button onClick={clearAvatar} widths={"large"}>
+                      Remove Avatar
+                    </Button>
+                  </>
+                )}
+                <FileUpload handleAvatarChange={handleAvatarChange} />
+              </Modal>
+            </CardDescription>
+            <CardDescription
+              margins={"small"}
+              display={"row"}
+              className="w-3/4"
+            >
+              <h1>Username:</h1>
+              {user?.username}
+              <h1>Email:</h1>
+              {user?.email}
+              <Divider />
+              <ChangeForm onSucces={handleSuccess} />
+            </CardDescription>
           </CardDescription>
-          <CardDescription margins={"small"} display={"row"}>
-            <h1>Username:</h1>
-            {user?.username}
-            <h1>Email:</h1>
-            {user?.email}
-            <Divider />
-            <ChangeForm onSucces={handleSuccess} />
-          </CardDescription>
-        </CardDescription>
-      </Card>
+        </Card>
+      </ContentLayout>
     </DashboardLayout>
   );
 };

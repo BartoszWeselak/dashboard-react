@@ -24,7 +24,7 @@ const cardVariants = cva(
         small: "h-48 w-48",
         medium: "h-96 w-96",
         half: "w-1/2",
-        full: "w-5/6",
+        full: "w-full",
         tquater: "w-3/4",
         eighty: "w-4/5",
       },
