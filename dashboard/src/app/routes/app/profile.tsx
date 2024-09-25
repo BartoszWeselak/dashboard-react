@@ -65,7 +65,7 @@ export const ProfileRoute = () => {
             <CardDescription
               margins={"small"}
               display={"row"}
-              className="w-3/4"
+              className="w-3/4 ml-24"
             >
               <h1>Username:</h1>
               {user?.username}

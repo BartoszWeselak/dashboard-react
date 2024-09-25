@@ -10,7 +10,7 @@ interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
 export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
   ({ children, className, src, ...props }, ref) => {
     return (
-      <a ref={ref} href={src} className={twMerge("", className)} {...props}>
+      <a ref={ref} href={src} className={twMerge(className)} {...props}>
         {children}
       </a>
     );

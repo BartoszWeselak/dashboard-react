@@ -8,6 +8,7 @@ import {
   TableRow,
 } from "../components/Table";
 import { Chart } from "../components/Chart";
+import { Divider } from "../components/Divider";
 
 interface ContentLayoutProps {
   children?: React.ReactNode;

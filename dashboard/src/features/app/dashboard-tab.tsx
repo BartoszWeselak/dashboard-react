@@ -11,6 +11,7 @@ import {
   TableRow,
 } from "../../components/Table";
 import { useFetchData } from "../../api/api";
+import { useNavigate } from "react-router-dom";
 
 interface DashboardTabProps {
   name: string;
@@ -24,6 +25,8 @@ const colorMap: { [key: string]: string } = {
 };
 
 export const DashboardTab = ({ name, dataset }: DashboardTabProps) => {
+  const navigate = useNavigate();
+
   const { assets } = useFetchData(dataset);
   const topThreeCryptocurrencies = assets.slice(0, 3);
   const [chartData, setChartData] = useState<Highcharts.SeriesOptionsType[]>(
@@ -77,18 +80,19 @@ export const DashboardTab = ({ name, dataset }: DashboardTabProps) => {
           {topThreeCryptocurrencies.map((item) => (
             <Card
               key={item.id}
+              size={"small"}
               className={
                 item.color && colorMap[item.color]
                   ? colorMap[item.color]
                   : "bg-red-500"
               }
+              onClick={() => navigate("../" + item.type + "/info/" + item.id)}
+              style={{ cursor: "pointer" }}
             >
-              <Link src={item.type + "/info/" + item.id}>
-                <CardTitle>{item.name}</CardTitle>
-                <CardDescription>
-                  {item.symbol} - ${item.snapshots[0]?.price} USD
-                </CardDescription>
-              </Link>
+              <CardTitle>{item.name}</CardTitle>
+              <CardDescription>
+                {item.symbol} - ${item.snapshots[0]?.price} USD
+              </CardDescription>
             </Card>
           ))}
         </CardDescription>
@@ -97,19 +101,23 @@ export const DashboardTab = ({ name, dataset }: DashboardTabProps) => {
         <Table>
           <TableHead>
             <TableRow>
+              <TableCell>Icon</TableCell>
+
               <TableCell>Name</TableCell>
               <TableCell>Value</TableCell>
-              <TableCell>Buy</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {assets.map((item) => (
-              <TableRow>
+              <TableRow
+                key={item.id}
+                onClick={() => navigate("../" + item.type + "/info/" + item.id)}
+                style={{ cursor: "pointer" }}
+              >
+                <TableCell>x</TableCell>
+
                 <TableCell>{item.name}</TableCell>
                 <TableCell>{item.snapshots[0].price}</TableCell>
-                <Link src={item.type + "/info/" + item.id}>
-                  <TableCell>x</TableCell>
-                </Link>
               </TableRow>
             ))}
           </TableBody>

@@ -14,6 +14,7 @@ import { useAuth } from "../hooks/auth-context";
 import { Button } from "../components/Button";
 import { useNavigate } from "react-router-dom";
 import { Card, CardDescription, CardTitle } from "../components/Card";
+import { Divider } from "../components/Divider";
 
 interface DashboardLayoutProps {
   children?: React.ReactNode;
@@ -74,17 +75,24 @@ export const DashboardLayout = ({ children }: DashboardLayoutProps) => {
       </Sidebar>
 
       <div className="w-full ">
-        <NotificationBar>
-          <Notification>
-            <Card size={"wide"}>
-              <CardTitle>
-                {" "}
-                <Link src="/info/5">New Offer</Link>
-              </CardTitle>
-            </Card>
-          </Notification>
-        </NotificationBar>
+        <div className="fixed w-full h-[10%] bg-white">
+          <NotificationBar>
+            <Notification>
+              <Card size={"wide"}>
+                <CardTitle>
+                  {" "}
+                  <Link src="/info/5">New Offer</Link>
+                </CardTitle>
+              </Card>
+            </Notification>
+          </NotificationBar>
+        </div>
+        <div className="flex w-full h-[6%] "></div>
+
+        <Divider />
+
         {children}
+        <Divider />
       </div>
     </div>
   );
