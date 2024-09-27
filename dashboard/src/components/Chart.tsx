@@ -1,6 +1,7 @@
 import React from "react";
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
+import { twMerge } from "tailwind-merge";
 
 interface ChartProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode;
@@ -44,7 +45,7 @@ export const Chart = ({
   ...props
 }: ChartProps) => {
   return (
-    <div className={className} {...props}>
+    <div className={twMerge(className)} {...props}>
       <HighchartsReact highcharts={Highcharts} options={options} />
     </div>
   );

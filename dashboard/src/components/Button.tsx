@@ -27,7 +27,6 @@ export const buttonVariants = cva("w-full hover:opacity-80", {
   },
   defaultVariants: {
     variant: "primary",
-    size: "medium",
   },
 });
 

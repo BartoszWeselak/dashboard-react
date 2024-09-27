@@ -28,7 +28,7 @@ export const AvatarBox = forwardRef<HTMLDivElement, AvatarProps>(
     return (
       <div
         ref={ref}
-        className={twMerge("flex flex-row gap-2 m-2 rounded-full ", className)}
+        className={twMerge("flex flex-row gap-2 m-2 rounded-full", className)}
         {...props}
       >
         {children}
