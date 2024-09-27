@@ -28,6 +28,9 @@ const cardVariants = cva(
         tquater: "w-3/4",
         eighty: "w-4/5",
       },
+      colors: {
+        gray: "bg-gray-200",
+      },
       display: {
         col: "flex flex-row",
         row: "flex flex-col",
@@ -37,6 +40,7 @@ const cardVariants = cva(
       shadow: "large",
       borderRadius: "large",
       size: "flex",
+      colors: "gray",
     },
   }
 );
@@ -119,14 +123,23 @@ interface CardDescriptionProps
 
 export const Card = forwardRef<HTMLDivElement, CardProps>(
   (
-    { children, className, shadow, size, display, borderRadius, ...props },
+    {
+      children,
+      className,
+      shadow,
+      colors,
+      size,
+      display,
+      borderRadius,
+      ...props
+    },
     ref
   ) => {
     return (
       <div
         ref={ref}
         className={twMerge(
-          cardVariants({ shadow, borderRadius, display, size }),
+          cardVariants({ shadow, borderRadius, display, size, colors }),
           className
         )}
         {...props}

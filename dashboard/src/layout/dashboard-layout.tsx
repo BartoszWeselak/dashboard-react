@@ -30,7 +30,7 @@ export const DashboardLayout = ({ children }: DashboardLayoutProps) => {
   };
 
   return (
-    <div className="flex flex-row h-full bg-gray-100 ">
+    <div className="flex flex-row h-full bg-white ">
       <Sidebar>
         <SidebarHeader>
           <Logo src="/logo.png" />
@@ -75,7 +75,7 @@ export const DashboardLayout = ({ children }: DashboardLayoutProps) => {
       </Sidebar>
 
       <div className="w-full h-full">
-        <div className="fixed w-full h-[10%] bg-gray-100 shadow-xl  z-10">
+        <div className="fixed w-full h-[10%] bg-gray-100 shadow-xl z-10">
           <NotificationBar>
             <Notification>
               <Card size={"wide"}>
@@ -89,7 +89,7 @@ export const DashboardLayout = ({ children }: DashboardLayoutProps) => {
         </div>
         <div className="flex w-full h-[6%] "></div>
 
-        <Divider />
+        <Divider className="mb-24" />
 
         {children}
       </div>
