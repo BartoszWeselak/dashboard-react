@@ -71,8 +71,10 @@ export const DashboardTab = ({ name, dataset }: DashboardTabProps) => {
 
   return (
     <ContentLayout>
-      <Card size={"full"}>
-        <Chart options={chartOptions} />
+      <Card size={"full"} className="max-w-full">
+        <CardDescription>
+          <Chart options={chartOptions} />
+        </CardDescription>
       </Card>
       <Card size={"full"}>
         <CardTitle>Popular</CardTitle>
