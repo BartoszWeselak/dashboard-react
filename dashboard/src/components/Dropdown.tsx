@@ -26,7 +26,7 @@ export const DropdownItem = forwardRef<HTMLDivElement, DropdownProps>(
       <div
         ref={ref}
         className={twMerge(
-          "bg-gray-200 hover:opacity-80 m-2 rounded-xl",
+          "hover:opacity-10  hover:bg-gray-500  m-2 rounded-xl",
           className
         )}
         {...props}

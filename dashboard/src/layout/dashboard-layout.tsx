@@ -75,7 +75,7 @@ export const DashboardLayout = ({ children }: DashboardLayoutProps) => {
       </Sidebar>
 
       <div className="w-full ">
-        <div className="fixed w-full h-[10%] bg-white">
+        <div className="fixed w-full h-[10%] bg-gray-100 shadow-xl">
           <NotificationBar>
             <Notification>
               <Card size={"wide"}>

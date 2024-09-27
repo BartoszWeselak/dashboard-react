@@ -35,7 +35,7 @@ const Sidebar = forwardRef<HTMLDivElement, SidebarProps>(
         ></div>
         <div
           className={twMerge(
-            "fixed top-0 left-0 h-screen bg-gray-300 transition-transform duration-500 shadow-xl",
+            "fixed top-0 left-0 h-screen bg-gradient-to-br from-gray-400 via-gray-500 to-gray-600 transition-transform duration-500 shadow-2xl border border-gray-400 rounded-lg backdrop-blur-sm bg-opacity-90 highlight-white/20",
             isOpen ? "translate-x-0 w-64" : "-translate-x-full w-0",
             className
           )}
@@ -66,7 +66,7 @@ const SidebarMain = forwardRef<HTMLDivElement, SidebarProps>(
     return (
       <div
         ref={ref}
-        className={twMerge(" text-center h-3/5", className)}
+        className={twMerge(" text-center text-lg text-white h-3/5", className)}
         {...props}
       >
         {children}
