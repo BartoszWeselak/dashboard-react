@@ -12,6 +12,7 @@ import {
 } from "../../components/Table";
 import { useFetchData } from "../../api/api";
 import { useNavigate } from "react-router-dom";
+import { Image } from "../../components/Image";
 
 interface DashboardTabProps {
   name: string;
@@ -116,8 +117,12 @@ export const DashboardTab = ({ name, dataset }: DashboardTabProps) => {
                 onClick={() => navigate("../" + item.type + "/info/" + item.id)}
                 style={{ cursor: "pointer" }}
               >
-                <TableCell>x</TableCell>
-
+                <TableCell>
+                  <Image
+                    size={"xsmall"}
+                    src={`data:image/png;base64,${item.icon}`}
+                  />
+                </TableCell>
                 <TableCell>{item.name}</TableCell>
                 <TableCell>{item.snapshots[0].price}</TableCell>
               </TableRow>

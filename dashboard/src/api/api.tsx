@@ -13,6 +13,7 @@ interface Asset {
   marketCap?: string;
   unit?: string;
   color?: string | "red";
+  icon?: string | "?";
   snapshots: Snapshot[];
 }
 
