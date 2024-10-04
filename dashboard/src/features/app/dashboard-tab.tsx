@@ -20,9 +20,18 @@ interface DashboardTabProps {
 }
 
 const colorMap: { [key: string]: string } = {
-  yellow: "bg-gradient-to-r from-yellow-400 to-yellow-600",
-  blue: "bg-gradient-to-r from-blue-400 to-blue-600",
-  lightblue: "bg-gradient-to-r from-blue-300 to-blue-500",
+  gold: "bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 shadow-md border border-yellow-600 opacity-80 text-gray-600",
+  blue: "bg-gradient-to-r from-blue-400 via-blue-400 to-blue-500 shadow-md border border-blue-500 opacity-80 text-gray-600",
+  lightblue:
+    "bg-gradient-to-r from-blue-300 via-blue-200 to-blue-400 shadow-md border border-blue-300 opacity-80 text-gray-600",
+  purple:
+    "bg-gradient-to-r from-purple-300 via-purple-200 to-purple-500 shadow-md border border-blue-300 opacity-80 text-gray-600",
+  red: "bg-gradient-to-r from-red-300 via-red-400 to-red-500 shadow-md border border-blue-300 opacity-80 text-gray-600",
+  silver:
+    "bg-gradient-to-r from-gray-300 via-gray-200 to-gray-400 shadow-md border border-blue-300 opacity-80 text-gray-600",
+  microsoft:
+    "bg-gradient-to-r from-green-300 via-green-300 via-yellow-300 to-red-300 shadow-md border border-blue-300 opacity-80 text-gray-600",
+  gray: "bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 shadow-md border border-blue-300 opacity-80 text-gray-600 text-gray-400",
 };
 
 export const DashboardTab = ({ name, dataset }: DashboardTabProps) => {
@@ -92,7 +101,13 @@ export const DashboardTab = ({ name, dataset }: DashboardTabProps) => {
               onClick={() => navigate("../" + item.type + "/info/" + item.id)}
               style={{ cursor: "pointer" }}
             >
-              <CardTitle>{item.name}</CardTitle>
+              <CardTitle>
+                <Image
+                  size={"xsmall"}
+                  src={`data:image/png;base64,${item.icon}`}
+                />{" "}
+                {item.name}
+              </CardTitle>
               <CardDescription>
                 {item.symbol} - ${item.snapshots[0]?.price} USD
               </CardDescription>
