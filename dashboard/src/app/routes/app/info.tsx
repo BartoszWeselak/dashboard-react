@@ -70,7 +70,7 @@ export const InfoRoute = () => {
     <DashboardLayout>
       <ContentLayout>
         <Card size={"full"}>
-          <CardDescription display={"col"}>
+          <CardDescription display={"col"} className="p-8 gap-4">
             <CardTitle>Stats</CardTitle>
 
             <Table>
@@ -108,7 +108,11 @@ export const InfoRoute = () => {
               </TableBody>
             </Table>
             <Modal
-              triggerButton={<Button variant={"buy"}>Trade</Button>}
+              triggerButton={
+                <Button variant={"buy"} size={"medium"}>
+                  Trade
+                </Button>
+              }
             ></Modal>
           </CardDescription>
         </Card>
