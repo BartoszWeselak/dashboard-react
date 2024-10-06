@@ -2,7 +2,7 @@ import { cva, VariantProps } from "class-variance-authority";
 import React, { forwardRef } from "react";
 import { twMerge } from "tailwind-merge";
 
-export const buttonVariants = cva("w-full hover:opacity-80", {
+const buttonVariants = cva("w-full hover:opacity-80", {
   variants: {
     variant: {
       primary: "bg-blue-500 text-white",
