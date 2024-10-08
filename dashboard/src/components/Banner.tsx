@@ -6,10 +6,10 @@ import { Image } from "./Image";
 const bannerVariants = cva("", {
   variants: {
     size: {
-      small: "h-2",
+      small: "w-5/6",
     },
   },
-  defaultVariants: {},
+  defaultVariants: { size: "small" },
 });
 
 interface BannerProps

@@ -13,7 +13,8 @@ import {
 import { useFetchData } from "../../api/api";
 import { useNavigate } from "react-router-dom";
 import { Image } from "../../components/Image";
-
+import cryptobanner from "../../assets/banners/Cryptocurrency.png";
+import { Banner } from "../../components/Banner";
 interface DashboardTabProps {
   name: string;
   dataset: "stocks" | "cryptocurrencies" | "commodities";

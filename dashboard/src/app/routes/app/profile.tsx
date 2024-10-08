@@ -71,6 +71,8 @@ export const ProfileRoute = () => {
               {user?.username}
               <h1>Email:</h1>
               {user?.email}
+              <h1>Balance:</h1>
+              {user?.balance / 100 + "$"}
               <Divider />
               <ChangeForm onSucces={handleSuccess} />
             </CardDescription>

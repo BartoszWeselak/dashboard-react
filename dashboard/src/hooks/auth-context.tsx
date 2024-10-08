@@ -13,6 +13,7 @@ interface User {
   email: string;
   password: string;
   avatar?: string | null;
+  balance?: number | any;
 }
 
 interface AuthContextType {
@@ -87,7 +88,13 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       alert("User with this email already exists");
       return false;
     } else {
-      const newUser: User = { username, email, password, avatar: null };
+      const newUser: User = {
+        username,
+        email,
+        password,
+        avatar: null,
+        balance: 100000,
+      };
       storedUsers.push(newUser);
       localStorage.setItem("users", JSON.stringify(storedUsers));
       setUser(newUser);
@@ -145,6 +152,29 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     return true;
   };
 
+  const updateBalance = (amount: number): boolean => {
+    if (!user) {
+      alert("No user is currently logged in.");
+      return false;
+    }
+
+    const updatedUser: User = {
+      ...user,
+      balance: user.balance + amount,
+    };
+
+    const storedUsers = JSON.parse(localStorage.getItem("users") || "[]");
+    const updatedUsers = storedUsers.map((u: User) =>
+      u.email === user.email ? updatedUser : u
+    );
+
+    localStorage.setItem("users", JSON.stringify(updatedUsers));
+    localStorage.setItem("currentUser", JSON.stringify(updatedUser));
+    setUser(updatedUser);
+
+    return true;
+  };
+
   const useAvatar = (avatarBase64: string | undefined) => {
     const [avatarUrl, setAvatarUrl] = useState<string | undefined>(undefined);
 
@@ -191,6 +221,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
   const value = {
     user,
+
     login,
     register,
     logout,
@@ -198,6 +229,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     setAvatar,
     clearAvatar,
     useAvatar,
+    updateBalance,
     avatarUrl,
   };
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
