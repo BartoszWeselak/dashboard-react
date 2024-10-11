@@ -7,6 +7,7 @@ import React, {
 } from "react";
 import { Navigate } from "react-router-dom";
 import { base64ToPng } from "../misc/converter";
+import { usePortfolio, Asset } from "./use-portfolio";
 
 interface User {
   username: string;
@@ -29,6 +30,10 @@ interface AuthContextType {
   setAvatar: (newAvatar: string | null) => boolean;
   avatarUrl: string | undefined;
   clearAvatar: () => boolean;
+  portfolio: Asset[];
+  addAssetToPortfolio: (asset: Asset) => void;
+  removeAssetFromPortfolio: (assetIndex: number) => void;
+  clearPortfolio: () => void;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -39,6 +44,9 @@ interface AuthProviderProps {
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [user, setUser] = useState<User | null>(null);
+  const { portfolio, addAsset, removeAsset, clearPortfolio } = usePortfolio(
+    user?.email
+  );
 
   useEffect(() => {
     const storedUser = localStorage.getItem("currentUser");
@@ -231,6 +239,10 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     useAvatar,
     updateBalance,
     avatarUrl,
+    portfolio,
+    addAssetToPortfolio: addAsset,
+    removeAssetFromPortfolio: removeAsset,
+    clearPortfolio,
   };
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
