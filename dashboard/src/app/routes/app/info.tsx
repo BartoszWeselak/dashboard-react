@@ -115,7 +115,12 @@ export const InfoRoute = () => {
                 </Button>
               }
             >
-              <TradeForm />
+              <TradeForm
+                name={assets?.name ?? ""}
+                referenceId={assets?.id ?? 0}
+                price={assets?.snapshots[0].price ?? 0}
+                type={assets?.type ?? "error"}
+              />
             </Modal>
           </CardDescription>
         </Card>
