@@ -13,6 +13,7 @@ import {
 import { ContentLayout } from "../../../layout/content-layout";
 import { DashboardLayout } from "../../../layout/dashboard-layout";
 import { useParams } from "react-router-dom";
+import { TradeForm } from "../../../features/app/trade-form";
 
 export const InfoRoute = () => {
   const { id, type } = useParams<{
@@ -113,7 +114,9 @@ export const InfoRoute = () => {
                   Trade
                 </Button>
               }
-            ></Modal>
+            >
+              <TradeForm />
+            </Modal>
           </CardDescription>
         </Card>
         <Card size={"full"}>

@@ -1,6 +1,6 @@
 import { useAuth } from "../../hooks/auth-context";
 
-export const AddAssetComponent = () => {
+export const TradeForm = () => {
   const { addAssetToPortfolio } = useAuth();
 
   const handleAddAsset = () => {
