@@ -58,7 +58,7 @@ export const DashboardLayout = ({ children }: DashboardLayoutProps) => {
               <DropdownItem>
                 <Button
                   variant={"none"}
-                  className="text-lg"
+                  className="text-lg p-0"
                   onClick={handleLogout}
                 >
                   Logout

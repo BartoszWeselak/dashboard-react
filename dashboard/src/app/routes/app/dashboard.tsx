@@ -9,7 +9,6 @@ import { Tab, Tabs } from "../../../components/Tab";
 import { DashboardLayout } from "../../../layout/dashboard-layout";
 import { DashboardTab } from "../../../features/app/dashboard-tab";
 import cryptobanner from "../../../assets/banners/Cryptocurrency.png";
-import { Banner } from "../../../components/Banner";
 import { Card, CardDescription } from "../../../components/Card";
 export const DashboardRoute: React.FC = () => {
   return (
@@ -17,8 +16,6 @@ export const DashboardRoute: React.FC = () => {
       <Tabs defaultActiveTab={0}>
         <Tab label="Crypto" icon={faBitcoinSign}>
           <Divider />
-
-          <Banner src={cryptobanner} />
 
           <DashboardTab name="Crypto" dataset="cryptocurrencies" />
         </Tab>
