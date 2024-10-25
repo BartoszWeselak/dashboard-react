@@ -67,12 +67,12 @@ export const ProfileRoute = () => {
               display={"row"}
               className="w-3/4 ml-24"
             >
-              <h1>Username:</h1>
-              {user?.username}
-              <h1>Email:</h1>
-              {user?.email}
-              <h1>Balance:</h1>
-              {user?.balance / 100 + "$"}
+              <h1>Username: {user?.username}</h1>
+
+              <h1>Email: {user?.email}</h1>
+
+              <h1>Balance: {user?.balance / 100 + "$"}</h1>
+
               <Divider />
               <ChangeForm onSucces={handleSuccess} />
             </CardDescription>

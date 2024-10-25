@@ -23,7 +23,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         accept={accept}
         value={value}
         onChange={onChange}
-        className={twMerge("w-full bg-gray-200", className)}
+        className={twMerge("w-full bg-gray-100 p-2", className)}
         {...props}
       />
     );
