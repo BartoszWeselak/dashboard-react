@@ -17,6 +17,26 @@ interface Asset {
   snapshots: Snapshot[];
 }
 
+export const useFetchAllData = () => {
+  const [assets, setAssets] = useState<Asset[]>([]);
+
+  useEffect(() => {
+    const fetchData = () => {
+      const cryptoData = require("../data/cryptocurrencies.json");
+      const stocksData = require("../data/stocks.json");
+      const commoditiesData = require("../data/commodities.json");
+
+      const allAssets = [...cryptoData, ...stocksData, ...commoditiesData];
+
+      setAssets(allAssets);
+    };
+
+    fetchData();
+  }, []);
+
+  return { assets };
+};
+
 export const useFetchData = (
   dataType: "cryptocurrencies" | "stocks" | "commodities"
 ) => {
@@ -40,24 +60,28 @@ export const useFetchData = (
 
 export const useFetchDataSingle = (
   dataType: "cryptocurrencies" | "stocks" | "commodities",
-  id: number
+  id?: number,
+  type?: string
 ) => {
   const [assets, setAsset] = useState<Asset | null>(null);
 
   useEffect(() => {
-    let data;
-    if (dataType === "cryptocurrencies") {
-      data = require("../data/cryptocurrencies.json");
-    } else if (dataType === "stocks") {
-      data = require("../data/stocks.json");
-    } else if (dataType === "commodities") {
-      data = require("../data/commodities.json");
-    }
+    const allData = {
+      cryptocurrencies: require("../data/cryptocurrencies.json"),
+      stocks: require("../data/stocks.json"),
+      commodities: require("../data/commodities.json"),
+    };
 
-    const foundAsset = data.find((item: Asset) => item.id === id);
+    const data = allData[dataType];
+
+    const foundAsset = data.find(
+      (item: Asset) =>
+        (id !== undefined && item.id === id) ||
+        (type !== undefined && item.type === type)
+    );
 
     setAsset(foundAsset);
-  }, [dataType, id]);
+  }, [dataType, id, type]);
 
   return { assets };
 };

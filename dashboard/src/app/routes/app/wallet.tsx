@@ -12,6 +12,11 @@ import {
   TableHead,
   TableRow,
 } from "../../../components/Table";
+import {
+  useFetchAllData,
+  useFetchData,
+  useFetchDataSingle,
+} from "../../../api/api";
 
 export const WalletRoute = () => {
   const { user, updateBalance } = useAuth();
@@ -19,6 +24,8 @@ export const WalletRoute = () => {
     user?.email
   );
   const debug = 100;
+  const { assets } = useFetchAllData();
+
   return (
     <DashboardLayout>
       <Card>
@@ -40,29 +47,42 @@ export const WalletRoute = () => {
                   <TableCell>Sell</TableCell>
                 </TableRow>
               </TableHead>
-              {portfolio.map((asset, index) => (
-                <TableBody key={index}>
-                  <TableRow>
-                    <TableCell>{asset.name}</TableCell>
-                    <TableCell>{asset.type}</TableCell>
-                    <TableCell> {asset.price}$</TableCell>
-                    <TableCell> {debug}$</TableCell>
-                    <TableCell> {asset.price - debug}$</TableCell>
+              {portfolio.map((asset, index) => {
+                const foundAsset = assets.find(
+                  (a) => a.id === asset.referenceId && a.type === asset.type
+                );
 
-                    <TableCell>{asset.quantity}</TableCell>
-                    {asset.leverage && <TableCell>{asset.leverage}</TableCell>}
+                return (
+                  <TableBody key={index}>
+                    <TableRow>
+                      <TableCell>{asset.name}</TableCell>
+                      <TableCell>{asset.type}</TableCell>
+                      <TableCell> {asset.price}$</TableCell>
+                      <TableCell> {foundAsset?.snapshots[0].price}$</TableCell>
+                      <TableCell>
+                        {" "}
+                        {asset.price - (foundAsset?.snapshots[0].price || 0)}$
+                      </TableCell>
 
-                    <button
-                      onClick={() => {
-                        updateBalance(debug);
-                        removeAsset(index);
-                      }}
-                    >
-                      Remove Asset
-                    </button>
-                  </TableRow>
-                </TableBody>
-              ))}
+                      <TableCell>{asset.quantity}</TableCell>
+                      {asset.leverage && (
+                        <TableCell>{asset.leverage}</TableCell>
+                      )}
+
+                      <button
+                        onClick={() => {
+                          updateBalance(
+                            asset.price - (foundAsset?.snapshots[0].price || 10)
+                          );
+                          removeAsset(index);
+                        }}
+                      >
+                        Remove Asset
+                      </button>
+                    </TableRow>
+                  </TableBody>
+                );
+              })}
             </Table>
           )}
           {/* <button onClick={clearPortfolio}>Clear Portfolio</button> */}
