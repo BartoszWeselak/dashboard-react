@@ -16,7 +16,7 @@ import { ContentLayout } from "../../../layout/content-layout";
 export const ProfileRoute = () => {
   const navigate = useNavigate();
 
-  const { user, setAvatar, clearAvatar } = useAuth();
+  const { user, setAvatar, clearAvatar, resetBalance } = useAuth();
   const handleSuccess = () => {
     console.log("succes");
   };
@@ -72,7 +72,13 @@ export const ProfileRoute = () => {
               <h1>Email: {user?.email}</h1>
 
               <h1>Balance: {user?.balance / 100 + "$"}</h1>
-
+              <Button
+                onClick={() => {
+                  resetBalance(100000 * 100);
+                }}
+              >
+                reset
+              </Button>
               <Divider />
               <ChangeForm onSucces={handleSuccess} />
             </CardDescription>

@@ -32,6 +32,7 @@ interface AuthContextType {
   clearAvatar: () => boolean;
   portfolio: Asset[];
   updateBalance: (amount: number) => boolean;
+  resetBalance: (amount: number) => boolean;
   addAssetToPortfolio: (asset: Asset) => void;
   removeAssetFromPortfolio: (assetIndex: number) => void;
   clearPortfolio: () => void;
@@ -160,7 +161,27 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
     return true;
   };
+  const resetBalance = (amount: number): boolean => {
+    if (!user) {
+      alert("No user is currently logged in.");
+      return false;
+    }
+    const updatedUser: User = {
+      ...user,
+      balance: amount,
+    };
 
+    const storedUsers = JSON.parse(localStorage.getItem("users") || "[]");
+    const updatedUsers = storedUsers.map((u: User) =>
+      u.email === user.email ? updatedUser : u
+    );
+
+    localStorage.setItem("users", JSON.stringify(updatedUsers));
+    localStorage.setItem("currentUser", JSON.stringify(updatedUser));
+    setUser(updatedUser);
+
+    return true;
+  };
   const updateBalance = (amount: number): boolean => {
     if (!user) {
       alert("No user is currently logged in.");
@@ -239,6 +260,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     clearAvatar,
     useAvatar,
     updateBalance,
+    resetBalance,
     avatarUrl,
     portfolio,
     addAssetToPortfolio: addAsset,

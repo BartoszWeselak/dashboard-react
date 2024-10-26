@@ -17,6 +17,7 @@ import {
   useFetchData,
   useFetchDataSingle,
 } from "../../../api/api";
+import { Button } from "../../../components/Button";
 
 export const WalletRoute = () => {
   const { user, updateBalance } = useAuth();
@@ -69,16 +70,16 @@ export const WalletRoute = () => {
                         <TableCell>{asset.leverage}</TableCell>
                       )}
 
-                      <button
+                      <Button
                         onClick={() => {
-                          updateBalance(
-                            asset.price - (foundAsset?.snapshots[0].price || 10)
-                          );
+                          const price = foundAsset?.snapshots[0]?.price || 0;
+                          const totalPrice = price * 100;
+                          updateBalance(totalPrice);
                           removeAsset(index);
                         }}
                       >
                         Remove Asset
-                      </button>
+                      </Button>
                     </TableRow>
                   </TableBody>
                 );
