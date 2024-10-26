@@ -31,6 +31,7 @@ interface AuthContextType {
   avatarUrl: string | undefined;
   clearAvatar: () => boolean;
   portfolio: Asset[];
+  updateBalance: (amount: number) => boolean;
   addAssetToPortfolio: (asset: Asset) => void;
   removeAssetFromPortfolio: (assetIndex: number) => void;
   clearPortfolio: () => void;

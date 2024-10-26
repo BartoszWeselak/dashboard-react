@@ -14,11 +14,11 @@ import {
 } from "../../../components/Table";
 
 export const WalletRoute = () => {
-  const { user } = useAuth();
+  const { user, updateBalance } = useAuth();
   const { portfolio, addAsset, removeAsset, clearPortfolio } = usePortfolio(
     user?.email
   );
-
+  const debug = 100;
   return (
     <DashboardLayout>
       <Card>
@@ -33,6 +33,8 @@ export const WalletRoute = () => {
                   <TableCell>Name</TableCell>
                   <TableCell>Type</TableCell>
                   <TableCell>Price</TableCell>
+                  <TableCell>Sell price</TableCell>
+                  <TableCell>Margin</TableCell>
                   <TableCell>Quantity</TableCell>
                   <TableCell>Leverage</TableCell>
                   <TableCell>Sell</TableCell>
@@ -44,10 +46,18 @@ export const WalletRoute = () => {
                     <TableCell>{asset.name}</TableCell>
                     <TableCell>{asset.type}</TableCell>
                     <TableCell> {asset.price}$</TableCell>
+                    <TableCell> {debug}$</TableCell>
+                    <TableCell> {asset.price - debug}$</TableCell>
+
                     <TableCell>{asset.quantity}</TableCell>
                     {asset.leverage && <TableCell>{asset.leverage}</TableCell>}
 
-                    <button onClick={() => removeAsset(index)}>
+                    <button
+                      onClick={() => {
+                        updateBalance(debug);
+                        removeAsset(index);
+                      }}
+                    >
                       Remove Asset
                     </button>
                   </TableRow>
