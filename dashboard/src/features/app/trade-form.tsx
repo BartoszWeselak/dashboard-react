@@ -18,20 +18,26 @@ export const TradeForm = ({
   name,
   price,
 }: TradeFormProps) => {
-  const { addAssetToPortfolio } = useAuth();
+  const { user, addAssetToPortfolio, updateBalance } = useAuth();
   const [quantity, setQuantity] = useState("");
   const [leverage, setLeverage] = useState("");
 
   const handleAddAsset = () => {
-    const newAsset = {
-      name: name,
-      type: type,
-      price: price,
-      quantity: parseInt(quantity),
-      leverage: parseInt(leverage),
-      referenceId: referenceId,
-    };
-    addAssetToPortfolio(newAsset);
+    const priceToPay = price * 100 * parseInt(quantity);
+    if (user?.balance >= priceToPay) {
+      const newAsset = {
+        name: name,
+        type: type,
+        price: price,
+        quantity: parseInt(quantity),
+        leverage: parseInt(leverage),
+        referenceId: referenceId,
+      };
+      updateBalance(-priceToPay);
+      addAssetToPortfolio(newAsset);
+    } else {
+      alert("Not enought funds");
+    }
   };
 
   return (
