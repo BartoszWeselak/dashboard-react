@@ -120,6 +120,7 @@ export const InfoRoute = () => {
                 referenceId={assets?.id ?? 0}
                 price={assets?.snapshots[0].price ?? 0}
                 type={assets?.type ?? "error"}
+                icon={assets?.icon ?? "error"}
               />
             </Modal>
           </CardDescription>
