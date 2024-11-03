@@ -48,7 +48,7 @@ export const TradeForm = ({
       <Form className="flex flex-col gap-4">
         <Divider />
         <Card>
-          <CardDescription display={"col"}>
+          <CardDescription display={"col"} className="p-4 gap-12">
             {" "}
             <div>
               <Image size={"large"} src={`data:image/png;base64,${icon}`} />{" "}
