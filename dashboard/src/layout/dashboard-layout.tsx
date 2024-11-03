@@ -39,8 +39,17 @@ export const DashboardLayout = ({ children }: DashboardLayoutProps) => {
           {user ? (
             <Link src="/profile">
               <AvatarBox>
-                <Avatar src={avatarUrl} />
-                <p className="content-center">{user.username}</p>
+                {user.avatar ? (
+                  <>
+                    <Avatar src={avatarUrl} />
+                    <p className="content-center">{user.username}</p>
+                  </>
+                ) : (
+                  <>
+                    <Avatar src="/avatar.png" />
+                    <p className="content-center">{user.username}</p>
+                  </>
+                )}
               </AvatarBox>
             </Link>
           ) : (
